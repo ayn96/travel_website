@@ -1,0 +1,127 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* header section */
+.navbar{
+  height: 15vh;
+}
+
+.navbar-brand {
+  flex: 1;
+  margin-right: auto;
+}
+
+#navbarNav {
+  display: flex;
+  justify-content: flex-end;
+}
+/* main section */
+main{
+  margin-top: 10vh;
+  padding: 5rem 0;
+}
+
+.username{
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+/* tab */
+.nav-tabs a{
+  background-color:#ddd;
+  margin:0 2px;
+  padding:10px 20px;
+}
+
+/* tab content */
+.tab_content{
+  border: 1px solid #ddd;
+  height: 58vh;
+}
+
+.tab_content h1{
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+#Flight_Hotel,
+#Flight,
+#Hotel{
+  text-align: center;
+  height: 58vh;
+  background-size: cover;
+  position: relative;
+}
+
+#Flight_Hotel::before,
+#Flight::before,
+#Hotel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+#Flight_Hotel{
+  background-image: url(./img/flighthotel_top.jpg);  
+  background-position:center;  
+
+}
+
+#Flight{
+  background-image: url(./img/flight_top.jpg);
+  background-position:center bottom;  
+}
+
+#Hotel{
+  background-image: url(./img/hotel_top.jpg);
+  background-position:center;  
+
+}
+
+
+/* icons */
+.input-group-text{
+  font-size: 25px;
+  height: 100%;
+}
+
+/* form */
+form{
+  width: 100%;
+  max-width: 50%; 
+  margin: 0 auto; 
+}
+
+.input-group{
+  margin: 2rem 0;
+}
+
+.form-floating{
+  margin-bottom: 0;
+}
+
+/* button */
+.button-group{
+  margin: 2rem 0 1rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.button-group .search:hover{
+  background-color: rgb(103, 103, 244);
+}
+
+.clear{
+  position: relative;
+  z-index: 2;
+}

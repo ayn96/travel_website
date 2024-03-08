@@ -1,0 +1,56 @@
+h2{
+  text-align: center;
+}
+
+img{
+  width: 20%;
+  height: auto;
+  margin-right: 2rem;
+}
+
+.info_item{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.personalized_item,
+.hotel_item{
+  display: flex;
+  margin: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.personalized_item{
+  border: 2px solid black;
+  background-color: #ddd;
+}
+
+.hotel_item {
+  border: 1px solid #ddd;
+}
+
+.hotel_info{
+  padding: 1rem;
+  flex: 1;
+}
+
+.hotel_info h3{
+  text-align: center;
+}
+
+.btn {
+  margin: auto;
+  padding: 1rem;
+  height: 40%;
+  width: 10%;
+}
+
+.room_amount {
+  text-align: center;
+  margin: auto 2rem;
+  padding: 0.3rem;
+  width: 5%;
+  border-radius: 5px;
+}

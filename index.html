@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Travel Website</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/63bd007e1f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+
+  <body>
+    <!-- header section -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">Travel Web</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- main section -->
+    <main>
+      <div class="container">
+        <h3 class="username">Hello Guest!</h3>
+        <!-- tab -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#Flight_Hotel"><i class="fa-solid fa-person-walking-luggage"></i> Flight +  Hotel</a>           
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Flight"><i class="fa-solid fa-plane"></i> Flight</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Hotel"><i class="fa-solid fa-bed"></i> Hotel</a>
+          </li>
+        </ul>
+        <!-- tab content -->
+        <div class="tab_content">
+          <!-- flight + hotel search form -->
+          <div id="Flight_Hotel" class="text-center">
+            <h1>Flight + Hotel</h1>
+            <form action="">
+              <!-- where -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" ><i class="fa-solid fa-location-dot"></i></span>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" name="departure" placeholder=""/>
+                  <label for="departure">Where from?</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" name="arrival" placeholder=""/>
+                  <label for="arrival">Where to?</label>
+                </div>
+              </div>
+              <!-- date -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" ><i class="fa-solid fa-calendar"></i></span>
+                </div>
+                <div class="form-floating">
+                  <input type="date" class="form-control" name="checkin_date" placeholder=""/>
+                  <label for="checkin_date">Check-In</label>
+                </div>
+                <div class="form-floating">
+                  <input type="date" class="form-control" name="checkout_date" placeholder=""/>
+                  <label for="checkout_date">Check-Out</label>
+                </div>
+              </div>
+                <!-- people -->
+                <div class="input-group num">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+                  </div>
+                  <div class="form-floating">
+                    <input type="number" class="form-control" name="people"  value="2" min="1" max="10" />
+                    <label for="people">Travellers</label>
+                  </div>
+                <!-- room -->
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-bed"></i></span>
+                  </div>
+                  <div class="form-floating">
+                    <input type="number" class="form-control" name="room"  value="1" min="1" max="5" />
+                    <label for="room">Rooms</label>
+                  </div>
+                </div>
+            </form>
+            <div class="button-group">
+              <button type="submit" class="btn btn-dark btn-lg search">Search</button>
+            </div>
+            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
+          </div>
+          <!-- Flight search form -->
+          <div id="Flight">
+            <h1>Flight</h1>
+            <form action="">
+              <!-- where -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" ><i class="fa-solid fa-location-dot"></i></span>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" name="departure" placeholder=""/>
+                  <label for="departure">Where from?</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" name="arrival" placeholder=""/>
+                  <label for="arrival">Where to?</label>
+                </div>
+              </div>
+              <!-- date -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" ><i class="fa-solid fa-calendar"></i></span>
+                </div>
+                <div class="form-floating">
+                  <input type="date" class="form-control" name="checkin_date" placeholder=""/>
+                  <label for="checkin_date">Check-In</label>
+                </div>
+                <div class="form-floating">
+                  <input type="date" class="form-control" name="checkout_date" placeholder=""/>
+                  <label for="checkout_date">Check-Out</label>
+                </div>
+              </div>
+                <!-- people -->
+                <div class="input-group num">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+                  </div>
+                  <div class="form-floating">
+                    <input type="number" class="form-control" name="people"  value="2" min="1" max="10" />
+                    <label for="people">Travellers</label>
+                  </div>
+                </div>
+            </form>
+            <div class="button-group">
+              <button type="submit" class="btn btn-dark btn-lg search">Search</button>
+            </div>
+            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
+          </div>
+          <!-- Hotel search form -->
+          <div id="Hotel">
+            <h1>Hotel</h1>
+            <form action="">
+              <!-- where -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" ><i class="fa-solid fa-location-dot"></i></span>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" name="destination" placeholder=""/>
+                  <label for="destination">Where?</label>
+                </div>
+              </div>
+              <!-- date -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" ><i class="fa-solid fa-calendar"></i></span>
+                </div>
+                <div class="form-floating">
+                  <input type="date" class="form-control" name="checkin_date" placeholder=""/>
+                  <label for="checkin_date">Check-In</label>
+                </div>
+                <div class="form-floating">
+                  <input type="date" class="form-control" name="checkout_date" placeholder=""/>
+                  <label for="checkout_date">Check-Out</label>
+                </div>
+              </div>
+                <!-- people -->
+                <div class="input-group num">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" ><i class="fa-solid fa-user"></i></span>
+                  </div>
+                  <div class="form-floating">
+                    <input type="number" class="form-control" name="people"  value="2" min="1" max="10" />
+                    <label for="people">Travellers</label>
+                  </div>
+                <!-- room -->
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-bed"></i></span>
+                  </div>
+                  <div class="form-floating">
+                    <input type="number" class="form-control" name="room"  value="1" min="1" max="5" />
+                    <label for="room">Rooms</label>
+                  </div>
+                </div>
+            </form>
+            <div class="button-group">
+              <button type="submit" class="btn btn-dark btn-lg search">Search</button>
+            </div>
+            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
+            
+            
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+    </footer>
+  </body>
+  <script>
+    const Search_Display = ()=> {
+    const ul = document.querySelectorAll("ul")[1];
+    const tabs = ul.querySelectorAll("a");
+    const contents = document.querySelectorAll(".tab_content div[id]");
+    // console.log(contents);
+
+    for (const content of contents) {
+      if (content.id == "Flight_Hotel") {   //Flight + Hotel 
+          content.style.display = "block";
+      } else {
+          content.style.display = "none";
+      }
+    }
+
+    for (const tab of tabs) {
+      const href_id = tab.getAttribute("href").slice(1);
+      tab.addEventListener("click", function(e) {
+        e.preventDefault();
+          for (const content of contents) {
+            if (content.id == href_id) {
+              content.style.display = "block";
+            } else {
+              content.style.display = "none";
+            }
+          }
+      });
+    }
+    }
+    Search_Display();
+
+    // clear button
+    const clear = () => {
+      let clearButtons = document.querySelectorAll(".clear");
+      for (let i = 0; i < clearButtons.length; i++) {
+        clearButtons[i].addEventListener("click", () => {
+          let forms = document.querySelectorAll("form");
+          for (let i = 0; i < forms.length; i++) {
+            forms[i].reset();
+          }
+        });
+      }
+    }
+    clear();
+
+  </script>
+</html>
