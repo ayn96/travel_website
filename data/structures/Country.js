@@ -82,6 +82,8 @@ export class Country {
      * @type {boolean}
      */
     this.isMostVisited = isMostVisited || false;
+
+    this.addCountryToCities();
   }
 
   addCountryToCities() {

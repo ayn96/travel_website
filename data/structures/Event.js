@@ -1,15 +1,11 @@
 import { RecommendationProperties } from "./RecommendationsProperties.js";
 
 export class Event {
-  constructor({ name, code, date, city, recommendation }) {
+  constructor({ name, date, city, recommendation }) {
     /**
      * @type {string}
      */
     this.name = name;
-    /**
-     * @type {string}
-     */
-    this.code = code;
     /**
      * @type {Date}
      */
@@ -30,7 +26,15 @@ export class Event {
     this.city = city;
   }
 
-  static fromJSON(data) {
-    return new Event(data);
+  /**
+   * @param {import('../data/CITIES.json')[0]['cities'][0]['events'][0]} event
+   */
+  static fromJSON(event) {
+    return new Event({
+      name: event.name,
+      date: event.date,
+      city: null,
+      recommendation: event.recommendation,
+    });
   }
 }
