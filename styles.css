@@ -18,6 +18,11 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.form-check-label{
+  color: white;
+}
+
 /* main section */
 main{
   margin-top: 10vh;
@@ -118,10 +123,17 @@ form{
 }
 
 .button-group .search:hover{
-  background-color: rgb(103, 103, 244);
+  background-color: white;
+  color: black;
 }
 
 .clear{
   position: relative;
   z-index: 2;
+}
+
+
+/* dark mode */
+.dark-mode{
+  background-color: rgb(37, 37, 37);
 }

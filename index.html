@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
     <script src="https://kit.fontawesome.com/63bd007e1f.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="./styles.css">
   </head>
 
@@ -27,6 +28,10 @@
                 <a class="nav-link" href="#">Register</a>
               </li>
             </ul>
+            <!-- <div class="radio-btn">
+              <div class="radio-inner"></div>
+            </div> -->
+            <button type="button" class="btn btn-primary btn-sm mode_switch">Dark Mode</button>
           </div>
         </div>
       </nav>
@@ -103,7 +108,7 @@
             <div class="button-group">
               <button type="submit" class="btn btn-dark btn-lg search">Search</button>
             </div>
-            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
+            <button type="button" class="btn btn-danger btn-sm clear">Clear All</button>
           </div>
           <!-- Flight search form -->
           <div id="Flight">
@@ -151,7 +156,7 @@
             <div class="button-group">
               <button type="submit" class="btn btn-dark btn-lg search">Search</button>
             </div>
-            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
+            <button type="button" class="btn btn-danger btn-sm clear">Clear All</button>
           </div>
           <!-- Hotel search form -->
           <div id="Hotel">
@@ -203,7 +208,7 @@
             <div class="button-group">
               <button type="submit" class="btn btn-dark btn-lg search">Search</button>
             </div>
-            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
+            <button type="button" class="btn btn-danger btn-sm clear">Clear All</button>
             
             
           </div>
@@ -215,49 +220,62 @@
     </footer>
   </body>
   <script>
+    // search form with JS
     const Search_Display = ()=> {
-    const ul = document.querySelectorAll("ul")[1];
-    const tabs = ul.querySelectorAll("a");
-    const contents = document.querySelectorAll(".tab_content div[id]");
-    // console.log(contents);
+      const ul = document.querySelectorAll("ul")[1];
+      const tabs = ul.querySelectorAll("a");
+      const contents = document.querySelectorAll(".tab_content div[id]");
 
-    for (const content of contents) {
-      if (content.id == "Flight_Hotel") {   //Flight + Hotel 
-          content.style.display = "block";
-      } else {
-          content.style.display = "none";
+      for (const content of contents) {
+        if (content.id == "Flight_Hotel") {   //Flight + Hotel 
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
       }
-    }
 
-    for (const tab of tabs) {
-      const href_id = tab.getAttribute("href").slice(1);
-      tab.addEventListener("click", function(e) {
-        e.preventDefault();
-          for (const content of contents) {
-            if (content.id == href_id) {
-              content.style.display = "block";
-            } else {
-              content.style.display = "none";
+      for (const tab of tabs) {
+        const href_id = tab.getAttribute("href").slice(1);
+        tab.addEventListener("click", function(e) {
+          e.preventDefault();
+            for (const content of contents) {
+              if (content.id == href_id) {
+                content.style.display = "block";
+              } else {
+                content.style.display = "none";
+              }
             }
-          }
-      });
-    }
-    }
-    Search_Display();
-
-    // clear button
-    const clear = () => {
-      let clearButtons = document.querySelectorAll(".clear");
-      for (let i = 0; i < clearButtons.length; i++) {
-        clearButtons[i].addEventListener("click", () => {
-          let forms = document.querySelectorAll("form");
-          for (let i = 0; i < forms.length; i++) {
-            forms[i].reset();
-          }
         });
       }
+    }     
+    Search_Display();
+
+    // clear button with JQuery
+    const clear = () => {
+      $(".clear").click(()=> {
+          $("form").each(function() {
+              this.reset();
+          });
+      });
     }
     clear();
+
+    // dark mode with Jquery
+    const darkMode = () => {
+      let darkModeEnabled = false;
+      $(".mode_switch").click(() => {
+          darkModeEnabled = !darkModeEnabled; //toggle
+
+          if (darkModeEnabled) {
+              $("body").addClass("dark-mode");
+              $(".mode_switch").text("Light Mode"); 
+          } else {
+              $("body").removeClass("dark-mode"); 
+              $(".mode_switch").text("Dark Mode"); 
+          }
+      });
+    };
+    darkMode();
 
   </script>
 </html>
