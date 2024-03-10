@@ -1,5 +1,6 @@
 import { Event } from "./Event.js";
 import { Hotel } from "./Hotel.js";
+import FuzzySearch from "../packages/fuzzy_search/index.js";
 
 export class City {
   constructor({ name, hotels, events }) {
@@ -22,6 +23,14 @@ export class City {
 
     this.addCityToHotels();
     this.addCityToEvents();
+
+    this.hotelFuzzySearch = new FuzzySearch(this.hotels, ["name"], {
+      sort: true,
+    });
+
+    this.eventFuzzySearch = new FuzzySearch(this.events, ["name"], {
+      sort: true,
+    });
   }
 
   setCountry(country) {
@@ -38,6 +47,22 @@ export class City {
     for (const event of this.events) {
       event.setCity(this);
     }
+  }
+
+  /**
+   * @param {string} query
+   * @returns {import('./Hotel.js').Hotel[]}
+   */
+  searchHotels(query) {
+    return this.hotelFuzzySearch.search(query);
+  }
+
+  /**
+   * @param {string} query
+   * @returns {import('./Event.js').Event[]}
+   */
+  searchEvents(query) {
+    return this.eventFuzzySearch.search(query);
   }
 
   /**

@@ -2,8 +2,12 @@ import Helper from "./Helper.js";
 /*
  * FuzzySearch - github.com/wouter2203/fuzzy-search
  */
-
 export default class FuzzySearch {
+  /**
+   * @param {any[]} haystack
+   * @param {string[]} keys
+   * @param {{ caseSensitive?: boolean, sort?: boolean }} options
+   */
   constructor(haystack = [], keys = [], options = {}) {
     if (!Array.isArray(keys)) {
       options = keys;

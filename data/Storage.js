@@ -4,8 +4,6 @@ import MOST_VISITED_COUNTRIES from "./data/MOST_VISITED_COUNTRIES.json" assert {
 import { City } from "./structures/City.js";
 import { Country } from "./structures/Country.js";
 import FuzzySearch from "./packages/fuzzy_search/index.js";
-import { inspect } from "util";
-inspect.defaultOptions.depth = null;
 
 export class Storage {
   constructor() {
@@ -14,15 +12,20 @@ export class Storage {
     this.cities = this.buildCities();
     this.countries = this.buildCountries();
 
-    this.countryFuzzySearch = new FuzzySearch(this.countries, [
-      "name",
-      "code",
-      "region",
-    ]);
+    this.countryFuzzySearch = new FuzzySearch(
+      this.countries,
+      ["name", "code", "region"],
+      {
+        sort: true,
+      }
+    );
 
     this.cityFuzzySearch = new FuzzySearch(
       Array.from(this.cities.values()).flat(),
-      ["name"]
+      ["name"],
+      {
+        sort: true,
+      }
     );
   }
 

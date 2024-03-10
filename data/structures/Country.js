@@ -1,3 +1,5 @@
+import FuzzySearch from "../packages/fuzzy_search/index.js";
+
 export class Country {
   constructor({
     name,
@@ -84,12 +86,24 @@ export class Country {
     this.isMostVisited = isMostVisited || false;
 
     this.addCountryToCities();
+
+    this.cityFuzzySearch = new FuzzySearch(this.cities, ["name"], {
+      sort: true,
+    });
   }
 
   addCountryToCities() {
     for (const city of this.cities) {
       city.setCountry(this);
     }
+  }
+
+  /**
+   * @param {string} query
+   * @returns {import('./City.js').City[]}
+   */
+  searchCities(query) {
+    return this.cityFuzzySearch.search(query);
   }
 
   /**
