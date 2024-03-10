@@ -1,0 +1,4276 @@
+[
+  {
+    "cca2": "HR",
+    "cities": [
+      {
+        "name": "Zagreb",
+        "lat": 45.815399,
+        "lon": 15.966568,
+        "features": {
+          "capital": true,
+          "airport": "ZAG",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [
+          {
+            "name": "Hotel Dubrovnik",
+            "price": 100.0,
+            "recommendation": {
+              "price": 1.0,
+              "nature": 1.0,
+              "nightlife": 1.0,
+              "music": 1.0,
+              "technology": 1.0,
+              "animals": 1.0,
+              "fun": 1.0,
+              "exercise": 1.0,
+              "food": 1.0,
+              "couple": 1.0,
+              "family": 1.0
+            },
+            "stars": 5,
+            "review_score": 9.0,
+            "lat": 42.650661,
+            "lon": 18.094424,
+            "rooms": {
+              "single": 100.0,
+              "double": 150.0,
+              "suite": 200.0
+            },
+            "features": [
+              "pool",
+              "spa",
+              "gym",
+              "restaurant",
+              "bar",
+              "wifi",
+              "parking"
+            ]
+          }
+        ],
+        "events": [
+          {
+            "name": "Matter of Dignity, A (To teleftaio psema)",
+            "date": "2025-02-27T12:21:08Z",
+            "price": 59.2,
+            "recommendation": {
+              "price": 2.3,
+              "nature": 7.1,
+              "nightlife": 3.3,
+              "music": 1.0,
+              "technology": 3.0,
+              "animals": 6.7,
+              "fun": 3.8,
+              "exercise": 7.6,
+              "food": 8.6,
+              "couple": 8.2,
+              "family": 4.2
+            },
+            "time": {
+              "start_time": "8:14",
+              "end_time": "9:50"
+            }
+          },
+          {
+            "name": "Self-Made Hero, A (Un héros très discret)",
+            "date": "2025-04-01T13:54:42Z",
+            "price": 60.1,
+            "recommendation": {
+              "price": 5.2,
+              "nature": 5.7,
+              "nightlife": 1.6,
+              "music": 1.6,
+              "technology": 7.0,
+              "animals": 4.4,
+              "fun": 4.7,
+              "exercise": 4.5,
+              "food": 3.2,
+              "couple": 6.1,
+              "family": 4.0
+            },
+            "time": {
+              "start_time": "10:32",
+              "end_time": "10:11"
+            }
+          },
+          {
+            "name": "Fountainhead, The",
+            "date": "2024-11-02T23:28:39Z",
+            "price": 83.0,
+            "recommendation": {
+              "price": 9.8,
+              "nature": 4.6,
+              "nightlife": 3.0,
+              "music": 3.8,
+              "technology": 6.6,
+              "animals": 2.9,
+              "fun": 3.1,
+              "exercise": 4.9,
+              "food": 4.0,
+              "couple": 3.7,
+              "family": 8.6
+            },
+            "time": {
+              "start_time": "9:18",
+              "end_time": "8:21"
+            }
+          },
+          {
+            "name": "Live Wire",
+            "date": "2025-05-13T04:03:49Z",
+            "price": 34.1,
+            "recommendation": {
+              "price": 8.6,
+              "nature": 8.5,
+              "nightlife": 2.6,
+              "music": 6.0,
+              "technology": 6.9,
+              "animals": 7.8,
+              "fun": 7.8,
+              "exercise": 9.8,
+              "food": 7.5,
+              "couple": 8.9,
+              "family": 4.8
+            },
+            "time": {
+              "start_time": "7:29",
+              "end_time": "3:02"
+            }
+          },
+          {
+            "name": "Dallas",
+            "date": "2024-02-27T12:47:08Z",
+            "price": 86.5,
+            "recommendation": {
+              "price": 4.9,
+              "nature": 3.8,
+              "nightlife": 3.3,
+              "music": 9.9,
+              "technology": 8.9,
+              "animals": 6.4,
+              "fun": 8.1,
+              "exercise": 3.8,
+              "food": 5.7,
+              "couple": 8.2,
+              "family": 5.1
+            },
+            "time": {
+              "start_time": "8:31",
+              "end_time": "5:57"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Split",
+        "lat": 43.508133,
+        "lon": 16.440193,
+        "features": {
+          "capital": false,
+          "airport": "SPU",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 25,
+          "humidity": 60,
+          "wind_speed": 10,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Last Truck: Closing of a GM Plant, The",
+            "date": "2025-08-28T03:52:28Z",
+            "price": 98.6,
+            "recommendation": {
+              "price": 8.2,
+              "nature": 1.8,
+              "nightlife": 7.4,
+              "music": 4.3,
+              "technology": 5.4,
+              "animals": 4.4,
+              "fun": 3.4,
+              "exercise": 2.9,
+              "food": 8.7,
+              "couple": 3.1,
+              "family": 7.7
+            },
+            "time": {
+              "start_time": "7:25",
+              "end_time": "2:26"
+            }
+          },
+          {
+            "name": "Heaven",
+            "date": "2024-10-25T16:06:27Z",
+            "price": 69.1,
+            "recommendation": {
+              "price": 7.6,
+              "nature": 8.2,
+              "nightlife": 3.1,
+              "music": 3.9,
+              "technology": 8.4,
+              "animals": 9.8,
+              "fun": 1.1,
+              "exercise": 2.1,
+              "food": 8.6,
+              "couple": 3.0,
+              "family": 5.5
+            },
+            "time": {
+              "start_time": "10:52",
+              "end_time": "4:57"
+            }
+          },
+          {
+            "name": "Scarecrow, The",
+            "date": "2024-08-20T01:40:05Z",
+            "price": 64.8,
+            "recommendation": {
+              "price": 2.3,
+              "nature": 3.4,
+              "nightlife": 3.0,
+              "music": 9.7,
+              "technology": 2.6,
+              "animals": 6.7,
+              "fun": 4.9,
+              "exercise": 1.4,
+              "food": 4.7,
+              "couple": 4.4,
+              "family": 9.7
+            },
+            "time": {
+              "start_time": "3:03",
+              "end_time": "7:23"
+            }
+          },
+          {
+            "name": "Post Mortem",
+            "date": "2024-04-26T17:34:54Z",
+            "price": 42.9,
+            "recommendation": {
+              "price": 1.5,
+              "nature": 7.9,
+              "nightlife": 2.6,
+              "music": 8.6,
+              "technology": 4.5,
+              "animals": 5.0,
+              "fun": 7.6,
+              "exercise": 1.2,
+              "food": 6.1,
+              "couple": 1.9,
+              "family": 4.1
+            },
+            "time": {
+              "start_time": "0:11",
+              "end_time": "5:03"
+            }
+          },
+          {
+            "name": "Halloween",
+            "date": "2024-06-18T23:51:21Z",
+            "price": 48.4,
+            "recommendation": {
+              "price": 4.2,
+              "nature": 7.0,
+              "nightlife": 7.1,
+              "music": 4.5,
+              "technology": 1.8,
+              "animals": 9.7,
+              "fun": 7.8,
+              "exercise": 6.3,
+              "food": 3.8,
+              "couple": 4.9,
+              "family": 2.1
+            },
+            "time": {
+              "start_time": "7:40",
+              "end_time": "4:05"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dubrovnik",
+        "lat": 42.650661,
+        "lon": 18.094424,
+        "features": {
+          "capital": false,
+          "airport": "DBV",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 30,
+          "humidity": 70,
+          "wind_speed": 15,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Wayne's World 2",
+            "date": "2025-09-06T00:16:00Z",
+            "price": 53.8,
+            "recommendation": {
+              "price": 1.8,
+              "nature": 1.4,
+              "nightlife": 5.3,
+              "music": 9.0,
+              "technology": 6.1,
+              "animals": 1.7,
+              "fun": 3.0,
+              "exercise": 2.8,
+              "food": 7.0,
+              "couple": 8.8,
+              "family": 6.0
+            },
+            "time": {
+              "start_time": "4:10",
+              "end_time": "2:47"
+            }
+          },
+          {
+            "name": "My Father the Hero (Mon père, ce héros.)",
+            "date": "2025-06-12T09:12:24Z",
+            "price": 85.3,
+            "recommendation": {
+              "price": 8.5,
+              "nature": 8.1,
+              "nightlife": 9.0,
+              "music": 6.5,
+              "technology": 5.6,
+              "animals": 5.6,
+              "fun": 3.9,
+              "exercise": 5.9,
+              "food": 9.3,
+              "couple": 6.3,
+              "family": 6.8
+            },
+            "time": {
+              "start_time": "4:12",
+              "end_time": "7:33"
+            }
+          },
+          {
+            "name": "Romance of Astrea and Celadon, The (Les amours d'Astrée et de Céladon)",
+            "date": "2024-11-13T10:17:34Z",
+            "price": 27.3,
+            "recommendation": {
+              "price": 3.9,
+              "nature": 1.3,
+              "nightlife": 2.1,
+              "music": 4.3,
+              "technology": 2.6,
+              "animals": 9.1,
+              "fun": 9.4,
+              "exercise": 1.2,
+              "food": 9.9,
+              "couple": 6.4,
+              "family": 3.2
+            },
+            "time": {
+              "start_time": "9:10",
+              "end_time": "5:36"
+            }
+          },
+          {
+            "name": "The Disembodied",
+            "date": "2025-06-04T22:51:13Z",
+            "price": 86.1,
+            "recommendation": {
+              "price": 7.7,
+              "nature": 7.7,
+              "nightlife": 6.5,
+              "music": 5.4,
+              "technology": 8.0,
+              "animals": 2.7,
+              "fun": 3.1,
+              "exercise": 1.2,
+              "food": 2.8,
+              "couple": 6.4,
+              "family": 5.9
+            },
+            "time": {
+              "start_time": "3:16",
+              "end_time": "2:21"
+            }
+          },
+          {
+            "name": "Tell Me and I Will Forget",
+            "date": "2024-04-20T12:32:53Z",
+            "price": 73.3,
+            "recommendation": {
+              "price": 6.1,
+              "nature": 7.4,
+              "nightlife": 6.5,
+              "music": 7.9,
+              "technology": 9.0,
+              "animals": 4.6,
+              "fun": 2.2,
+              "exercise": 1.6,
+              "food": 6.8,
+              "couple": 9.2,
+              "family": 3.9
+            },
+            "time": {
+              "start_time": "11:45",
+              "end_time": "6:09"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Rijeka",
+        "lat": 45.327063,
+        "lon": 14.442176,
+        "features": {
+          "capital": false,
+          "airport": "RJK",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Beethoven's 3rd",
+            "date": "2024-01-24T10:52:45Z",
+            "price": 97.4,
+            "recommendation": {
+              "price": 9.8,
+              "nature": 4.1,
+              "nightlife": 1.7,
+              "music": 1.2,
+              "technology": 4.7,
+              "animals": 2.3,
+              "fun": 4.3,
+              "exercise": 3.6,
+              "food": 10.0,
+              "couple": 4.2,
+              "family": 4.7
+            },
+            "time": {
+              "start_time": "3:21",
+              "end_time": "0:52"
+            }
+          },
+          {
+            "name": "Private Lives of Pippa Lee, The",
+            "date": "2025-04-15T13:00:58Z",
+            "price": 59.0,
+            "recommendation": {
+              "price": 9.2,
+              "nature": 9.4,
+              "nightlife": 6.7,
+              "music": 5.8,
+              "technology": 8.4,
+              "animals": 3.8,
+              "fun": 8.7,
+              "exercise": 9.3,
+              "food": 4.4,
+              "couple": 7.9,
+              "family": 1.5
+            },
+            "time": {
+              "start_time": "8:40",
+              "end_time": "0:42"
+            }
+          },
+          {
+            "name": "Al-risâlah",
+            "date": "2024-06-09T17:12:06Z",
+            "price": 40.9,
+            "recommendation": {
+              "price": 6.5,
+              "nature": 1.6,
+              "nightlife": 7.9,
+              "music": 6.2,
+              "technology": 9.8,
+              "animals": 1.2,
+              "fun": 8.9,
+              "exercise": 8.2,
+              "food": 2.1,
+              "couple": 8.1,
+              "family": 5.6
+            },
+            "time": {
+              "start_time": "8:07",
+              "end_time": "7:31"
+            }
+          },
+          {
+            "name": "In Praise of Older Women",
+            "date": "2024-01-25T12:00:15Z",
+            "price": 25.3,
+            "recommendation": {
+              "price": 3.0,
+              "nature": 2.1,
+              "nightlife": 8.8,
+              "music": 9.0,
+              "technology": 7.2,
+              "animals": 1.8,
+              "fun": 4.3,
+              "exercise": 6.1,
+              "food": 9.4,
+              "couple": 10.0,
+              "family": 9.6
+            },
+            "time": {
+              "start_time": "4:24",
+              "end_time": "5:13"
+            }
+          },
+          {
+            "name": "Old Joy",
+            "date": "2024-10-13T05:35:22Z",
+            "price": 25.5,
+            "recommendation": {
+              "price": 10.0,
+              "nature": 2.4,
+              "nightlife": 4.7,
+              "music": 7.4,
+              "technology": 5.0,
+              "animals": 5.5,
+              "fun": 5.2,
+              "exercise": 4.3,
+              "food": 6.8,
+              "couple": 9.1,
+              "family": 1.2
+            },
+            "time": {
+              "start_time": "10:02",
+              "end_time": "10:03"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Pula",
+        "lat": 44.868481,
+        "lon": 13.848819,
+        "features": {
+          "capital": false,
+          "airport": "PUY",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Our Daily Bread",
+            "date": "2024-03-22T04:18:43Z",
+            "price": 95.8,
+            "recommendation": {
+              "price": 1.4,
+              "nature": 7.0,
+              "nightlife": 6.3,
+              "music": 1.3,
+              "technology": 2.2,
+              "animals": 5.1,
+              "fun": 3.9,
+              "exercise": 5.1,
+              "food": 8.5,
+              "couple": 4.3,
+              "family": 1.8
+            },
+            "time": {
+              "start_time": "4:12",
+              "end_time": "2:48"
+            }
+          },
+          {
+            "name": "Toolbox Murders",
+            "date": "2024-10-24T10:26:20Z",
+            "price": 99.5,
+            "recommendation": {
+              "price": 4.3,
+              "nature": 1.7,
+              "nightlife": 6.3,
+              "music": 8.0,
+              "technology": 2.1,
+              "animals": 9.1,
+              "fun": 6.2,
+              "exercise": 2.5,
+              "food": 1.4,
+              "couple": 8.2,
+              "family": 3.0
+            },
+            "time": {
+              "start_time": "11:25",
+              "end_time": "10:27"
+            }
+          },
+          {
+            "name": "Quarry, The",
+            "date": "2024-05-02T04:38:21Z",
+            "price": 88.2,
+            "recommendation": {
+              "price": 6.0,
+              "nature": 4.2,
+              "nightlife": 1.1,
+              "music": 6.2,
+              "technology": 6.1,
+              "animals": 4.0,
+              "fun": 6.2,
+              "exercise": 9.1,
+              "food": 7.1,
+              "couple": 2.5,
+              "family": 8.7
+            },
+            "time": {
+              "start_time": "11:33",
+              "end_time": "3:15"
+            }
+          },
+          {
+            "name": "Speaking Parts",
+            "date": "2025-09-23T13:12:23Z",
+            "price": 59.1,
+            "recommendation": {
+              "price": 3.4,
+              "nature": 6.3,
+              "nightlife": 1.9,
+              "music": 5.5,
+              "technology": 2.8,
+              "animals": 7.4,
+              "fun": 1.7,
+              "exercise": 3.3,
+              "food": 7.1,
+              "couple": 2.8,
+              "family": 7.4
+            },
+            "time": {
+              "start_time": "3:10",
+              "end_time": "8:57"
+            }
+          },
+          {
+            "name": "Chicago Overcoat",
+            "date": "2025-03-15T19:14:37Z",
+            "price": 52.5,
+            "recommendation": {
+              "price": 2.9,
+              "nature": 5.9,
+              "nightlife": 8.7,
+              "music": 3.1,
+              "technology": 2.3,
+              "animals": 2.4,
+              "fun": 4.6,
+              "exercise": 1.3,
+              "food": 8.8,
+              "couple": 2.1,
+              "family": 6.5
+            },
+            "time": {
+              "start_time": "0:43",
+              "end_time": "11:04"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Osijek",
+        "lat": 45.55111,
+        "lon": 18.69389,
+        "features": {
+          "capital": false,
+          "airport": "OSI",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Prom Night in Mississippi",
+            "date": "2024-03-12T13:02:18Z",
+            "price": 80.1,
+            "recommendation": {
+              "price": 2.0,
+              "nature": 8.1,
+              "nightlife": 9.5,
+              "music": 6.2,
+              "technology": 1.5,
+              "animals": 9.6,
+              "fun": 9.2,
+              "exercise": 7.1,
+              "food": 1.5,
+              "couple": 3.7,
+              "family": 2.1
+            },
+            "time": {
+              "start_time": "0:28",
+              "end_time": "4:36"
+            }
+          },
+          {
+            "name": "Das Leben ist nichts für Feiglinge",
+            "date": "2024-12-23T11:54:56Z",
+            "price": 54.3,
+            "recommendation": {
+              "price": 9.3,
+              "nature": 3.5,
+              "nightlife": 1.1,
+              "music": 1.7,
+              "technology": 7.0,
+              "animals": 2.3,
+              "fun": 8.3,
+              "exercise": 7.5,
+              "food": 6.3,
+              "couple": 6.2,
+              "family": 1.8
+            },
+            "time": {
+              "start_time": "0:20",
+              "end_time": "3:04"
+            }
+          },
+          {
+            "name": "Lantana",
+            "date": "2024-07-12T12:36:05Z",
+            "price": 56.5,
+            "recommendation": {
+              "price": 2.1,
+              "nature": 2.1,
+              "nightlife": 3.4,
+              "music": 2.7,
+              "technology": 8.0,
+              "animals": 1.3,
+              "fun": 3.9,
+              "exercise": 6.8,
+              "food": 7.0,
+              "couple": 3.1,
+              "family": 8.6
+            },
+            "time": {
+              "start_time": "10:01",
+              "end_time": "4:10"
+            }
+          },
+          {
+            "name": "Waking Up in Reno",
+            "date": "2024-10-29T07:42:40Z",
+            "price": 41.2,
+            "recommendation": {
+              "price": 9.2,
+              "nature": 8.0,
+              "nightlife": 8.6,
+              "music": 1.4,
+              "technology": 6.3,
+              "animals": 4.9,
+              "fun": 6.6,
+              "exercise": 4.3,
+              "food": 8.8,
+              "couple": 6.1,
+              "family": 8.2
+            },
+            "time": {
+              "start_time": "4:33",
+              "end_time": "11:43"
+            }
+          },
+          {
+            "name": "Midnight Express",
+            "date": "2024-11-24T05:21:53Z",
+            "price": 21.0,
+            "recommendation": {
+              "price": 7.0,
+              "nature": 6.9,
+              "nightlife": 8.7,
+              "music": 7.1,
+              "technology": 3.2,
+              "animals": 9.9,
+              "fun": 1.7,
+              "exercise": 9.7,
+              "food": 1.8,
+              "couple": 2.8,
+              "family": 2.4
+            },
+            "time": {
+              "start_time": "5:54",
+              "end_time": "6:08"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Zadar",
+        "lat": 44.119722,
+        "lon": 15.242222,
+        "features": {
+          "capital": false,
+          "airport": "ZAD",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Monster, The",
+            "date": "2024-05-06T16:33:55Z",
+            "price": 84.4,
+            "recommendation": {
+              "price": 1.4,
+              "nature": 9.6,
+              "nightlife": 5.4,
+              "music": 8.3,
+              "technology": 3.3,
+              "animals": 8.7,
+              "fun": 5.6,
+              "exercise": 2.6,
+              "food": 5.8,
+              "couple": 1.8,
+              "family": 6.6
+            },
+            "time": {
+              "start_time": "2:55",
+              "end_time": "0:21"
+            }
+          },
+          {
+            "name": "Cold Turkey",
+            "date": "2024-02-17T05:30:37Z",
+            "price": 95.8,
+            "recommendation": {
+              "price": 3.1,
+              "nature": 1.1,
+              "nightlife": 8.7,
+              "music": 5.5,
+              "technology": 7.1,
+              "animals": 2.5,
+              "fun": 8.9,
+              "exercise": 9.2,
+              "food": 9.4,
+              "couple": 4.3,
+              "family": 9.0
+            },
+            "time": {
+              "start_time": "6:51",
+              "end_time": "9:51"
+            }
+          },
+          {
+            "name": "Savage Messiah",
+            "date": "2024-01-01T05:21:20Z",
+            "price": 87.6,
+            "recommendation": {
+              "price": 5.4,
+              "nature": 8.2,
+              "nightlife": 7.1,
+              "music": 1.1,
+              "technology": 4.5,
+              "animals": 9.1,
+              "fun": 3.9,
+              "exercise": 7.4,
+              "food": 7.3,
+              "couple": 1.0,
+              "family": 6.0
+            },
+            "time": {
+              "start_time": "0:11",
+              "end_time": "7:39"
+            }
+          },
+          {
+            "name": "Roman",
+            "date": "2024-11-05T12:57:11Z",
+            "price": 81.8,
+            "recommendation": {
+              "price": 4.7,
+              "nature": 1.8,
+              "nightlife": 7.7,
+              "music": 6.3,
+              "technology": 6.3,
+              "animals": 1.6,
+              "fun": 6.0,
+              "exercise": 5.9,
+              "food": 6.2,
+              "couple": 5.8,
+              "family": 3.6
+            },
+            "time": {
+              "start_time": "9:01",
+              "end_time": "2:40"
+            }
+          },
+          {
+            "name": "Young Winston",
+            "date": "2025-03-08T04:57:03Z",
+            "price": 41.7,
+            "recommendation": {
+              "price": 7.1,
+              "nature": 5.4,
+              "nightlife": 7.9,
+              "music": 5.8,
+              "technology": 6.6,
+              "animals": 8.1,
+              "fun": 6.4,
+              "exercise": 9.5,
+              "food": 9.7,
+              "couple": 8.0,
+              "family": 7.2
+            },
+            "time": {
+              "start_time": "6:10",
+              "end_time": "4:45"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Vukovar",
+        "lat": 45.343056,
+        "lon": 18.999444,
+        "features": {
+          "capital": false,
+          "airport": "VUK",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Executive Protection (Livvakterna)",
+            "date": "2024-10-11T21:02:59Z",
+            "price": 72.0,
+            "recommendation": {
+              "price": 3.6,
+              "nature": 1.2,
+              "nightlife": 3.8,
+              "music": 6.1,
+              "technology": 3.7,
+              "animals": 7.4,
+              "fun": 6.0,
+              "exercise": 9.4,
+              "food": 5.1,
+              "couple": 7.2,
+              "family": 6.8
+            },
+            "time": {
+              "start_time": "2:48",
+              "end_time": "5:20"
+            }
+          },
+          {
+            "name": "Thumbsucker",
+            "date": "2025-07-26T06:06:50Z",
+            "price": 93.0,
+            "recommendation": {
+              "price": 5.2,
+              "nature": 6.7,
+              "nightlife": 3.1,
+              "music": 7.0,
+              "technology": 3.0,
+              "animals": 2.2,
+              "fun": 6.4,
+              "exercise": 6.0,
+              "food": 8.3,
+              "couple": 4.4,
+              "family": 3.4
+            },
+            "time": {
+              "start_time": "10:03",
+              "end_time": "0:31"
+            }
+          },
+          {
+            "name": "Last Run",
+            "date": "2024-03-27T00:54:03Z",
+            "price": 77.5,
+            "recommendation": {
+              "price": 5.9,
+              "nature": 1.8,
+              "nightlife": 3.4,
+              "music": 7.2,
+              "technology": 2.1,
+              "animals": 8.0,
+              "fun": 2.4,
+              "exercise": 6.7,
+              "food": 7.2,
+              "couple": 3.5,
+              "family": 4.8
+            },
+            "time": {
+              "start_time": "6:25",
+              "end_time": "8:51"
+            }
+          },
+          {
+            "name": "Papa's Delicate Condition",
+            "date": "2025-02-04T09:16:51Z",
+            "price": 57.3,
+            "recommendation": {
+              "price": 9.7,
+              "nature": 8.1,
+              "nightlife": 4.6,
+              "music": 2.1,
+              "technology": 4.8,
+              "animals": 2.4,
+              "fun": 9.4,
+              "exercise": 9.5,
+              "food": 8.4,
+              "couple": 7.6,
+              "family": 4.5
+            },
+            "time": {
+              "start_time": "2:03",
+              "end_time": "10:31"
+            }
+          },
+          {
+            "name": "Kids in the Hall: Brain Candy",
+            "date": "2025-03-18T20:44:46Z",
+            "price": 59.8,
+            "recommendation": {
+              "price": 8.2,
+              "nature": 4.5,
+              "nightlife": 4.1,
+              "music": 6.1,
+              "technology": 6.8,
+              "animals": 8.3,
+              "fun": 8.5,
+              "exercise": 3.1,
+              "food": 7.4,
+              "couple": 8.6,
+              "family": 5.5
+            },
+            "time": {
+              "start_time": "1:29",
+              "end_time": "1:08"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "SG",
+    "cities": [
+      {
+        "name": "Singapore",
+        "lat": 1.28967,
+        "lon": 103.85007,
+        "features": {
+          "capital": true,
+          "airport": "SIN",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 30,
+          "humidity": 70,
+          "wind_speed": 15,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Austin Powers: International Man of Mystery",
+            "date": "2024-08-01T18:23:56Z",
+            "price": 98.0,
+            "recommendation": {
+              "price": 8.8,
+              "nature": 7.6,
+              "nightlife": 5.3,
+              "music": 7.9,
+              "technology": 8.6,
+              "animals": 9.9,
+              "fun": 8.2,
+              "exercise": 7.3,
+              "food": 9.0,
+              "couple": 4.3,
+              "family": 6.5
+            },
+            "time": {
+              "start_time": "8:58",
+              "end_time": "11:13"
+            }
+          },
+          {
+            "name": "Ring, The",
+            "date": "2025-04-23T00:25:01Z",
+            "price": 41.3,
+            "recommendation": {
+              "price": 5.8,
+              "nature": 8.0,
+              "nightlife": 1.7,
+              "music": 6.5,
+              "technology": 4.3,
+              "animals": 5.0,
+              "fun": 8.9,
+              "exercise": 3.4,
+              "food": 2.4,
+              "couple": 4.0,
+              "family": 3.5
+            },
+            "time": {
+              "start_time": "8:53",
+              "end_time": "2:10"
+            }
+          },
+          {
+            "name": "Bandslam",
+            "date": "2025-06-03T12:28:21Z",
+            "price": 60.9,
+            "recommendation": {
+              "price": 2.4,
+              "nature": 2.5,
+              "nightlife": 3.2,
+              "music": 4.5,
+              "technology": 4.2,
+              "animals": 8.6,
+              "fun": 2.1,
+              "exercise": 3.5,
+              "food": 4.7,
+              "couple": 7.7,
+              "family": 6.7
+            },
+            "time": {
+              "start_time": "10:27",
+              "end_time": "10:50"
+            }
+          },
+          {
+            "name": "Come See the Paradise",
+            "date": "2025-08-21T16:36:04Z",
+            "price": 68.0,
+            "recommendation": {
+              "price": 9.5,
+              "nature": 1.2,
+              "nightlife": 8.3,
+              "music": 9.2,
+              "technology": 5.3,
+              "animals": 4.2,
+              "fun": 9.9,
+              "exercise": 6.9,
+              "food": 3.3,
+              "couple": 3.9,
+              "family": 4.9
+            },
+            "time": {
+              "start_time": "7:15",
+              "end_time": "10:01"
+            }
+          },
+          {
+            "name": "Last Holiday",
+            "date": "2024-02-18T22:03:55Z",
+            "price": 74.5,
+            "recommendation": {
+              "price": 9.4,
+              "nature": 1.8,
+              "nightlife": 9.9,
+              "music": 1.9,
+              "technology": 5.7,
+              "animals": 4.3,
+              "fun": 5.0,
+              "exercise": 8.3,
+              "food": 8.6,
+              "couple": 8.3,
+              "family": 3.5
+            },
+            "time": {
+              "start_time": "4:47",
+              "end_time": "1:14"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "HU",
+    "cities": [
+      {
+        "name": "Budapest",
+        "lat": 47.49801,
+        "lon": 19.03991,
+        "features": {
+          "capital": true,
+          "airport": "BUD",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Presto",
+            "date": "2024-08-02T17:18:40Z",
+            "price": 61.1,
+            "recommendation": {
+              "price": 2.2,
+              "nature": 8.5,
+              "nightlife": 9.3,
+              "music": 8.0,
+              "technology": 9.6,
+              "animals": 4.1,
+              "fun": 4.3,
+              "exercise": 2.9,
+              "food": 2.1,
+              "couple": 4.8,
+              "family": 7.9
+            },
+            "time": {
+              "start_time": "3:01",
+              "end_time": "11:39"
+            }
+          },
+          {
+            "name": "Prince and the Pauper, The",
+            "date": "2024-02-19T23:21:52Z",
+            "price": 67.5,
+            "recommendation": {
+              "price": 7.3,
+              "nature": 4.8,
+              "nightlife": 3.0,
+              "music": 4.7,
+              "technology": 1.8,
+              "animals": 5.1,
+              "fun": 9.3,
+              "exercise": 9.5,
+              "food": 8.7,
+              "couple": 3.1,
+              "family": 8.8
+            },
+            "time": {
+              "start_time": "2:12",
+              "end_time": "10:57"
+            }
+          },
+          {
+            "name": "Interiors",
+            "date": "2024-07-18T19:38:00Z",
+            "price": 77.9,
+            "recommendation": {
+              "price": 4.6,
+              "nature": 1.9,
+              "nightlife": 8.3,
+              "music": 2.6,
+              "technology": 8.6,
+              "animals": 7.5,
+              "fun": 1.5,
+              "exercise": 2.6,
+              "food": 7.1,
+              "couple": 8.8,
+              "family": 4.7
+            },
+            "time": {
+              "start_time": "10:45",
+              "end_time": "0:06"
+            }
+          },
+          {
+            "name": "Night of the Lepus",
+            "date": "2024-11-15T12:15:06Z",
+            "price": 47.2,
+            "recommendation": {
+              "price": 2.3,
+              "nature": 2.9,
+              "nightlife": 8.3,
+              "music": 3.3,
+              "technology": 4.7,
+              "animals": 4.3,
+              "fun": 8.1,
+              "exercise": 9.8,
+              "food": 7.8,
+              "couple": 2.3,
+              "family": 4.9
+            },
+            "time": {
+              "start_time": "7:31",
+              "end_time": "5:06"
+            }
+          },
+          {
+            "name": "Blue Vinyl",
+            "date": "2024-04-30T20:33:36Z",
+            "price": 86.4,
+            "recommendation": {
+              "price": 2.3,
+              "nature": 8.4,
+              "nightlife": 9.0,
+              "music": 7.0,
+              "technology": 7.6,
+              "animals": 5.2,
+              "fun": 9.3,
+              "exercise": 1.2,
+              "food": 7.7,
+              "couple": 8.2,
+              "family": 7.0
+            },
+            "time": {
+              "start_time": "0:53",
+              "end_time": "5:23"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "UA",
+    "cities": [
+      {
+        "name": "Kiev",
+        "lat": 50.45466,
+        "lon": 30.5238,
+        "features": {
+          "capital": true,
+          "airport": "IEV",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Easy Rider",
+            "date": "2024-11-23T21:14:49Z",
+            "price": 34.8,
+            "recommendation": {
+              "price": 6.0,
+              "nature": 7.4,
+              "nightlife": 1.7,
+              "music": 7.1,
+              "technology": 5.8,
+              "animals": 9.6,
+              "fun": 3.3,
+              "exercise": 3.5,
+              "food": 8.1,
+              "couple": 3.6,
+              "family": 6.4
+            },
+            "time": {
+              "start_time": "9:20",
+              "end_time": "6:14"
+            }
+          },
+          {
+            "name": "Freaks",
+            "date": "2024-10-27T11:30:43Z",
+            "price": 71.7,
+            "recommendation": {
+              "price": 4.4,
+              "nature": 6.2,
+              "nightlife": 7.6,
+              "music": 3.4,
+              "technology": 7.0,
+              "animals": 8.0,
+              "fun": 4.2,
+              "exercise": 5.0,
+              "food": 9.5,
+              "couple": 1.0,
+              "family": 6.6
+            },
+            "time": {
+              "start_time": "0:34",
+              "end_time": "2:35"
+            }
+          },
+          {
+            "name": "Interstate 60",
+            "date": "2025-08-26T02:17:08Z",
+            "price": 58.9,
+            "recommendation": {
+              "price": 1.4,
+              "nature": 6.7,
+              "nightlife": 4.4,
+              "music": 4.2,
+              "technology": 5.6,
+              "animals": 7.7,
+              "fun": 9.5,
+              "exercise": 7.9,
+              "food": 8.7,
+              "couple": 1.5,
+              "family": 3.9
+            },
+            "time": {
+              "start_time": "7:21",
+              "end_time": "6:45"
+            }
+          },
+          {
+            "name": "Third Person",
+            "date": "2025-02-16T00:52:09Z",
+            "price": 62.7,
+            "recommendation": {
+              "price": 8.5,
+              "nature": 4.9,
+              "nightlife": 8.6,
+              "music": 8.8,
+              "technology": 5.6,
+              "animals": 8.9,
+              "fun": 4.5,
+              "exercise": 1.9,
+              "food": 6.6,
+              "couple": 6.8,
+              "family": 8.9
+            },
+            "time": {
+              "start_time": "6:37",
+              "end_time": "1:38"
+            }
+          },
+          {
+            "name": "36 Crazy Fists (San shi liu mi xing quan)",
+            "date": "2024-01-15T01:52:50Z",
+            "price": 82.5,
+            "recommendation": {
+              "price": 6.3,
+              "nature": 9.2,
+              "nightlife": 3.4,
+              "music": 7.6,
+              "technology": 6.6,
+              "animals": 6.9,
+              "fun": 6.4,
+              "exercise": 8.3,
+              "food": 6.2,
+              "couple": 8.1,
+              "family": 7.7
+            },
+            "time": {
+              "start_time": "0:30",
+              "end_time": "11:45"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "JP",
+    "cities": [
+      {
+        "name": "Tokyo",
+        "lat": 35.6895,
+        "lon": 139.6917,
+        "features": {
+          "capital": true,
+          "airport": "HND",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Jupiter's Darling",
+            "date": "2024-09-23T12:45:45Z",
+            "price": 46.5,
+            "recommendation": {
+              "price": 7.8,
+              "nature": 9.0,
+              "nightlife": 6.5,
+              "music": 3.6,
+              "technology": 5.5,
+              "animals": 3.3,
+              "fun": 3.6,
+              "exercise": 9.7,
+              "food": 5.2,
+              "couple": 7.8,
+              "family": 2.2
+            },
+            "time": {
+              "start_time": "0:42",
+              "end_time": "7:11"
+            }
+          },
+          {
+            "name": "Idiots, The (Idioterne)",
+            "date": "2024-02-03T00:24:21Z",
+            "price": 23.5,
+            "recommendation": {
+              "price": 1.7,
+              "nature": 1.6,
+              "nightlife": 9.6,
+              "music": 3.4,
+              "technology": 9.5,
+              "animals": 7.3,
+              "fun": 2.2,
+              "exercise": 2.8,
+              "food": 2.3,
+              "couple": 7.6,
+              "family": 1.5
+            },
+            "time": {
+              "start_time": "0:07",
+              "end_time": "1:01"
+            }
+          },
+          {
+            "name": "My Brother the Devil",
+            "date": "2024-12-09T16:31:46Z",
+            "price": 35.7,
+            "recommendation": {
+              "price": 7.5,
+              "nature": 9.9,
+              "nightlife": 8.7,
+              "music": 9.2,
+              "technology": 2.0,
+              "animals": 4.5,
+              "fun": 2.6,
+              "exercise": 2.5,
+              "food": 1.4,
+              "couple": 8.7,
+              "family": 8.9
+            },
+            "time": {
+              "start_time": "1:54",
+              "end_time": "8:21"
+            }
+          },
+          {
+            "name": "Merry Widow, The",
+            "date": "2025-01-07T14:11:27Z",
+            "price": 50.5,
+            "recommendation": {
+              "price": 7.4,
+              "nature": 1.6,
+              "nightlife": 9.1,
+              "music": 7.8,
+              "technology": 5.7,
+              "animals": 7.9,
+              "fun": 1.7,
+              "exercise": 2.8,
+              "food": 9.7,
+              "couple": 9.6,
+              "family": 5.8
+            },
+            "time": {
+              "start_time": "1:41",
+              "end_time": "5:30"
+            }
+          },
+          {
+            "name": "Bitter Tears of Petra von Kant, The (bitteren Tränen der Petra von Kant, Die)",
+            "date": "2025-08-19T06:43:03Z",
+            "price": 33.1,
+            "recommendation": {
+              "price": 4.3,
+              "nature": 2.6,
+              "nightlife": 3.2,
+              "music": 9.7,
+              "technology": 8.5,
+              "animals": 8.7,
+              "fun": 1.4,
+              "exercise": 5.8,
+              "food": 3.5,
+              "couple": 3.3,
+              "family": 5.4
+            },
+            "time": {
+              "start_time": "9:07",
+              "end_time": "5:20"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "NL",
+    "cities": [
+      {
+        "name": "Amsterdam",
+        "lat": 52.37403,
+        "lon": 4.88969,
+        "features": {
+          "capital": true,
+          "airport": "AMS",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Great Expectations",
+            "date": "2024-04-15T21:55:33Z",
+            "price": 47.7,
+            "recommendation": {
+              "price": 5.1,
+              "nature": 7.7,
+              "nightlife": 4.1,
+              "music": 1.6,
+              "technology": 3.6,
+              "animals": 9.6,
+              "fun": 9.3,
+              "exercise": 3.1,
+              "food": 6.6,
+              "couple": 9.6,
+              "family": 6.0
+            },
+            "time": {
+              "start_time": "11:29",
+              "end_time": "1:21"
+            }
+          },
+          {
+            "name": "Bhowani Junction",
+            "date": "2024-01-03T07:55:49Z",
+            "price": 62.9,
+            "recommendation": {
+              "price": 5.3,
+              "nature": 1.2,
+              "nightlife": 6.9,
+              "music": 5.7,
+              "technology": 6.4,
+              "animals": 4.6,
+              "fun": 1.8,
+              "exercise": 5.1,
+              "food": 5.5,
+              "couple": 1.3,
+              "family": 5.9
+            },
+            "time": {
+              "start_time": "11:02",
+              "end_time": "10:17"
+            }
+          },
+          {
+            "name": "Allan Quatermain and the Lost City of Gold",
+            "date": "2024-03-15T08:25:37Z",
+            "price": 28.7,
+            "recommendation": {
+              "price": 3.9,
+              "nature": 8.2,
+              "nightlife": 7.0,
+              "music": 5.9,
+              "technology": 6.0,
+              "animals": 5.5,
+              "fun": 9.7,
+              "exercise": 6.0,
+              "food": 5.5,
+              "couple": 2.5,
+              "family": 6.4
+            },
+            "time": {
+              "start_time": "11:43",
+              "end_time": "0:08"
+            }
+          },
+          {
+            "name": "The Puzzle",
+            "date": "2025-01-17T07:04:20Z",
+            "price": 66.1,
+            "recommendation": {
+              "price": 4.7,
+              "nature": 2.9,
+              "nightlife": 1.7,
+              "music": 6.4,
+              "technology": 2.3,
+              "animals": 4.5,
+              "fun": 4.1,
+              "exercise": 6.9,
+              "food": 8.0,
+              "couple": 4.1,
+              "family": 7.3
+            },
+            "time": {
+              "start_time": "7:44",
+              "end_time": "2:43"
+            }
+          },
+          {
+            "name": "Who Pulled the Plug? (Göta kanal eller Vem drog ur proppen?)",
+            "date": "2024-09-05T11:44:00Z",
+            "price": 33.6,
+            "recommendation": {
+              "price": 1.9,
+              "nature": 1.5,
+              "nightlife": 5.3,
+              "music": 4.5,
+              "technology": 6.7,
+              "animals": 3.6,
+              "fun": 9.3,
+              "exercise": 2.4,
+              "food": 7.3,
+              "couple": 8.3,
+              "family": 7.3
+            },
+            "time": {
+              "start_time": "9:58",
+              "end_time": "4:13"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "KR",
+    "cities": [
+      {
+        "name": "Seoul",
+        "lat": 37.566,
+        "lon": 126.9784,
+        "features": {
+          "capital": true,
+          "airport": "GMP",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Three (a.k.a. 3 Extremes II) (Saam gaang)",
+            "date": "2024-05-22T23:47:05Z",
+            "price": 41.1,
+            "recommendation": {
+              "price": 3.6,
+              "nature": 1.1,
+              "nightlife": 9.3,
+              "music": 6.7,
+              "technology": 5.4,
+              "animals": 8.6,
+              "fun": 8.7,
+              "exercise": 1.5,
+              "food": 5.2,
+              "couple": 3.3,
+              "family": 8.3
+            },
+            "time": {
+              "start_time": "7:30",
+              "end_time": "5:59"
+            }
+          },
+          {
+            "name": "Bloody Territories (Kôiki bôryoku: ryuuketsu no shima)",
+            "date": "2024-03-10T10:20:34Z",
+            "price": 23.0,
+            "recommendation": {
+              "price": 4.0,
+              "nature": 5.5,
+              "nightlife": 5.1,
+              "music": 5.7,
+              "technology": 4.5,
+              "animals": 9.3,
+              "fun": 5.8,
+              "exercise": 3.6,
+              "food": 6.0,
+              "couple": 9.5,
+              "family": 5.3
+            },
+            "time": {
+              "start_time": "7:24",
+              "end_time": "1:16"
+            }
+          },
+          {
+            "name": "Allegro non troppo",
+            "date": "2024-10-25T19:45:15Z",
+            "price": 62.2,
+            "recommendation": {
+              "price": 8.8,
+              "nature": 1.3,
+              "nightlife": 9.0,
+              "music": 8.8,
+              "technology": 5.6,
+              "animals": 9.3,
+              "fun": 2.8,
+              "exercise": 8.7,
+              "food": 4.3,
+              "couple": 3.0,
+              "family": 4.6
+            },
+            "time": {
+              "start_time": "1:16",
+              "end_time": "3:08"
+            }
+          },
+          {
+            "name": "Suspect X (Yôgisha X no kenshin)",
+            "date": "2025-09-28T19:51:05Z",
+            "price": 65.6,
+            "recommendation": {
+              "price": 5.1,
+              "nature": 5.0,
+              "nightlife": 4.0,
+              "music": 9.5,
+              "technology": 7.7,
+              "animals": 6.6,
+              "fun": 3.1,
+              "exercise": 4.2,
+              "food": 4.7,
+              "couple": 8.2,
+              "family": 8.8
+            },
+            "time": {
+              "start_time": "1:34",
+              "end_time": "3:10"
+            }
+          },
+          {
+            "name": "Jamaica Inn",
+            "date": "2024-12-29T22:28:31Z",
+            "price": 99.3,
+            "recommendation": {
+              "price": 7.5,
+              "nature": 8.5,
+              "nightlife": 6.7,
+              "music": 6.7,
+              "technology": 2.2,
+              "animals": 5.6,
+              "fun": 2.6,
+              "exercise": 1.6,
+              "food": 5.1,
+              "couple": 3.4,
+              "family": 1.7
+            },
+            "time": {
+              "start_time": "5:32",
+              "end_time": "2:07"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "CN",
+    "cities": [
+      {
+        "name": "Shanghai",
+        "lat": 31.22222,
+        "lon": 121.45806,
+        "features": {
+          "capital": false,
+          "airport": "SHA",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "His New Profession",
+            "date": "2024-07-04T06:26:23Z",
+            "price": 88.3,
+            "recommendation": {
+              "price": 4.2,
+              "nature": 8.6,
+              "nightlife": 4.5,
+              "music": 8.3,
+              "technology": 1.7,
+              "animals": 9.9,
+              "fun": 8.5,
+              "exercise": 2.9,
+              "food": 5.0,
+              "couple": 6.8,
+              "family": 2.9
+            },
+            "time": {
+              "start_time": "10:19",
+              "end_time": "7:15"
+            }
+          },
+          {
+            "name": "Torque",
+            "date": "2025-07-23T18:17:08Z",
+            "price": 38.5,
+            "recommendation": {
+              "price": 9.0,
+              "nature": 7.6,
+              "nightlife": 4.7,
+              "music": 9.0,
+              "technology": 1.7,
+              "animals": 6.0,
+              "fun": 9.2,
+              "exercise": 4.3,
+              "food": 4.1,
+              "couple": 3.3,
+              "family": 1.1
+            },
+            "time": {
+              "start_time": "1:15",
+              "end_time": "2:58"
+            }
+          },
+          {
+            "name": "Police Academy 3: Back in Training",
+            "date": "2024-08-05T06:47:08Z",
+            "price": 37.4,
+            "recommendation": {
+              "price": 2.6,
+              "nature": 2.6,
+              "nightlife": 4.7,
+              "music": 2.8,
+              "technology": 4.8,
+              "animals": 3.5,
+              "fun": 9.8,
+              "exercise": 6.4,
+              "food": 6.5,
+              "couple": 3.9,
+              "family": 3.6
+            },
+            "time": {
+              "start_time": "4:06",
+              "end_time": "7:19"
+            }
+          },
+          {
+            "name": "Four Friends (a.k.a. Georgia's Friends)",
+            "date": "2024-06-19T02:47:46Z",
+            "price": 27.5,
+            "recommendation": {
+              "price": 7.1,
+              "nature": 2.0,
+              "nightlife": 3.5,
+              "music": 6.2,
+              "technology": 1.7,
+              "animals": 7.5,
+              "fun": 3.8,
+              "exercise": 8.9,
+              "food": 1.5,
+              "couple": 4.4,
+              "family": 3.3
+            },
+            "time": {
+              "start_time": "8:01",
+              "end_time": "10:18"
+            }
+          },
+          {
+            "name": "Other Girls",
+            "date": "2025-08-21T18:44:37Z",
+            "price": 92.2,
+            "recommendation": {
+              "price": 7.2,
+              "nature": 2.8,
+              "nightlife": 3.8,
+              "music": 7.4,
+              "technology": 9.6,
+              "animals": 4.7,
+              "fun": 7.7,
+              "exercise": 9.8,
+              "food": 7.4,
+              "couple": 4.8,
+              "family": 1.5
+            },
+            "time": {
+              "start_time": "5:40",
+              "end_time": "2:46"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "CA",
+    "cities": [
+      {
+        "name": "Toronto",
+        "lat": 43.70011,
+        "lon": -79.4163,
+        "features": {
+          "capital": false,
+          "airport": "YYZ",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Greenfingers",
+            "date": "2024-04-15T07:35:37Z",
+            "price": 54.2,
+            "recommendation": {
+              "price": 7.4,
+              "nature": 7.0,
+              "nightlife": 9.5,
+              "music": 9.2,
+              "technology": 6.7,
+              "animals": 1.5,
+              "fun": 7.1,
+              "exercise": 3.6,
+              "food": 2.1,
+              "couple": 7.3,
+              "family": 3.2
+            },
+            "time": {
+              "start_time": "1:27",
+              "end_time": "0:10"
+            }
+          },
+          {
+            "name": "Cotton Club, The",
+            "date": "2025-04-21T08:34:54Z",
+            "price": 23.1,
+            "recommendation": {
+              "price": 2.3,
+              "nature": 7.9,
+              "nightlife": 7.0,
+              "music": 7.1,
+              "technology": 7.3,
+              "animals": 1.7,
+              "fun": 4.8,
+              "exercise": 1.3,
+              "food": 7.6,
+              "couple": 1.4,
+              "family": 3.3
+            },
+            "time": {
+              "start_time": "4:15",
+              "end_time": "4:33"
+            }
+          },
+          {
+            "name": "Girls! Girls! Girls!",
+            "date": "2024-07-07T18:06:37Z",
+            "price": 43.5,
+            "recommendation": {
+              "price": 3.3,
+              "nature": 5.9,
+              "nightlife": 2.5,
+              "music": 9.4,
+              "technology": 8.1,
+              "animals": 8.7,
+              "fun": 6.9,
+              "exercise": 6.0,
+              "food": 9.5,
+              "couple": 1.5,
+              "family": 7.5
+            },
+            "time": {
+              "start_time": "9:17",
+              "end_time": "11:54"
+            }
+          },
+          {
+            "name": "You Can't Take It with You",
+            "date": "2025-09-19T17:42:11Z",
+            "price": 65.5,
+            "recommendation": {
+              "price": 2.2,
+              "nature": 3.2,
+              "nightlife": 5.2,
+              "music": 9.4,
+              "technology": 5.0,
+              "animals": 2.4,
+              "fun": 9.3,
+              "exercise": 6.2,
+              "food": 7.4,
+              "couple": 7.7,
+              "family": 5.3
+            },
+            "time": {
+              "start_time": "8:23",
+              "end_time": "6:33"
+            }
+          },
+          {
+            "name": "Marci X",
+            "date": "2024-12-30T17:29:53Z",
+            "price": 26.1,
+            "recommendation": {
+              "price": 9.7,
+              "nature": 3.0,
+              "nightlife": 3.9,
+              "music": 1.5,
+              "technology": 7.1,
+              "animals": 1.2,
+              "fun": 4.1,
+              "exercise": 3.2,
+              "food": 8.0,
+              "couple": 8.0,
+              "family": 6.1
+            },
+            "time": {
+              "start_time": "0:42",
+              "end_time": "9:09"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "PL",
+    "cities": [
+      {
+        "name": "Warsaw",
+        "lat": 52.22977,
+        "lon": 21.01178,
+        "features": {
+          "capital": true,
+          "airport": "WAW",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Little Vampire, The",
+            "date": "2025-02-04T12:57:26Z",
+            "price": 25.4,
+            "recommendation": {
+              "price": 2.7,
+              "nature": 5.1,
+              "nightlife": 1.8,
+              "music": 4.8,
+              "technology": 8.1,
+              "animals": 9.4,
+              "fun": 1.6,
+              "exercise": 7.5,
+              "food": 7.3,
+              "couple": 9.3,
+              "family": 4.4
+            },
+            "time": {
+              "start_time": "1:56",
+              "end_time": "6:29"
+            }
+          },
+          {
+            "name": "Fairly Odd Christmas, A",
+            "date": "2025-07-05T00:03:59Z",
+            "price": 77.7,
+            "recommendation": {
+              "price": 7.3,
+              "nature": 2.0,
+              "nightlife": 7.3,
+              "music": 4.6,
+              "technology": 5.1,
+              "animals": 8.9,
+              "fun": 8.8,
+              "exercise": 5.0,
+              "food": 6.2,
+              "couple": 6.9,
+              "family": 5.8
+            },
+            "time": {
+              "start_time": "11:29",
+              "end_time": "10:12"
+            }
+          },
+          {
+            "name": "Cathy Come Home",
+            "date": "2025-09-16T12:37:05Z",
+            "price": 63.0,
+            "recommendation": {
+              "price": 9.3,
+              "nature": 1.3,
+              "nightlife": 6.9,
+              "music": 9.1,
+              "technology": 3.1,
+              "animals": 5.3,
+              "fun": 8.4,
+              "exercise": 3.1,
+              "food": 1.7,
+              "couple": 2.2,
+              "family": 7.1
+            },
+            "time": {
+              "start_time": "7:32",
+              "end_time": "3:45"
+            }
+          },
+          {
+            "name": "Women on the Verge of a Nervous Breakdown (Mujeres al borde de un ataque de nervios)",
+            "date": "2024-02-11T13:50:45Z",
+            "price": 28.9,
+            "recommendation": {
+              "price": 7.9,
+              "nature": 1.6,
+              "nightlife": 5.4,
+              "music": 8.5,
+              "technology": 3.3,
+              "animals": 9.8,
+              "fun": 6.8,
+              "exercise": 3.8,
+              "food": 5.3,
+              "couple": 6.2,
+              "family": 2.4
+            },
+            "time": {
+              "start_time": "5:03",
+              "end_time": "4:34"
+            }
+          },
+          {
+            "name": "Now and Then",
+            "date": "2024-06-10T09:14:40Z",
+            "price": 22.4,
+            "recommendation": {
+              "price": 8.8,
+              "nature": 8.6,
+              "nightlife": 2.3,
+              "music": 4.0,
+              "technology": 5.5,
+              "animals": 2.6,
+              "fun": 8.8,
+              "exercise": 9.5,
+              "food": 5.6,
+              "couple": 5.1,
+              "family": 9.1
+            },
+            "time": {
+              "start_time": "3:20",
+              "end_time": "10:31"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "GR",
+    "cities": [
+      {
+        "name": "Athens",
+        "lat": 37.97945,
+        "lon": 23.71622,
+        "features": {
+          "capital": true,
+          "airport": "ATH",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Battle in Heaven (Batalla en el cielo)",
+            "date": "2025-07-29T20:09:21Z",
+            "price": 83.5,
+            "recommendation": {
+              "price": 8.4,
+              "nature": 7.1,
+              "nightlife": 3.9,
+              "music": 4.4,
+              "technology": 8.2,
+              "animals": 8.7,
+              "fun": 9.1,
+              "exercise": 4.1,
+              "food": 9.3,
+              "couple": 4.1,
+              "family": 3.5
+            },
+            "time": {
+              "start_time": "0:45",
+              "end_time": "8:52"
+            }
+          },
+          {
+            "name": "Rage (Rabia)",
+            "date": "2025-07-05T20:47:10Z",
+            "price": 67.0,
+            "recommendation": {
+              "price": 7.6,
+              "nature": 5.0,
+              "nightlife": 9.0,
+              "music": 1.9,
+              "technology": 6.6,
+              "animals": 8.4,
+              "fun": 3.6,
+              "exercise": 8.2,
+              "food": 6.8,
+              "couple": 6.8,
+              "family": 4.5
+            },
+            "time": {
+              "start_time": "0:26",
+              "end_time": "7:41"
+            }
+          },
+          {
+            "name": "Midnight Clear",
+            "date": "2024-02-17T14:35:10Z",
+            "price": 74.1,
+            "recommendation": {
+              "price": 2.9,
+              "nature": 4.0,
+              "nightlife": 4.3,
+              "music": 2.8,
+              "technology": 2.5,
+              "animals": 9.6,
+              "fun": 4.4,
+              "exercise": 9.9,
+              "food": 1.3,
+              "couple": 5.2,
+              "family": 5.4
+            },
+            "time": {
+              "start_time": "7:30",
+              "end_time": "10:07"
+            }
+          },
+          {
+            "name": "Incredible Melting Man, The",
+            "date": "2025-01-10T02:58:27Z",
+            "price": 44.8,
+            "recommendation": {
+              "price": 7.0,
+              "nature": 8.4,
+              "nightlife": 3.2,
+              "music": 9.5,
+              "technology": 8.4,
+              "animals": 9.5,
+              "fun": 4.5,
+              "exercise": 6.8,
+              "food": 8.5,
+              "couple": 8.0,
+              "family": 4.9
+            },
+            "time": {
+              "start_time": "5:57",
+              "end_time": "5:01"
+            }
+          },
+          {
+            "name": "Lady of Chance, A",
+            "date": "2024-09-13T05:09:18Z",
+            "price": 44.1,
+            "recommendation": {
+              "price": 9.2,
+              "nature": 9.7,
+              "nightlife": 4.0,
+              "music": 9.6,
+              "technology": 9.9,
+              "animals": 7.5,
+              "fun": 6.3,
+              "exercise": 8.2,
+              "food": 1.3,
+              "couple": 9.9,
+              "family": 7.7
+            },
+            "time": {
+              "start_time": "9:00",
+              "end_time": "4:45"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "TH",
+    "cities": [
+      {
+        "name": "Bangkok",
+        "lat": 13.75398,
+        "lon": 100.50144,
+        "features": {
+          "capital": true,
+          "airport": "BKK",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Sadie Thompson",
+            "date": "2025-07-13T09:13:32Z",
+            "price": 79.7,
+            "recommendation": {
+              "price": 3.2,
+              "nature": 4.6,
+              "nightlife": 5.0,
+              "music": 5.2,
+              "technology": 2.3,
+              "animals": 3.0,
+              "fun": 8.9,
+              "exercise": 6.7,
+              "food": 1.6,
+              "couple": 5.1,
+              "family": 7.0
+            },
+            "time": {
+              "start_time": "3:02",
+              "end_time": "10:30"
+            }
+          },
+          {
+            "name": "Memory",
+            "date": "2025-05-14T06:06:59Z",
+            "price": 28.0,
+            "recommendation": {
+              "price": 6.8,
+              "nature": 6.4,
+              "nightlife": 1.3,
+              "music": 2.2,
+              "technology": 7.1,
+              "animals": 2.7,
+              "fun": 6.5,
+              "exercise": 2.2,
+              "food": 7.8,
+              "couple": 3.8,
+              "family": 5.7
+            },
+            "time": {
+              "start_time": "5:27",
+              "end_time": "3:41"
+            }
+          },
+          {
+            "name": "Fantomas Unleashed",
+            "date": "2024-07-21T22:54:19Z",
+            "price": 42.2,
+            "recommendation": {
+              "price": 1.5,
+              "nature": 3.8,
+              "nightlife": 5.1,
+              "music": 4.9,
+              "technology": 4.8,
+              "animals": 4.2,
+              "fun": 8.3,
+              "exercise": 9.7,
+              "food": 9.3,
+              "couple": 5.3,
+              "family": 3.6
+            },
+            "time": {
+              "start_time": "8:42",
+              "end_time": "1:53"
+            }
+          },
+          {
+            "name": "Dangerous Beauty",
+            "date": "2025-07-27T20:56:54Z",
+            "price": 75.4,
+            "recommendation": {
+              "price": 3.2,
+              "nature": 2.1,
+              "nightlife": 6.3,
+              "music": 3.4,
+              "technology": 6.1,
+              "animals": 5.3,
+              "fun": 7.4,
+              "exercise": 8.8,
+              "food": 1.0,
+              "couple": 9.5,
+              "family": 4.0
+            },
+            "time": {
+              "start_time": "10:08",
+              "end_time": "9:35"
+            }
+          },
+          {
+            "name": "Tale of the Mummy",
+            "date": "2024-08-10T18:31:25Z",
+            "price": 43.7,
+            "recommendation": {
+              "price": 5.5,
+              "nature": 6.4,
+              "nightlife": 3.2,
+              "music": 6.6,
+              "technology": 7.6,
+              "animals": 2.2,
+              "fun": 9.6,
+              "exercise": 3.8,
+              "food": 3.6,
+              "couple": 2.6,
+              "family": 7.0
+            },
+            "time": {
+              "start_time": "11:32",
+              "end_time": "10:22"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "AT",
+    "cities": [
+      {
+        "name": "Vienna",
+        "lat": 48.20849,
+        "lon": 16.37208,
+        "features": {
+          "capital": true,
+          "airport": "VIE",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "The Gambler",
+            "date": "2024-12-21T19:07:54Z",
+            "price": 36.1,
+            "recommendation": {
+              "price": 2.1,
+              "nature": 1.3,
+              "nightlife": 4.1,
+              "music": 1.4,
+              "technology": 3.2,
+              "animals": 2.0,
+              "fun": 7.1,
+              "exercise": 4.1,
+              "food": 4.0,
+              "couple": 4.2,
+              "family": 1.7
+            },
+            "time": {
+              "start_time": "9:04",
+              "end_time": "2:21"
+            }
+          },
+          {
+            "name": "Action in the North Atlantic",
+            "date": "2024-07-19T19:52:18Z",
+            "price": 62.8,
+            "recommendation": {
+              "price": 3.6,
+              "nature": 1.1,
+              "nightlife": 2.2,
+              "music": 6.9,
+              "technology": 8.0,
+              "animals": 8.5,
+              "fun": 3.6,
+              "exercise": 3.2,
+              "food": 1.1,
+              "couple": 1.1,
+              "family": 9.3
+            },
+            "time": {
+              "start_time": "7:27",
+              "end_time": "8:45"
+            }
+          },
+          {
+            "name": "How to Make Money Selling Drugs",
+            "date": "2024-10-11T10:53:06Z",
+            "price": 32.5,
+            "recommendation": {
+              "price": 5.6,
+              "nature": 3.8,
+              "nightlife": 2.7,
+              "music": 3.9,
+              "technology": 5.1,
+              "animals": 3.0,
+              "fun": 3.1,
+              "exercise": 1.6,
+              "food": 3.5,
+              "couple": 3.5,
+              "family": 6.6
+            },
+            "time": {
+              "start_time": "2:45",
+              "end_time": "10:13"
+            }
+          },
+          {
+            "name": "Grand Amour, Le",
+            "date": "2025-01-11T11:31:40Z",
+            "price": 81.5,
+            "recommendation": {
+              "price": 3.9,
+              "nature": 1.7,
+              "nightlife": 5.6,
+              "music": 9.1,
+              "technology": 6.8,
+              "animals": 4.9,
+              "fun": 7.6,
+              "exercise": 1.0,
+              "food": 5.7,
+              "couple": 3.9,
+              "family": 3.6
+            },
+            "time": {
+              "start_time": "6:39",
+              "end_time": "4:36"
+            }
+          },
+          {
+            "name": "I'm So Excited (Los amantes pasajeros)",
+            "date": "2024-12-31T06:11:56Z",
+            "price": 86.4,
+            "recommendation": {
+              "price": 9.9,
+              "nature": 6.6,
+              "nightlife": 3.1,
+              "music": 7.4,
+              "technology": 1.3,
+              "animals": 1.4,
+              "fun": 4.8,
+              "exercise": 4.5,
+              "food": 8.7,
+              "couple": 2.3,
+              "family": 2.7
+            },
+            "time": {
+              "start_time": "3:32",
+              "end_time": "2:36"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "MY",
+    "cities": [
+      {
+        "name": "Kuala Lumpur",
+        "lat": 3.1412,
+        "lon": 101.68653,
+        "features": {
+          "capital": true,
+          "airport": "KUL",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 30,
+          "humidity": 70,
+          "wind_speed": 15,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Scarlet Empress, The",
+            "date": "2024-10-12T00:35:48Z",
+            "price": 40.6,
+            "recommendation": {
+              "price": 9.8,
+              "nature": 5.6,
+              "nightlife": 6.1,
+              "music": 8.8,
+              "technology": 7.6,
+              "animals": 3.0,
+              "fun": 1.4,
+              "exercise": 2.6,
+              "food": 2.0,
+              "couple": 7.3,
+              "family": 3.6
+            },
+            "time": {
+              "start_time": "5:57",
+              "end_time": "7:57"
+            }
+          },
+          {
+            "name": "Hero (Ying xiong)",
+            "date": "2025-07-27T16:31:38Z",
+            "price": 83.3,
+            "recommendation": {
+              "price": 8.2,
+              "nature": 7.0,
+              "nightlife": 9.1,
+              "music": 2.7,
+              "technology": 4.3,
+              "animals": 2.7,
+              "fun": 3.9,
+              "exercise": 8.3,
+              "food": 4.3,
+              "couple": 4.4,
+              "family": 8.8
+            },
+            "time": {
+              "start_time": "10:47",
+              "end_time": "5:46"
+            }
+          },
+          {
+            "name": "Homework",
+            "date": "2024-06-30T13:03:40Z",
+            "price": 96.4,
+            "recommendation": {
+              "price": 1.4,
+              "nature": 6.5,
+              "nightlife": 6.9,
+              "music": 6.9,
+              "technology": 8.3,
+              "animals": 3.3,
+              "fun": 1.4,
+              "exercise": 8.8,
+              "food": 1.0,
+              "couple": 8.7,
+              "family": 7.6
+            },
+            "time": {
+              "start_time": "9:47",
+              "end_time": "2:05"
+            }
+          },
+          {
+            "name": "Steel Dawn",
+            "date": "2024-10-30T06:43:59Z",
+            "price": 85.3,
+            "recommendation": {
+              "price": 9.8,
+              "nature": 4.3,
+              "nightlife": 2.7,
+              "music": 3.5,
+              "technology": 8.4,
+              "animals": 3.4,
+              "fun": 3.0,
+              "exercise": 9.9,
+              "food": 6.3,
+              "couple": 8.1,
+              "family": 8.5
+            },
+            "time": {
+              "start_time": "8:38",
+              "end_time": "2:47"
+            }
+          },
+          {
+            "name": "Thunderbird Six",
+            "date": "2025-07-04T21:47:27Z",
+            "price": 32.5,
+            "recommendation": {
+              "price": 3.2,
+              "nature": 8.0,
+              "nightlife": 1.5,
+              "music": 3.3,
+              "technology": 3.7,
+              "animals": 8.0,
+              "fun": 6.7,
+              "exercise": 6.6,
+              "food": 6.1,
+              "couple": 3.4,
+              "family": 4.2
+            },
+            "time": {
+              "start_time": "3:39",
+              "end_time": "7:54"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "AU",
+    "cities": [
+      {
+        "name": "Sydney",
+        "lat": -33.86785,
+        "lon": 151.20732,
+        "features": {
+          "capital": false,
+          "airport": "SYD",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Gen 13 (a.k.a. Gen13: The Animated Movie)",
+            "date": "2024-01-09T21:58:15Z",
+            "price": 87.0,
+            "recommendation": {
+              "price": 8.8,
+              "nature": 2.7,
+              "nightlife": 5.7,
+              "music": 5.8,
+              "technology": 8.7,
+              "animals": 3.2,
+              "fun": 8.6,
+              "exercise": 1.6,
+              "food": 2.1,
+              "couple": 2.1,
+              "family": 8.0
+            },
+            "time": {
+              "start_time": "1:57",
+              "end_time": "8:59"
+            }
+          },
+          {
+            "name": "Kolberg",
+            "date": "2024-08-14T18:42:01Z",
+            "price": 22.3,
+            "recommendation": {
+              "price": 8.9,
+              "nature": 4.2,
+              "nightlife": 1.6,
+              "music": 6.4,
+              "technology": 1.3,
+              "animals": 4.1,
+              "fun": 7.9,
+              "exercise": 4.1,
+              "food": 3.4,
+              "couple": 2.5,
+              "family": 3.6
+            },
+            "time": {
+              "start_time": "4:38",
+              "end_time": "8:15"
+            }
+          },
+          {
+            "name": "The Amazing Dr. Clitterhouse",
+            "date": "2024-06-21T19:57:38Z",
+            "price": 23.2,
+            "recommendation": {
+              "price": 8.4,
+              "nature": 9.8,
+              "nightlife": 8.1,
+              "music": 9.9,
+              "technology": 2.3,
+              "animals": 3.2,
+              "fun": 5.1,
+              "exercise": 1.2,
+              "food": 7.5,
+              "couple": 9.2,
+              "family": 8.8
+            },
+            "time": {
+              "start_time": "3:19",
+              "end_time": "7:49"
+            }
+          },
+          {
+            "name": "Pieces (Mil gritos tiene la noche) (One Thousand Cries Has the Night)",
+            "date": "2025-05-17T15:03:51Z",
+            "price": 76.9,
+            "recommendation": {
+              "price": 6.4,
+              "nature": 4.4,
+              "nightlife": 3.9,
+              "music": 4.9,
+              "technology": 6.8,
+              "animals": 2.4,
+              "fun": 2.4,
+              "exercise": 1.5,
+              "food": 4.7,
+              "couple": 5.5,
+              "family": 5.2
+            },
+            "time": {
+              "start_time": "5:46",
+              "end_time": "8:59"
+            }
+          },
+          {
+            "name": "Rage in Heaven",
+            "date": "2024-02-15T13:39:34Z",
+            "price": 38.7,
+            "recommendation": {
+              "price": 6.2,
+              "nature": 4.3,
+              "nightlife": 7.1,
+              "music": 1.7,
+              "technology": 3.7,
+              "animals": 5.2,
+              "fun": 6.4,
+              "exercise": 3.6,
+              "food": 6.4,
+              "couple": 8.4,
+              "family": 8.6
+            },
+            "time": {
+              "start_time": "3:13",
+              "end_time": "1:24"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "MX",
+    "cities": [
+      {
+        "name": "Mexico City",
+        "lat": 19.42847,
+        "lon": -99.12766,
+        "features": {
+          "capital": true,
+          "airport": "MEX",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Freedom Song",
+            "date": "2024-09-14T01:28:17Z",
+            "price": 38.7,
+            "recommendation": {
+              "price": 1.6,
+              "nature": 3.7,
+              "nightlife": 4.5,
+              "music": 5.6,
+              "technology": 6.9,
+              "animals": 4.7,
+              "fun": 4.1,
+              "exercise": 8.7,
+              "food": 6.2,
+              "couple": 2.5,
+              "family": 8.1
+            },
+            "time": {
+              "start_time": "6:25",
+              "end_time": "7:32"
+            }
+          },
+          {
+            "name": "Perks of Being a Wallflower, The",
+            "date": "2025-07-07T10:02:08Z",
+            "price": 58.7,
+            "recommendation": {
+              "price": 3.3,
+              "nature": 6.4,
+              "nightlife": 6.4,
+              "music": 7.1,
+              "technology": 4.8,
+              "animals": 9.0,
+              "fun": 1.5,
+              "exercise": 5.8,
+              "food": 7.4,
+              "couple": 6.9,
+              "family": 3.7
+            },
+            "time": {
+              "start_time": "11:22",
+              "end_time": "6:17"
+            }
+          },
+          {
+            "name": "Fallen Idol, The",
+            "date": "2024-09-13T08:24:02Z",
+            "price": 74.0,
+            "recommendation": {
+              "price": 6.6,
+              "nature": 1.9,
+              "nightlife": 6.5,
+              "music": 8.9,
+              "technology": 6.7,
+              "animals": 9.6,
+              "fun": 7.0,
+              "exercise": 6.8,
+              "food": 1.5,
+              "couple": 9.8,
+              "family": 5.7
+            },
+            "time": {
+              "start_time": "4:19",
+              "end_time": "11:19"
+            }
+          },
+          {
+            "name": "Visitor Q (Bizita Q)",
+            "date": "2024-11-02T22:36:59Z",
+            "price": 29.7,
+            "recommendation": {
+              "price": 8.1,
+              "nature": 2.1,
+              "nightlife": 1.3,
+              "music": 1.7,
+              "technology": 7.1,
+              "animals": 8.7,
+              "fun": 6.4,
+              "exercise": 4.9,
+              "food": 9.1,
+              "couple": 8.5,
+              "family": 5.7
+            },
+            "time": {
+              "start_time": "0:02",
+              "end_time": "0:12"
+            }
+          },
+          {
+            "name": "Dances With the Dragons ( Yu long gong wu)",
+            "date": "2025-05-27T18:23:08Z",
+            "price": 86.7,
+            "recommendation": {
+              "price": 1.8,
+              "nature": 3.8,
+              "nightlife": 2.0,
+              "music": 5.9,
+              "technology": 6.4,
+              "animals": 5.5,
+              "fun": 1.3,
+              "exercise": 8.1,
+              "food": 8.1,
+              "couple": 3.1,
+              "family": 5.7
+            },
+            "time": {
+              "start_time": "6:02",
+              "end_time": "11:12"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "RU",
+    "cities": [
+      {
+        "name": "Moscow",
+        "lat": 55.75222,
+        "lon": 37.61556,
+        "features": {
+          "capital": true,
+          "airport": "SVO",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "The Princess of Egypt",
+            "date": "2024-08-10T03:22:10Z",
+            "price": 22.8,
+            "recommendation": {
+              "price": 1.9,
+              "nature": 4.7,
+              "nightlife": 4.1,
+              "music": 8.1,
+              "technology": 6.7,
+              "animals": 9.0,
+              "fun": 6.8,
+              "exercise": 7.1,
+              "food": 1.7,
+              "couple": 7.1,
+              "family": 7.8
+            },
+            "time": {
+              "start_time": "0:25",
+              "end_time": "5:55"
+            }
+          },
+          {
+            "name": "Sleepwalkers",
+            "date": "2024-06-07T02:50:20Z",
+            "price": 89.7,
+            "recommendation": {
+              "price": 8.7,
+              "nature": 5.0,
+              "nightlife": 6.3,
+              "music": 6.8,
+              "technology": 3.8,
+              "animals": 6.5,
+              "fun": 8.0,
+              "exercise": 4.8,
+              "food": 7.2,
+              "couple": 6.9,
+              "family": 8.9
+            },
+            "time": {
+              "start_time": "4:29",
+              "end_time": "9:26"
+            }
+          },
+          {
+            "name": "Clockstoppers",
+            "date": "2025-06-25T10:49:42Z",
+            "price": 84.7,
+            "recommendation": {
+              "price": 2.5,
+              "nature": 3.3,
+              "nightlife": 2.9,
+              "music": 5.1,
+              "technology": 2.4,
+              "animals": 4.2,
+              "fun": 9.3,
+              "exercise": 4.8,
+              "food": 1.4,
+              "couple": 7.3,
+              "family": 7.5
+            },
+            "time": {
+              "start_time": "3:16",
+              "end_time": "4:19"
+            }
+          },
+          {
+            "name": "Testament",
+            "date": "2024-07-10T01:22:49Z",
+            "price": 52.4,
+            "recommendation": {
+              "price": 6.5,
+              "nature": 9.9,
+              "nightlife": 2.9,
+              "music": 7.1,
+              "technology": 9.3,
+              "animals": 1.5,
+              "fun": 7.4,
+              "exercise": 1.5,
+              "food": 7.9,
+              "couple": 1.6,
+              "family": 3.0
+            },
+            "time": {
+              "start_time": "11:47",
+              "end_time": "0:05"
+            }
+          },
+          {
+            "name": "Night of the Ghouls",
+            "date": "2025-07-30T00:34:14Z",
+            "price": 73.3,
+            "recommendation": {
+              "price": 8.6,
+              "nature": 1.3,
+              "nightlife": 8.1,
+              "music": 4.0,
+              "technology": 9.1,
+              "animals": 7.0,
+              "fun": 1.9,
+              "exercise": 6.9,
+              "food": 9.7,
+              "couple": 2.5,
+              "family": 8.4
+            },
+            "time": {
+              "start_time": "10:31",
+              "end_time": "0:32"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "GB",
+    "cities": [
+      {
+        "name": "London",
+        "lat": 51.50853,
+        "lon": -0.12574,
+        "features": {
+          "capital": true,
+          "airport": "LHR",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Kisses",
+            "date": "2025-03-09T04:47:19Z",
+            "price": 66.1,
+            "recommendation": {
+              "price": 1.9,
+              "nature": 6.5,
+              "nightlife": 6.2,
+              "music": 4.3,
+              "technology": 7.4,
+              "animals": 1.7,
+              "fun": 7.9,
+              "exercise": 7.7,
+              "food": 1.9,
+              "couple": 8.6,
+              "family": 4.8
+            },
+            "time": {
+              "start_time": "3:20",
+              "end_time": "10:57"
+            }
+          },
+          {
+            "name": "N Word, The",
+            "date": "2024-07-21T14:54:01Z",
+            "price": 93.7,
+            "recommendation": {
+              "price": 2.7,
+              "nature": 7.3,
+              "nightlife": 1.4,
+              "music": 8.4,
+              "technology": 8.6,
+              "animals": 4.2,
+              "fun": 5.4,
+              "exercise": 5.6,
+              "food": 7.9,
+              "couple": 9.6,
+              "family": 4.7
+            },
+            "time": {
+              "start_time": "0:14",
+              "end_time": "2:11"
+            }
+          },
+          {
+            "name": "Woman in the Dunes (Suna no onna)",
+            "date": "2025-05-30T14:40:01Z",
+            "price": 35.4,
+            "recommendation": {
+              "price": 1.3,
+              "nature": 4.8,
+              "nightlife": 8.1,
+              "music": 4.6,
+              "technology": 1.5,
+              "animals": 4.6,
+              "fun": 7.4,
+              "exercise": 5.5,
+              "food": 4.8,
+              "couple": 2.5,
+              "family": 9.4
+            },
+            "time": {
+              "start_time": "0:36",
+              "end_time": "7:13"
+            }
+          },
+          {
+            "name": "Hunt For Gollum, The",
+            "date": "2025-09-11T23:22:24Z",
+            "price": 98.5,
+            "recommendation": {
+              "price": 6.2,
+              "nature": 5.8,
+              "nightlife": 5.2,
+              "music": 4.7,
+              "technology": 9.8,
+              "animals": 2.4,
+              "fun": 4.2,
+              "exercise": 2.2,
+              "food": 3.2,
+              "couple": 8.4,
+              "family": 7.8
+            },
+            "time": {
+              "start_time": "9:02",
+              "end_time": "6:12"
+            }
+          },
+          {
+            "name": "A mí las mujeres ni fu ni fa",
+            "date": "2025-04-05T10:42:24Z",
+            "price": 54.9,
+            "recommendation": {
+              "price": 4.8,
+              "nature": 3.8,
+              "nightlife": 9.3,
+              "music": 6.8,
+              "technology": 9.7,
+              "animals": 8.2,
+              "fun": 6.2,
+              "exercise": 7.6,
+              "food": 1.2,
+              "couple": 3.7,
+              "family": 2.1
+            },
+            "time": {
+              "start_time": "10:20",
+              "end_time": "2:56"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "DE",
+    "cities": [
+      {
+        "name": "Berlin",
+        "lat": 52.52437,
+        "lon": 13.41053,
+        "features": {
+          "capital": true,
+          "airport": "TXL",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "21 tapaa pilata avioliitto",
+            "date": "2025-09-27T08:40:02Z",
+            "price": 88.5,
+            "recommendation": {
+              "price": 4.1,
+              "nature": 5.5,
+              "nightlife": 4.8,
+              "music": 7.9,
+              "technology": 3.4,
+              "animals": 4.7,
+              "fun": 9.9,
+              "exercise": 9.8,
+              "food": 9.5,
+              "couple": 3.2,
+              "family": 9.8
+            },
+            "time": {
+              "start_time": "6:19",
+              "end_time": "10:17"
+            }
+          },
+          {
+            "name": "Love and Pigeons",
+            "date": "2025-06-05T07:07:54Z",
+            "price": 48.5,
+            "recommendation": {
+              "price": 3.9,
+              "nature": 8.6,
+              "nightlife": 1.5,
+              "music": 3.5,
+              "technology": 8.2,
+              "animals": 4.3,
+              "fun": 4.1,
+              "exercise": 9.3,
+              "food": 3.8,
+              "couple": 2.5,
+              "family": 7.9
+            },
+            "time": {
+              "start_time": "9:08",
+              "end_time": "3:54"
+            }
+          },
+          {
+            "name": "Felicia's Journey",
+            "date": "2024-01-04T19:03:11Z",
+            "price": 42.0,
+            "recommendation": {
+              "price": 1.3,
+              "nature": 4.8,
+              "nightlife": 1.6,
+              "music": 1.0,
+              "technology": 8.9,
+              "animals": 3.1,
+              "fun": 5.2,
+              "exercise": 3.2,
+              "food": 3.0,
+              "couple": 5.3,
+              "family": 4.4
+            },
+            "time": {
+              "start_time": "11:12",
+              "end_time": "4:32"
+            }
+          },
+          {
+            "name": "My Dear Enemy (Meotjin haru)",
+            "date": "2024-04-10T13:54:23Z",
+            "price": 86.3,
+            "recommendation": {
+              "price": 4.7,
+              "nature": 1.8,
+              "nightlife": 8.5,
+              "music": 8.2,
+              "technology": 1.3,
+              "animals": 1.9,
+              "fun": 2.4,
+              "exercise": 1.0,
+              "food": 1.3,
+              "couple": 9.9,
+              "family": 7.4
+            },
+            "time": {
+              "start_time": "1:40",
+              "end_time": "10:36"
+            }
+          },
+          {
+            "name": "Promises",
+            "date": "2024-08-28T06:30:50Z",
+            "price": 23.0,
+            "recommendation": {
+              "price": 9.9,
+              "nature": 3.7,
+              "nightlife": 3.3,
+              "music": 5.0,
+              "technology": 2.1,
+              "animals": 9.2,
+              "fun": 6.2,
+              "exercise": 3.9,
+              "food": 9.3,
+              "couple": 2.6,
+              "family": 1.4
+            },
+            "time": {
+              "start_time": "2:58",
+              "end_time": "9:30"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "TR",
+    "cities": [
+      {
+        "name": "Istanbul",
+        "lat": 41.01384,
+        "lon": 28.94966,
+        "features": {
+          "capital": false,
+          "airport": "IST",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "X-Men: The Last Stand",
+            "date": "2025-07-10T11:51:55Z",
+            "price": 35.4,
+            "recommendation": {
+              "price": 4.7,
+              "nature": 4.8,
+              "nightlife": 8.2,
+              "music": 7.5,
+              "technology": 9.4,
+              "animals": 1.2,
+              "fun": 6.4,
+              "exercise": 9.3,
+              "food": 2.3,
+              "couple": 3.6,
+              "family": 2.0
+            },
+            "time": {
+              "start_time": "3:39",
+              "end_time": "8:48"
+            }
+          },
+          {
+            "name": "Jerk Theory, The",
+            "date": "2024-06-14T02:35:15Z",
+            "price": 35.7,
+            "recommendation": {
+              "price": 9.9,
+              "nature": 5.1,
+              "nightlife": 7.1,
+              "music": 8.8,
+              "technology": 1.2,
+              "animals": 4.6,
+              "fun": 6.8,
+              "exercise": 3.3,
+              "food": 1.1,
+              "couple": 7.8,
+              "family": 4.4
+            },
+            "time": {
+              "start_time": "8:23",
+              "end_time": "11:54"
+            }
+          },
+          {
+            "name": "Winter Light (Nattvardsgästerna)",
+            "date": "2025-06-10T02:43:29Z",
+            "price": 61.5,
+            "recommendation": {
+              "price": 9.8,
+              "nature": 7.7,
+              "nightlife": 4.3,
+              "music": 8.4,
+              "technology": 1.6,
+              "animals": 5.9,
+              "fun": 9.3,
+              "exercise": 7.5,
+              "food": 3.5,
+              "couple": 9.1,
+              "family": 4.5
+            },
+            "time": {
+              "start_time": "7:20",
+              "end_time": "1:13"
+            }
+          },
+          {
+            "name": "I Belong (Som du ser meg)",
+            "date": "2025-01-07T09:19:44Z",
+            "price": 59.3,
+            "recommendation": {
+              "price": 5.0,
+              "nature": 5.3,
+              "nightlife": 8.7,
+              "music": 7.1,
+              "technology": 7.2,
+              "animals": 5.5,
+              "fun": 9.5,
+              "exercise": 4.1,
+              "food": 1.4,
+              "couple": 7.3,
+              "family": 3.5
+            },
+            "time": {
+              "start_time": "5:26",
+              "end_time": "0:17"
+            }
+          },
+          {
+            "name": "Perkele! Kuvia Suomesta",
+            "date": "2025-02-27T10:39:48Z",
+            "price": 82.2,
+            "recommendation": {
+              "price": 4.8,
+              "nature": 2.7,
+              "nightlife": 7.4,
+              "music": 8.7,
+              "technology": 5.8,
+              "animals": 2.8,
+              "fun": 1.5,
+              "exercise": 2.9,
+              "food": 8.6,
+              "couple": 5.8,
+              "family": 9.0
+            },
+            "time": {
+              "start_time": "8:50",
+              "end_time": "1:10"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "IT",
+    "cities": [
+      {
+        "name": "Rome",
+        "lat": 41.89193,
+        "lon": 12.51133,
+        "features": {
+          "capital": true,
+          "airport": "FCO",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Charge of the Light Brigade, The",
+            "date": "2025-08-23T01:20:20Z",
+            "price": 80.8,
+            "recommendation": {
+              "price": 4.4,
+              "nature": 9.5,
+              "nightlife": 6.5,
+              "music": 8.1,
+              "technology": 7.9,
+              "animals": 6.2,
+              "fun": 8.1,
+              "exercise": 9.2,
+              "food": 8.9,
+              "couple": 1.5,
+              "family": 6.7
+            },
+            "time": {
+              "start_time": "3:44",
+              "end_time": "6:34"
+            }
+          },
+          {
+            "name": "Funny Girl",
+            "date": "2024-02-14T10:58:47Z",
+            "price": 93.2,
+            "recommendation": {
+              "price": 3.7,
+              "nature": 1.8,
+              "nightlife": 4.7,
+              "music": 6.4,
+              "technology": 6.9,
+              "animals": 2.8,
+              "fun": 2.2,
+              "exercise": 7.4,
+              "food": 4.8,
+              "couple": 6.4,
+              "family": 8.0
+            },
+            "time": {
+              "start_time": "2:48",
+              "end_time": "4:35"
+            }
+          },
+          {
+            "name": "Jungle Book",
+            "date": "2025-04-03T10:06:26Z",
+            "price": 63.6,
+            "recommendation": {
+              "price": 4.0,
+              "nature": 5.0,
+              "nightlife": 9.5,
+              "music": 7.1,
+              "technology": 3.8,
+              "animals": 3.8,
+              "fun": 5.6,
+              "exercise": 6.0,
+              "food": 9.4,
+              "couple": 1.8,
+              "family": 5.3
+            },
+            "time": {
+              "start_time": "6:42",
+              "end_time": "10:40"
+            }
+          },
+          {
+            "name": "Fat Head",
+            "date": "2024-02-11T20:10:52Z",
+            "price": 22.9,
+            "recommendation": {
+              "price": 9.9,
+              "nature": 3.0,
+              "nightlife": 6.0,
+              "music": 9.7,
+              "technology": 3.3,
+              "animals": 7.5,
+              "fun": 9.2,
+              "exercise": 3.4,
+              "food": 8.4,
+              "couple": 7.3,
+              "family": 1.4
+            },
+            "time": {
+              "start_time": "11:26",
+              "end_time": "6:08"
+            }
+          },
+          {
+            "name": "Brass Monkey",
+            "date": "2024-10-16T11:33:08Z",
+            "price": 53.1,
+            "recommendation": {
+              "price": 1.6,
+              "nature": 7.1,
+              "nightlife": 4.1,
+              "music": 6.1,
+              "technology": 2.4,
+              "animals": 4.5,
+              "fun": 10.0,
+              "exercise": 9.7,
+              "food": 2.7,
+              "couple": 3.5,
+              "family": 6.9
+            },
+            "time": {
+              "start_time": "7:04",
+              "end_time": "8:05"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "BR",
+    "cities": [
+      {
+        "name": "Sao Paulo",
+        "lat": -23.5475,
+        "lon": -46.63611,
+        "features": {
+          "capital": false,
+          "airport": "GRU",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Winnie the Pooh and the Blustery Day",
+            "date": "2025-06-26T19:10:11Z",
+            "price": 48.3,
+            "recommendation": {
+              "price": 1.8,
+              "nature": 5.9,
+              "nightlife": 5.8,
+              "music": 1.7,
+              "technology": 4.4,
+              "animals": 2.3,
+              "fun": 6.9,
+              "exercise": 8.0,
+              "food": 7.6,
+              "couple": 2.5,
+              "family": 8.7
+            },
+            "time": {
+              "start_time": "1:55",
+              "end_time": "10:06"
+            }
+          },
+          {
+            "name": "Gamer",
+            "date": "2025-04-02T15:39:06Z",
+            "price": 32.7,
+            "recommendation": {
+              "price": 3.5,
+              "nature": 7.9,
+              "nightlife": 1.3,
+              "music": 2.9,
+              "technology": 7.0,
+              "animals": 4.5,
+              "fun": 8.7,
+              "exercise": 1.3,
+              "food": 3.2,
+              "couple": 1.8,
+              "family": 1.9
+            },
+            "time": {
+              "start_time": "4:54",
+              "end_time": "6:19"
+            }
+          },
+          {
+            "name": "Stoker",
+            "date": "2025-02-22T09:29:24Z",
+            "price": 62.5,
+            "recommendation": {
+              "price": 1.3,
+              "nature": 4.7,
+              "nightlife": 1.7,
+              "music": 8.0,
+              "technology": 7.1,
+              "animals": 6.4,
+              "fun": 3.2,
+              "exercise": 9.9,
+              "food": 4.7,
+              "couple": 2.1,
+              "family": 7.0
+            },
+            "time": {
+              "start_time": "6:37",
+              "end_time": "1:11"
+            }
+          },
+          {
+            "name": "Angels & Demons",
+            "date": "2025-07-17T22:26:58Z",
+            "price": 96.6,
+            "recommendation": {
+              "price": 3.2,
+              "nature": 4.3,
+              "nightlife": 2.4,
+              "music": 8.4,
+              "technology": 2.5,
+              "animals": 6.5,
+              "fun": 4.0,
+              "exercise": 9.9,
+              "food": 6.0,
+              "couple": 4.8,
+              "family": 6.8
+            },
+            "time": {
+              "start_time": "4:17",
+              "end_time": "7:00"
+            }
+          },
+          {
+            "name": "Strawberry Wine",
+            "date": "2024-09-28T07:09:04Z",
+            "price": 85.6,
+            "recommendation": {
+              "price": 3.6,
+              "nature": 3.2,
+              "nightlife": 8.8,
+              "music": 4.9,
+              "technology": 6.4,
+              "animals": 2.8,
+              "fun": 6.1,
+              "exercise": 5.2,
+              "food": 8.6,
+              "couple": 8.6,
+              "family": 7.1
+            },
+            "time": {
+              "start_time": "2:19",
+              "end_time": "0:41"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "ES",
+    "cities": [
+      {
+        "name": "Madrid",
+        "lat": 40.4165,
+        "lon": -3.70256,
+        "features": {
+          "capital": true,
+          "airport": "MAD",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": []
+      }
+    ]
+  },
+  {
+    "cca2": "US",
+    "cities": [
+      {
+        "name": "New York",
+        "lat": 40.71427,
+        "lon": -74.00597,
+        "features": {
+          "capital": false,
+          "airport": "JFK",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Bootmen",
+            "date": "2024-01-14T05:05:48Z",
+            "price": 78.5,
+            "recommendation": {
+              "price": 7.4,
+              "nature": 3.3,
+              "nightlife": 8.4,
+              "music": 9.1,
+              "technology": 8.3,
+              "animals": 9.3,
+              "fun": 5.0,
+              "exercise": 5.1,
+              "food": 5.2,
+              "couple": 4.3,
+              "family": 3.8
+            },
+            "time": {
+              "start_time": "9:49",
+              "end_time": "1:23"
+            }
+          },
+          {
+            "name": "Two Girls and a Guy",
+            "date": "2024-06-07T13:59:02Z",
+            "price": 28.2,
+            "recommendation": {
+              "price": 8.6,
+              "nature": 2.1,
+              "nightlife": 8.0,
+              "music": 9.4,
+              "technology": 3.9,
+              "animals": 7.3,
+              "fun": 1.7,
+              "exercise": 6.7,
+              "food": 1.2,
+              "couple": 4.6,
+              "family": 8.4
+            },
+            "time": {
+              "start_time": "6:08",
+              "end_time": "8:53"
+            }
+          },
+          {
+            "name": "Heart Like a Wheel",
+            "date": "2024-11-20T12:02:30Z",
+            "price": 84.1,
+            "recommendation": {
+              "price": 9.1,
+              "nature": 8.5,
+              "nightlife": 6.8,
+              "music": 6.4,
+              "technology": 7.2,
+              "animals": 4.7,
+              "fun": 5.4,
+              "exercise": 5.8,
+              "food": 4.1,
+              "couple": 7.2,
+              "family": 1.7
+            },
+            "time": {
+              "start_time": "7:42",
+              "end_time": "2:33"
+            }
+          },
+          {
+            "name": "Speed: In Search of Lost Time (Speed - Auf der Suche nach der verlorenen Zeit)",
+            "date": "2024-08-13T22:05:56Z",
+            "price": 65.5,
+            "recommendation": {
+              "price": 6.0,
+              "nature": 8.2,
+              "nightlife": 7.9,
+              "music": 5.2,
+              "technology": 8.9,
+              "animals": 7.6,
+              "fun": 7.4,
+              "exercise": 2.6,
+              "food": 1.9,
+              "couple": 8.3,
+              "family": 9.8
+            },
+            "time": {
+              "start_time": "5:20",
+              "end_time": "10:35"
+            }
+          },
+          {
+            "name": "Blood and Bones (Chi to hone)",
+            "date": "2024-06-04T15:30:37Z",
+            "price": 51.2,
+            "recommendation": {
+              "price": 5.5,
+              "nature": 7.0,
+              "nightlife": 9.8,
+              "music": 8.7,
+              "technology": 7.2,
+              "animals": 6.8,
+              "fun": 6.9,
+              "exercise": 9.6,
+              "food": 2.3,
+              "couple": 2.1,
+              "family": 5.9
+            },
+            "time": {
+              "start_time": "3:17",
+              "end_time": "7:36"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cca2": "FR",
+    "cities": [
+      {
+        "name": "Paris",
+        "lat": 48.85341,
+        "lon": 2.3488,
+        "features": {
+          "capital": true,
+          "airport": "CDG",
+          "is_international_airport": true,
+          "has_amusement_park": true,
+          "has_museum": true,
+          "has_nightlife": true
+        },
+        "weather": {
+          "temperature": 20,
+          "humidity": 50,
+          "wind_speed": 5,
+          "cloudiness": 0
+        },
+        "hotels": [],
+        "events": [
+          {
+            "name": "Who's the Caboose?",
+            "date": "2025-07-04T18:01:02Z",
+            "price": 99.7,
+            "recommendation": {
+              "price": 6.1,
+              "nature": 7.0,
+              "nightlife": 6.3,
+              "music": 8.1,
+              "technology": 2.1,
+              "animals": 9.1,
+              "fun": 3.1,
+              "exercise": 7.3,
+              "food": 6.5,
+              "couple": 1.0,
+              "family": 7.1
+            },
+            "time": {
+              "start_time": "4:23",
+              "end_time": "3:28"
+            }
+          },
+          {
+            "name": "Actor's Revenge, An (Yukinojô henge)",
+            "date": "2024-01-14T10:50:27Z",
+            "price": 32.0,
+            "recommendation": {
+              "price": 5.3,
+              "nature": 9.2,
+              "nightlife": 1.9,
+              "music": 1.6,
+              "technology": 8.5,
+              "animals": 4.2,
+              "fun": 9.5,
+              "exercise": 9.6,
+              "food": 2.5,
+              "couple": 5.0,
+              "family": 5.1
+            },
+            "time": {
+              "start_time": "3:08",
+              "end_time": "1:01"
+            }
+          },
+          {
+            "name": "Bloodbrothers",
+            "date": "2024-12-21T12:25:04Z",
+            "price": 54.1,
+            "recommendation": {
+              "price": 8.4,
+              "nature": 2.1,
+              "nightlife": 4.2,
+              "music": 3.9,
+              "technology": 8.0,
+              "animals": 3.2,
+              "fun": 8.1,
+              "exercise": 4.1,
+              "food": 4.5,
+              "couple": 9.0,
+              "family": 1.1
+            },
+            "time": {
+              "start_time": "9:44",
+              "end_time": "8:34"
+            }
+          },
+          {
+            "name": "Kiss of the Vampire, The",
+            "date": "2025-05-27T04:39:07Z",
+            "price": 70.0,
+            "recommendation": {
+              "price": 3.9,
+              "nature": 6.8,
+              "nightlife": 2.5,
+              "music": 6.8,
+              "technology": 7.7,
+              "animals": 6.5,
+              "fun": 5.8,
+              "exercise": 5.5,
+              "food": 3.5,
+              "couple": 1.2,
+              "family": 8.9
+            },
+            "time": {
+              "start_time": "7:15",
+              "end_time": "10:01"
+            }
+          },
+          {
+            "name": "Pride and Prejudice",
+            "date": "2024-10-05T04:04:31Z",
+            "price": 70.5,
+            "recommendation": {
+              "price": 8.0,
+              "nature": 2.1,
+              "nightlife": 7.1,
+              "music": 6.4,
+              "technology": 7.2,
+              "animals": 7.6,
+              "fun": 8.2,
+              "exercise": 1.0,
+              "food": 4.7,
+              "couple": 8.9,
+              "family": 3.5
+            },
+            "time": {
+              "start_time": "6:13",
+              "end_time": "5:58"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
