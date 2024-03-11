@@ -136,4 +136,5 @@ form{
 /* dark mode */
 .dark-mode{
   background-color: rgb(37, 37, 37);
+  color: white;
 }

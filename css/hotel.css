@@ -27,30 +27,40 @@ img{
   background-color: #ddd;
 }
 
+
+/* hotel list */
 .hotel_item {
   border: 1px solid #ddd;
 }
 
 .hotel_info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 1rem;
   flex: 1;
 }
 
-.hotel_info h3{
-  text-align: center;
+/* sort select button */
+.sort_select{
+  padding: 0.5rem;
+  border-radius: 5px;
+
 }
 
-.btn {
-  margin: auto;
-  padding: 1rem;
-  height: 40%;
-  width: 10%;
-}
-
+/* room select button */
 .room_amount {
   text-align: center;
   margin: auto 2rem;
   padding: 0.3rem;
   width: 5%;
   border-radius: 5px;
+}
+
+/* reserve button */
+.btn {
+  margin: auto;
+  padding: 1rem;
+  height: 40%;
+  width: 10%;
 }
