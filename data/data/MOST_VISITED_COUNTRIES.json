@@ -1,0 +1,127 @@
+[
+  {
+    "name": "Croatia",
+    "cca2": "HR",
+    "place": 25
+  },
+  {
+    "name": "Singapore",
+    "cca2": "SG",
+    "place": 24
+  },
+  {
+    "name": "Hungary",
+    "cca2": "HU",
+    "place": 23
+  },
+  {
+    "name": "Ukraine",
+    "cca2": "UA",
+    "place": 22
+  },
+  {
+    "name": "Japan",
+    "cca2": "JP",
+    "place": 21
+  },
+  {
+    "name": "Netherlands",
+    "cca2": "NL",
+    "place": 20
+  },
+  {
+    "name": "South Korea",
+    "cca2": "KR",
+    "place": 19
+  },
+  {
+    "name": "China",
+    "cca2": "CN",
+    "place": 18
+  },
+  {
+    "name": "Canada",
+    "cca2": "CA",
+    "place": 17
+  },
+  {
+    "name": "Poland",
+    "cca2": "PL",
+    "place": 16
+  },
+  {
+    "name": "Greece",
+    "cca2": "GR",
+    "place": 15
+  },
+  {
+    "name": "Thailand",
+    "cca2": "TH",
+    "place": 14
+  },
+  {
+    "name": "Austria",
+    "cca2": "AT",
+    "place": 13
+  },
+  {
+    "name": "Malaysia",
+    "cca2": "MY",
+    "place": 12
+  },
+  {
+    "name": "Australia",
+    "cca2": "AU",
+    "place": 11
+  },
+  {
+    "name": "Mexico",
+    "cca2": "MX",
+    "place": 10
+  },
+  {
+    "name": "Russia",
+    "cca2": "RU",
+    "place": 9
+  },
+  {
+    "name": "United Kingdom",
+    "cca2": "GB",
+    "place": 8
+  },
+  {
+    "name": "Germany",
+    "cca2": "DE",
+    "place": 7
+  },
+  {
+    "name": "Turkey",
+    "cca2": "TR",
+    "place": 6
+  },
+  {
+    "name": "Italy",
+    "cca2": "IT",
+    "place": 5
+  },
+  {
+    "name": "Brazil",
+    "cca2": "BR",
+    "place": 4
+  },
+  {
+    "name": "Spain",
+    "cca2": "ES",
+    "place": 3
+  },
+  {
+    "name": "United States",
+    "cca2": "US",
+    "place": 2
+  },
+  {
+    "name": "France",
+    "cca2": "FR",
+    "place": 1
+  }
+]
