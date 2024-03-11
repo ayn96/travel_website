@@ -28,9 +28,6 @@
                 <a class="nav-link" href="#">Register</a>
               </li>
             </ul>
-            <!-- <div class="radio-btn">
-              <div class="radio-inner"></div>
-            </div> -->
             <button type="button" class="btn btn-primary btn-sm mode_switch">Dark Mode</button>
           </div>
         </div>
@@ -217,7 +214,11 @@
     <footer>
     </footer>
   </body>
-  <script>
+  <script src="./js/darkmode.js"></script>
+  <script type="module">
+    import { Storage } from "./data/Storage.js";
+    const storage = new Storage();
+
     // search form with JS
     const Search_Display = ()=> {
       const ul = document.querySelectorAll("ul")[1];
@@ -248,6 +249,25 @@
     }     
     Search_Display();
 
+    //get inpit data user entered with JQuery
+    $(".search").click(() => {
+    const departure = $("input[name='departure']").val();
+    const arrival = $("input[name='arrival']").val();
+    const destination = $("input[name='destination']").val();
+    const checkin_date = $("input[name='checkin_date']").val();
+    const checkout_date = $("input[name='checkout_date']").val();
+    const people = $("input[name='people']").val();
+    const room = $("input[name='room']").val();
+    
+    if ($("#Flight_Hotel").is(":visible")) {
+      window.location.href = "./html/flight_hotel.html";
+    } else if ($("#Flight").is(":visible")) {
+      window.location.href = "./html/flight.html";
+    } else if ($("#Hotel").is(":visible")) {
+      window.location.href = "./html/hotel.html";
+    }
+    });
+
     // clear button with JQuery
     const clear = () => {
       $(".clear").click(()=> {
@@ -257,23 +277,6 @@
       });
     }
     clear();
-
-    // dark mode with Jquery
-    const darkMode = () => {
-      let darkModeEnabled = false;
-      $(".mode_switch").click(() => {
-          darkModeEnabled = !darkModeEnabled; //toggle
-
-          if (darkModeEnabled) {
-              $("body").addClass("dark-mode");
-              $(".mode_switch").text("Light Mode"); 
-          } else {
-              $("body").removeClass("dark-mode"); 
-              $(".mode_switch").text("Dark Mode"); 
-          }
-      });
-    };
-    darkMode();
 
   </script>
 </html>
