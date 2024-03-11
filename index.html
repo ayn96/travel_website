@@ -61,11 +61,11 @@
                   <span class="input-group-text" ><i class="fa-solid fa-location-dot"></i></span>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" name="departure" placeholder=""/>
+                  <input type="text" class="form-control" name="departure" required/>
                   <label for="departure">Where from?</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" name="arrival" placeholder=""/>
+                  <input type="text" class="form-control" name="arrival" required/>
                   <label for="arrival">Where to?</label>
                 </div>
               </div>
@@ -75,11 +75,11 @@
                   <span class="input-group-text" ><i class="fa-solid fa-calendar"></i></span>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkin_date" placeholder=""/>
+                  <input type="date" class="form-control" name="checkin_date" required/>
                   <label for="checkin_date">Check-In</label>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkout_date" placeholder=""/>
+                  <input type="date" class="form-control" name="checkout_date"required/>
                   <label for="checkout_date">Check-Out</label>
                 </div>
               </div>
@@ -103,9 +103,9 @@
                 </div>
             </form>
             <div class="button-group">
-              <button type="submit" class="btn btn-dark btn-lg search">Search</button>
+              <button type="submit" class="btn btn-primary btn-lg search">Search</button>
             </div>
-            <button type="button" class="btn btn-danger btn-sm clear">Clear All</button>
+            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
           </div>
           <!-- Flight search form -->
           <div id="Flight">
@@ -117,11 +117,11 @@
                   <span class="input-group-text" ><i class="fa-solid fa-location-dot"></i></span>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" name="departure" placeholder=""/>
+                  <input type="text" class="form-control" name="departure" required/>
                   <label for="departure">Where from?</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" name="arrival" placeholder=""/>
+                  <input type="text" class="form-control" name="arrival" required/>
                   <label for="arrival">Where to?</label>
                 </div>
               </div>
@@ -131,11 +131,11 @@
                   <span class="input-group-text" ><i class="fa-solid fa-calendar"></i></span>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkin_date" placeholder=""/>
+                  <input type="date" class="form-control" name="checkin_date" required/>
                   <label for="checkin_date">Check-In</label>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkout_date" placeholder=""/>
+                  <input type="date" class="form-control" name="checkout_date" required/>
                   <label for="checkout_date">Check-Out</label>
                 </div>
               </div>
@@ -151,9 +151,9 @@
                 </div>
             </form>
             <div class="button-group">
-              <button type="submit" class="btn btn-dark btn-lg search">Search</button>
+              <button type="submit" class="btn btn-primary btn-lg search ">Search</button>
             </div>
-            <button type="button" class="btn btn-danger btn-sm clear">Clear All</button>
+            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
           </div>
           <!-- Hotel search form -->
           <div id="Hotel">
@@ -165,7 +165,7 @@
                   <span class="input-group-text" ><i class="fa-solid fa-location-dot"></i></span>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" name="destination" placeholder=""/>
+                  <input type="text" class="form-control" name="destination" required/>
                   <label for="destination">Where?</label>
                 </div>
               </div>
@@ -175,11 +175,11 @@
                   <span class="input-group-text" ><i class="fa-solid fa-calendar"></i></span>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkin_date" placeholder=""/>
+                  <input type="date" class="form-control" name="checkin_date" required/>
                   <label for="checkin_date">Check-In</label>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkout_date" placeholder=""/>
+                  <input type="date" class="form-control" name="checkout_date" required/>
                   <label for="checkout_date">Check-Out</label>
                 </div>
               </div>
@@ -203,9 +203,9 @@
                 </div>
             </form>
             <div class="button-group">
-              <button type="submit" class="btn btn-dark btn-lg search">Search</button>
+              <button type="submit" class="btn btn-primary btn-lg search">Search</button>
             </div>
-            <button type="button" class="btn btn-danger btn-sm clear">Clear All</button>
+            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
           </div>
         </div>
       </div>
@@ -215,10 +215,8 @@
     </footer>
   </body>
   <script src="./js/darkmode.js"></script>
-  <script type="module">
-    import { Storage } from "./data/Storage.js";
-    const storage = new Storage();
-
+  <script>
+    
     // search form with JS
     const Search_Display = ()=> {
       const ul = document.querySelectorAll("ul")[1];
@@ -251,21 +249,21 @@
 
     //get inpit data user entered with JQuery
     $(".search").click(() => {
-    const departure = $("input[name='departure']").val();
-    const arrival = $("input[name='arrival']").val();
-    const destination = $("input[name='destination']").val();
-    const checkin_date = $("input[name='checkin_date']").val();
-    const checkout_date = $("input[name='checkout_date']").val();
-    const people = $("input[name='people']").val();
-    const room = $("input[name='room']").val();
-    
-    if ($("#Flight_Hotel").is(":visible")) {
-      window.location.href = "./html/flight_hotel.html";
-    } else if ($("#Flight").is(":visible")) {
-      window.location.href = "./html/flight.html";
-    } else if ($("#Hotel").is(":visible")) {
-      window.location.href = "./html/hotel.html";
-    }
+      const departure = $("input[name='departure']").val();
+      const arrival = $("input[name='arrival']").val();
+      const destination = $("input[name='destination']").val();
+      const checkin_date = $("input[name='checkin_date']").val();
+      const checkout_date = $("input[name='checkout_date']").val();
+      const people = $("input[name='people']").val();
+      const room = $("input[name='room']").val();
+      
+      if ($("#Flight_Hotel").is(":visible")) {
+        window.location.href = "./html/flight_hotel.html";
+      } else if ($("#Flight").is(":visible")) {
+        window.location.href = "./html/flight.html";
+      } else if ($("#Hotel").is(":visible")) {
+        window.location.href = "./html/hotel.html";
+      }
     });
 
     // clear button with JQuery

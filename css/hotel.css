@@ -15,7 +15,7 @@ img{
 
 
 .personalized_item,
-.hotel_item{
+.item{
   display: flex;
   margin: 2rem;
   padding: 1.5rem;
@@ -29,11 +29,11 @@ img{
 
 
 /* hotel list */
-.hotel_item {
+.item {
   border: 1px solid #ddd;
 }
 
-.hotel_info{
+.info{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,9 +43,8 @@ img{
 
 /* sort select button */
 .sort_select{
-  padding: 0.5rem;
+  padding: 0.8rem;
   border-radius: 5px;
-
 }
 
 /* room select button */
@@ -63,4 +62,77 @@ img{
   padding: 1rem;
   height: 40%;
   width: 10%;
+}
+
+/* flight css */
+.flight_details{
+  display: flex;
+  text-align: center;
+}
+
+.arrow{
+  padding: 0 1rem;
+}
+
+/* modal css */
+.modal{
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.modal_content{
+  width: 100%;
+  border-radius: 5px;
+  margin: 0 3rem;
+  background-color: white;
+  padding: 3rem;
+}
+
+.modal_header{
+  text-align: center;
+}
+
+.modal_body{
+  margin: 3rem;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal_button_group{
+  display: flex;
+  flex-flow: column;
+  justify-content: center; 
+}
+
+.modal_button{
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.modal_button .btn {
+  padding: 0.5rem ; 
+  font-size: 0.8rem; 
+  margin: 0.5rem;
+}
+
+.table{
+  width: 60vw;
+  border: 1px solid black;
+}
+
+.table th{
+  border: 1px solid black;
+  width: 20%;
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+}
+
+.table td{
+  padding: 1rem;
 }

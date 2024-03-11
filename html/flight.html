@@ -8,13 +8,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://kit.fontawesome.com/63bd007e1f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/hotel.css">
   </head>
 
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="./index.html">Travel Web</a>
+          <a class="navbar-brand" href="../index.html">Travel Web</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -27,30 +28,152 @@
                 <a class="nav-link" href="#">Register</a>
               </li>
             </ul>
-            <button type="button" class="btn btn-primary btn-sm mode_switch">Dark Mode</button>
           </div>
+          <button type="button" class="btn btn-primary btn-sm mode_switch">Dark Mode</button>
         </div>
       </nav>
     </header>
     <main>
-      
+      <div class="container">
+        <!-- personalized -->
+        <!-- <div id="personalized">
+          <h2>Personalized Travel Itinerary Recommendation</h2>
+          <div class="personalized_item">
+            <img src="../img/hotela.avif" alt="hotela">
+            <div class="search_info">
+              <div class="info_item">
+                <h6>Check-In</h6>
+                <p>09/14/2024</p>
+              </div>
+              <div class="info_item">
+                <h6>Check-Out</h6>
+                <p>09/15/2024</p>
+              </div>
+              <div class="info_item">
+                <h6>People</h6>
+                <p>2 people</p>
+              </div>
+              <div class="info_item">
+                <h6>Room</h6>
+                <p>1 room</p>
+              </div>
+             
+            </div>
+            <div class="flight_info">
+              <h3>HotelA</h3>
+            </div>
+            
+           
+          </div>
+
+        </div> -->
+        <!-- list of search results  -->
+        <h2>Flight List</h2>
+        <select class="sort_select" onchange="orderCh(this)">
+          <option value="asc" selected>Price : Low to High</option>
+          <option value="des">Price : High to Low</option>
+      </select>
+        <div id="flightList">
+        </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
-      <!-- place footer here -->
     </footer>
-    <!-- Bootstrap JavaScript Libraries
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-      crossorigin="anonymous"
-    ></script> -->
   </body>
-  <script src="../js/darkmode.js"></script>
+    <script src="../js/darkmode.js"></script>
+    <script>
+  const flights = [
+    { name: "flightA", price: 110, departure: "A airport", arrival: "D airport", dtime: "12:00", atime: "09:00"},
+    { name: "flightB", price: 190, departure: "B airport", arrival: "E airport", dtime: "12:00", atime: "09:00"},
+    { name: "flightC", price: 150, departure: "C airport", arrival: "F airport", dtime: "12:00", atime: "09:00"}
+  ];
 
+  const listDisplay = () => {
+    const listContainer = $("#flightList");
+    // listContainer.html("");
+
+    for (let i = 0; i < flights.length; i++) {
+      const flight = flights[i];
+      const hotelItem = $("<div>").addClass("item");
+
+      const hotelInfo = $("<div>").addClass("info");
+      const hotelName = $("<h3>").text(flight.name);
+      hotelInfo.append(hotelName);
+
+      const flightDetails = $("<div>").addClass("flight_details");
+      const departureDetails = $("<div>").addClass("departure_details");
+      const departureAirport = $("<h5>").text(flight.departure);
+      const departureTime = $("<h5>").text(flight.dtime);
+      departureDetails.append(departureAirport, departureTime);
+
+      const arrow = $("<h5>").addClass("arrow").text(" → ");
+      flightDetails.append(departureDetails, arrow);
+
+      const arrivalDetails = $("<div>").addClass("arrival_details");
+      const arrivalAirport = $("<h5>").text(flight.arrival);
+      const arrivalTime = $("<h5>").text(flight.atime);
+      arrivalDetails.append(arrivalAirport, arrivalTime);
+
+      flightDetails.append(arrivalDetails);
+      hotelInfo.append(flightDetails);
+
+      const hotelPrice = $("<h5>").text("$" + flight.price);
+      hotelInfo.append(hotelPrice);
+
+      hotelItem.append(hotelInfo);
+
+      const reserveButton = $("<button>")
+        .attr({
+          type: "submit",
+          class: "btn btn-outline-dark",
+          "data-toggle": "modal",
+          "data-target": "#exampleModalCenter"
+        })
+        .text("Reserve");
+
+      hotelItem.append(reserveButton);
+
+      listContainer.append(hotelItem);
+    }
+  };
+
+  listDisplay();
+
+
+    function orderCh(element){      //element=select
+        sortSelect(element.value);
+    }
+
+    function sortSelect(order="asc"){
+        switch(order){
+            case "asc":
+                flights.sort(function(a,b){return a.price - b.price}); 
+                break;
+            case "des":
+                flights.sort(function(a,b){return b.price - a.price});
+                break;
+        }
+        listDisplay();
+    }
+  </script>
 </html>
+

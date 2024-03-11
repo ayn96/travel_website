@@ -7,6 +7,7 @@
 /* header section */
 .navbar{
   height: 15vh;
+  border-bottom: 1px solid white;
 }
 
 .navbar-brand {
@@ -23,6 +24,10 @@
   color: white;
 }
 
+button.mode_switch{
+  margin: 0 2rem;
+}
+
 /* main section */
 main{
   margin-top: 10vh;
@@ -37,8 +42,15 @@ main{
 /* tab */
 .nav-tabs a{
   background-color:#ddd;
-  margin:0 2px;
+  margin-right: 1rem;
   padding:10px 20px;
+  color: black;
+}
+
+.nav-tabs i{
+  color: #007bff;
+  padding-right: 1rem;
+  font-size: 1.3rem;
 }
 
 /* tab content */
@@ -49,7 +61,7 @@ main{
 
 .tab_content h1{
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
   color: white;
   position: relative;
   z-index: 2;
@@ -73,7 +85,7 @@ main{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.65); 
 }
 
 #Flight_Hotel{
@@ -98,6 +110,9 @@ main{
 .input-group-text{
   font-size: 25px;
   height: 100%;
+  background-color: #bebebe;
+  /* color: #007bff; */
+  border-radius: 0;
 }
 
 /* form */
@@ -122,9 +137,14 @@ form{
   z-index: 2;
 }
 
-.button-group .search:hover{
-  background-color: white;
-  color: black;
+.button-group .search{
+  margin-top: 1.2rem;
+  border:1px solid white;
+}
+
+.clear{
+  color: white;
+  margin-top: 0.3rem;
 }
 
 .clear{
@@ -137,4 +157,5 @@ form{
 .dark-mode{
   background-color: rgb(37, 37, 37);
   color: white;
+  
 }

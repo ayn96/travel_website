@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../css/hotel.css">
   </head>
-
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -28,13 +27,15 @@
                 <a class="nav-link" href="#">Register</a>
               </li>
             </ul>
-            <button type="button" class="btn btn-primary btn-sm mode_switch">Dark Mode</button>
           </div>
+            <button type="button" class="btn btn-primary btn-sm mode_switch">Dark Mode</button>
         </div>
+      </div>
       </nav>
     </header>
     <main>
       <div class="container">
+        <div class="row">
         <!-- personalized -->
         <div id="personalized">
           <h2>Personalized Travel Itinerary Recommendation</h2>
@@ -69,31 +70,33 @@
         </div>
         <!-- list of search results  -->
         <h2>Hotel List</h2>
-        <select class="sort_select" onchange="orderCh(this)">
-          <option value="asc" selected>Price : Low to High</option>
-          <option value="des">Price : High to Low</option>
-      </select>
+        <div class="d-flex justify-content-end">
+          <select class="sort_select" onchange="orderCh(this)" style="margin-right: 2rem;">
+            <option value="asc" selected>Price : Low to High</option>
+            <option value="des">Price : High to Low</option>
+        </select>
+        </div>
         <div id="hotelList">
         </div>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+        <!-- modal -->
+        <div class="modal">
+          <div class="modal_content">
+            <div class="modal_header">
+              <h2>Your Travel Itinerary</h2>
+            </div>
+            <div class="modal_body">              
+            </div>
+            <div class="modal_button_group">
+              <button type="button" class="btn btn-primary modal_reserve">Reserve</button>
+              <div class="modal_button">
+                <button type="button" class="btn btn-outline-danger modal_delete">Delete</button>
+                <button type="button" class="btn btn-outline-dark modal_back">Back page</button>
               </div>
             </div>
-          </div>
+
         </div>
+        </div>
+      </div>
       </div>
     </main>
     <footer>
@@ -102,59 +105,49 @@
     <script src="../js/darkmode.js"></script>
     <script>
     const hotels = [
-      { name: "hotelA", price: 110, image: "../img/hotela.avif" },
-      { name: "hotelB", price: 190, image: "../img/hotelb.avif" },
-      { name: "hotelC", price: 150, image: "../img/hotelc.avif" }
+      { name: "hotelA", price: 110 },
+      { name: "hotelB", price: 190},
+      { name: "hotelC", price: 150}
     ];
 
-    const listDisplay = () =>{
-      const listContainer = document.getElementById("hotelList");
-      listContainer.innerHTML ="";
+    const listDisplay = () => {
+      const listContainer = $("#hotelList");
+      listContainer.html("");
 
       for (let i = 0; i < hotels.length; i++) {
         const hotel = hotels[i];
-        const hotelItem = document.createElement("div"); //<div class = "hotel_item">
-        hotelItem.classList.add("hotel_item")
+        const hotelItem = $("<div>").addClass("item");
 
-        const hotelImg = document.createElement("img");
-        hotelImg.src = hotel.image;
-        hotelImg.alt = hotel.name;
-        hotelItem.appendChild(hotelImg);
+        const hotelInfo = $("<div>").addClass("info");
+        const hotelName = $("<h3>").text(hotel.name);
+        hotelInfo.append(hotelName);
 
-        const hotelInfo = document.createElement("div");  //<div class = "hotel_info">
-        hotelInfo.classList.add("hotel_info");
-
-        const hotelName = document.createElement("h3");
-        hotelName.innerText = hotel.name;
-        hotelInfo.appendChild(hotelName);
-
-        const hotelPrice = document.createElement("h5");
-        hotelPrice.innerText = "$" + hotel.price;
-        hotelInfo.appendChild(hotelPrice);
+        const hotelPrice = $("<h5>").text("$" + hotel.price);
+        hotelInfo.append(hotelPrice);
         
-        hotelItem.appendChild(hotelInfo);
+        hotelItem.append(hotelInfo);
 
-        const roomAmount = document.createElement("select");
-        roomAmount.className = "room_amount";
+        const roomAmount = $("<select>").addClass("room_amount");
         for (let i = 1; i < 5; i++) {
-          const option = document.createElement("option");
-          option.value = i;
-          option.innerText = i;
-          roomAmount.appendChild(option);
+          const option = $("<option>").val(i).text(i);
+          roomAmount.append(option);
         }
-        hotelItem.appendChild(roomAmount);
+        hotelItem.append(roomAmount);
 
-        const reserveButton = document.createElement("button") ;
-        reserveButton.type = "submit";
-        reserveButton.className = "btn btn-outline-dark";
-        reserveButton.setAttribute("data-toggle", "modal");
-        reserveButton.setAttribute("data-target", "#exampleModalCenter");
-        reserveButton.innerText = "Reserve";
-        hotelItem.appendChild(reserveButton);
+        const reserveButton = $("<button>")
+          .attr({
+            type: "submit",
+            class: "btn btn-outline-primary reserve",
+            "data-toggle": "modal",
+            "data-target": "#exampleModalCenter"
+          })
+          .text("Reserve");
 
-        listContainer.appendChild(hotelItem)
-      } 
-    }
+        hotelItem.append(reserveButton);
+
+        listContainer.append(hotelItem);
+      }
+    };
     listDisplay();
 
     function orderCh(element){      //element=select
@@ -172,5 +165,67 @@
         }
         listDisplay();
     }
+
+    const itineraryModal = ()=>{
+      $(".modal").hide();
+
+      // reserve button
+      $(".reserve").click((e)=> {
+        const hotelItem = $(e.currentTarget).closest(".item");
+        const hotelName = hotelItem.find(".info h3").text();
+        const hotelPriceText = hotelItem.find(".info h5").text().replace('$', ''); 
+        const hotelPrice = parseFloat(hotelPriceText); 
+        const roomAmount = parseInt(hotelItem.find(".room_amount").val()); 
+        const totalPrice =  hotelPrice * roomAmount;
+        const tableContent = `
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>Date</th>
+                <td>search result</td>
+              </tr>
+              <tr>
+                <th>Hotel Name</th>
+                <td>${hotelName}</td>
+              </tr>
+              <tr>
+                <th>Room</th>
+                <td>${roomAmount}</td>
+                </tr>
+              <tr>
+                <th>Traveller</th>
+                <td>search result</td>
+              </tr>
+                <tr>
+                  <th>Price</th>
+                  <td>$${hotelPrice} × ${roomAmount} room = $${totalPrice}</td>
+                </tr>
+            </tbody>
+          </table>
+        `;
+
+        $(".modal_body").html(tableContent);
+        $(".modal").fadeIn(400);
+        $(".modal_reserve").removeClass("disabled"); 
+      });
+
+      $(".modal_reserve").click(()=>{
+        alert("Reserved!");
+      })
+
+      $(".modal_delete").click(()=>{
+        $("table").remove();
+        $(".modal_reserve").addClass("disabled");
+        const emptyMsg = $("<h6>").text("Nothing has been selected."); 
+        $(".modal_body").append(emptyMsg); 
+      });
+
+      // back button
+      $(".modal_back").click(()=>{
+        $(".modal").fadeOut(400);
+      });
+    }
+    itineraryModal(); 
+
   </script>
 </html>
