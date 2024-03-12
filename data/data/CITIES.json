@@ -44,7 +44,7 @@
             "rooms": {
               "single": 100.0,
               "double": 150.0,
-              "suite": 200.0
+              "deluxe": 200.0
             },
             "features": [
               "pool",

@@ -37,5 +37,4 @@ export class HotelFeaturesBitField extends BitField {
     return HotelFeaturesBits;
   }
 }
-
-console.log(HotelFeaturesBitField.ALL);
+console.log(HotelFeaturesBitField.FLAGS);
