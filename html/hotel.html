@@ -147,6 +147,8 @@
 
         listContainer.append(hotelItem);
       }
+
+      createReserveListners()
     };
     listDisplay();
 
@@ -166,11 +168,8 @@
         listDisplay();
     }
 
-    const itineraryModal = ()=>{
-      $(".modal").hide();
-
-      // reserve button
-      $(".reserve").click((e)=> {
+    function createReserveListners() {
+        $(".reserve").click((e)=> {
         const hotelItem = $(e.currentTarget).closest(".item");
         const hotelName = hotelItem.find(".info h3").text();
         const hotelPriceText = hotelItem.find(".info h5").text().replace('$', ''); 
@@ -208,6 +207,13 @@
         $(".modal").fadeIn(400);
         $(".modal_reserve").removeClass("disabled"); 
       });
+
+      }
+
+    const itineraryModal = ()=>{
+      $(".modal").hide();
+
+      // reserve button
 
       $(".modal_reserve").click(()=>{
         alert("Reserved!");
