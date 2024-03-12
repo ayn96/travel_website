@@ -69,10 +69,12 @@
         </div> -->
         <!-- list of search results  -->
         <h2>Flight List</h2>
-        <select class="sort_select" onchange="orderCh(this)">
-          <option value="asc" selected>Price : Low to High</option>
-          <option value="des">Price : High to Low</option>
-      </select>
+        <div class="d-flex justify-content-end">
+          <select class="sort_select" onchange="orderCh(this)" style="margin-right: 2rem;">
+            <option value="asc" selected>Price : Low to High</option>
+            <option value="des">Price : High to Low</option>
+        </select>
+        </div>
         <div id="flightList">
         </div>
       </div>
@@ -94,7 +96,7 @@
 
     for (let i = 0; i < flights.length; i++) {
       const flight = flights[i];
-      const hotelItem = $("<div>").addClass("item");
+      const hotelItem = $("<div>").addClass("list_item");
 
       const hotelInfo = $("<div>").addClass("info");
       const hotelName = $("<h3>").text(flight.name);

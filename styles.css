@@ -54,11 +54,6 @@ main{
 }
 
 /* tab content */
-.tab_content{
-  border: 1px solid #ddd;
-  height: 58vh;
-}
-
 .tab_content h1{
   text-align: center;
   padding: 1.5rem;
@@ -71,7 +66,6 @@ main{
 #Flight,
 #Hotel{
   text-align: center;
-  height: 58vh;
   background-size: cover;
   position: relative;
 }
@@ -144,7 +138,7 @@ form{
 
 .clear{
   color: white;
-  margin-top: 0.3rem;
+  margin: 0.3rem 0 2rem 0;
 }
 
 .clear{
