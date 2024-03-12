@@ -15,7 +15,7 @@ img{
 
 
 .personalized_item,
-.item{
+.list_item{
   display: flex;
   margin: 2rem;
   padding: 1.5rem;
@@ -29,8 +29,12 @@ img{
 
 
 /* hotel list */
-.item {
-  border: 1px solid #ddd;
+.list_item {
+  background-color: #ddd;
+}
+
+.dark-mode .list_item{
+  color: black;
 }
 
 .info{
@@ -57,7 +61,8 @@ img{
 }
 
 /* reserve button */
-.btn {
+.reserve,
+.modal_reserve{
   margin: auto;
   padding: 1rem;
   height: 40%;

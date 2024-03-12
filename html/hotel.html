@@ -3,20 +3,10 @@
   <head>
     <title>Hotel</title>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://kit.fontawesome.com/63bd007e1f.js"
-      crossorigin="anonymous"
-    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/63bd007e1f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../css/hotel.css" />
   </head>
@@ -46,7 +36,7 @@
               </li>
             </ul>
           </div>
-            <button type="button" class="btn btn-primary btn-sm mode_switch">Dark Mode</button>
+            <button type="button" class="btn btn-warning btn-sm mode_switch">Dark Mode</button>
         </div>
       </div>
       </nav>
@@ -55,7 +45,7 @@
       <div class="container">
         <div class="row">
         <!-- personalized -->
-        <div id="personalized">
+        <!-- <div id="personalized">
           <h2>Personalized Travel Itinerary Recommendation</h2>
           <div class="personalized_item">
             <img src="../img/hotela.avif" alt="hotela" />
@@ -81,7 +71,7 @@
               <h3>HotelA</h3>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- list of search results  -->
         <h2>Hotel List</h2>
         <div class="d-flex justify-content-end">
@@ -116,60 +106,44 @@
     <footer>
     </footer>
   </body>
+  <script src="../js/darkmode.js"></script>
   <script type="module">
-    import { storageInstance } from "../data/storage.js";
+    import { storageInstance } from "../data/Storage.js";
     const hotels = storageInstance.getHotels();
-    console.log(hotels);
 
     const listDisplay = () => {
-      const listContainer = document.getElementById("hotelList");
-      listContainer.innerHTML = "";
-
-      const title = document.createElement("h2");
-      title.innerText = "Hotel List";
-      listContainer.appendChild(title);
-
+      const listContainer = $("#hotelList");
+      listContainer.html("");
       for (let i = 0; i < hotels.length; i++) {
         const hotel = hotels[i];
-        const hotelItem = document.createElement("div"); //<div class = "hotel_item">
-        hotelItem.classList.add("hotel_item");
-
-        const hotelImg = document.createElement("img");
-        hotelImg.src = hotel.image;
-        hotelImg.alt = hotel.name;
-        hotelItem.appendChild(hotelImg);
-
-        const hotelInfo = document.createElement("div"); //<div class = "hotel_info">
-        hotelInfo.classList.add("hotel_info");
-
-        const hotelName = document.createElement("h3");
-        hotelName.innerText = hotel.name;
-        hotelInfo.appendChild(hotelName);
-
-        const hotelPrice = document.createElement("p");
-        hotelPrice.innerText = "Price : " + hotel.price;
-        hotelInfo.appendChild(hotelPrice);
-
-        hotelItem.appendChild(hotelInfo);
-
+        const hotelItem = $("<div>").addClass("list_item");
+        const hotelInfo = $("<div>").addClass("info");
+        const hotelName = $("<h3>").text(hotel.name);
+        hotelInfo.append(hotelName);
+        const hotelPrice = $("<h5>").text("$" + hotel.price);
+        hotelInfo.append(hotelPrice);
+        
+        hotelItem.append(hotelInfo);
         const roomAmount = $("<select>").addClass("room_amount");
         for (let i = 1; i < 5; i++) {
           const option = $("<option>").val(i).text(i);
           roomAmount.append(option);
         }
         hotelItem.append(roomAmount);
+        const reserveButton = $("<button>")
+          .attr({
+            type: "submit",
+            class: "btn btn-outline-primary reserve",
+            "data-toggle": "modal",
+            "data-target": "#exampleModalCenter"
+          })
+          .text("Reserve");
+        hotelItem.append(reserveButton);
 
-        const reserveButton = document.createElement("button");
-        reserveButton.type = "submit";
-        reserveButton.className = "btn btn-outline-dark";
-        reserveButton.innerText = "Reserve";
-        hotelItem.appendChild(reserveButton);
-
-        listContainer.appendChild(hotelItem);
-        console.log(hotelItem);
+        listContainer.append(hotelItem);
       }
 
-      createReserveListners()
+      createReserveListners();
     };
     listDisplay();
 
@@ -188,10 +162,11 @@
         }
         listDisplay();
     }
-
+  
+      // reserve button
     function createReserveListners() {
-        $(".reserve").click((e)=> {
-        const hotelItem = $(e.currentTarget).closest(".item");
+      $(".reserve").click((e)=> {
+        const hotelItem = $(e.currentTarget).closest(".list_item");
         const hotelName = hotelItem.find(".info h3").text();
         const hotelPriceText = hotelItem.find(".info h5").text().replace('$', ''); 
         const hotelPrice = parseFloat(hotelPriceText); 
@@ -223,30 +198,24 @@
             </tbody>
           </table>
         `;
-
         $(".modal_body").html(tableContent);
         $(".modal").fadeIn(400);
         $(".modal_reserve").removeClass("disabled"); 
-      });
-
-      }
+  });
+    }
 
     const itineraryModal = ()=>{
       $(".modal").hide();
-
       // reserve button
-
       $(".modal_reserve").click(()=>{
         alert("Reserved!");
       })
-
       $(".modal_delete").click(()=>{
         $("table").remove();
         $(".modal_reserve").addClass("disabled");
         const emptyMsg = $("<h6>").text("Nothing has been selected."); 
         $(".modal_body").append(emptyMsg); 
       });
-
       // back button
       $(".modal_back").click(()=>{
         $(".modal").fadeOut(400);
@@ -254,6 +223,6 @@
     }
     itineraryModal(); 
 
-    const itineraryDisplay = () => {};
+    // const itineraryDisplay = () => {};
   </script>
 </html>
