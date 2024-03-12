@@ -1,6 +1,7 @@
 import { Event } from "./Event.js";
 import { Hotel } from "./Hotel.js";
 import FuzzySearch from "../packages/fuzzy_search/index.js";
+import { RecommendationEngine } from "./RecommendationEngine.js";
 
 export class City {
   constructor({ name, hotels, events }) {
@@ -30,6 +31,11 @@ export class City {
 
     this.eventFuzzySearch = new FuzzySearch(this.events, ["name"], {
       sort: true,
+    });
+
+    this.recommendationEngine = new RecommendationEngine({
+      hotels: this.hotels,
+      events: this.events,
     });
   }
 

@@ -5,7 +5,7 @@ import { City } from "./structures/City.js";
 import { Country } from "./structures/Country.js";
 import FuzzySearch from "./packages/fuzzy_search/index.js";
 
-export class Storage {
+class Storage {
   constructor() {
     this.mostVisitedCountries = this.buildMostVisitedCountries();
 
@@ -13,7 +13,7 @@ export class Storage {
     this.countries = this.buildCountries();
 
     this.countryFuzzySearch = new FuzzySearch(
-      this.countries,
+      Array.from(this.countries.values()),
       ["name", "code", "region"],
       {
         sort: true,
@@ -65,10 +65,11 @@ export class Storage {
   }
 
   /**
-   * @returns {import('./structures/Country.js').Country[]}
+   * @returns {Map<string, import('./structures/Country.js').Country>}
    */
   buildCountries() {
-    return COUNTRIES.map((country) => {
+    const map = new Map();
+    for (const country of COUNTRIES) {
       const isMostVisited = this.mostVisitedCountries.get(country.cca2);
       const cities = this.cities.get(country.cca2) ?? [];
       const countryClass = Country.fromJSON(
@@ -81,8 +82,10 @@ export class Storage {
         isMostVisited.country = countryClass;
       }
 
-      return countryClass;
-    });
+      map.set(country.cca2, countryClass);
+    }
+
+    return map;
   }
 
   /**
@@ -100,6 +103,40 @@ export class Storage {
   searchCity(query) {
     return this.cityFuzzySearch.search(query);
   }
+
+  /**
+   * @param {string} countryCode
+   * @returns {import('./structures/Country.js').Country | null}
+   */
+  getCountry(countryCode) {
+    return this.countries.get(countryCode) ?? null;
+  }
+
+  /**
+   * @param {string} countryCode
+   * @returns {import('./structures/City.js').City[] | null}
+   */
+  getCitiesByCountry(countryCode) {
+    return this.cities.get(countryCode) ?? null;
+  }
+
+  /**
+   * @returns {import('./structures/Country.js').Country[]}
+   */
+  getMostVisitedCountries() {
+    return Array.from(this.countries.values()).filter(
+      (country) => country?.isMostVisited
+    );
+  }
+
+  /**
+   * @returns {import('./structures/Hotel.js').Hotel[]}
+   */
+  getHotels() {
+    return Array.from(this.cities.values())
+      .flat()
+      .flatMap((city) => city.hotels);
+  }
 }
 
-new Storage();
+export const storageInstance = new Storage();
