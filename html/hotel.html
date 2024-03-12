@@ -75,9 +75,13 @@
         <!-- list of search results  -->
         <h2>Hotel List</h2>
         <div class="d-flex justify-content-end">
-          <select class="sort_select" onchange="orderCh(this)" style="margin-right: 2rem;">
-            <option value="asc" selected>Price : Low to High</option>
-            <option value="des">Price : High to Low</option>
+          <select class="sort_select" style="margin-right: 2rem;">
+            <option value="price_asc" selected>Price: Low to High</option>
+            <option value="price_des">Price: High to Low</option>
+            <option value="name_asc">Name: A to Z</option>
+            <option value="name_des">Name: Z to A</option>
+            <option value="ratingScore_asc">Rating: Low to High</option>
+            <option value="ratingScore_des">Rating: High to Low</option>
         </select>
         </div>
         <div id="hotelList">
@@ -105,11 +109,12 @@
     </main>
     <footer>
     </footer>
+    
   </body>
   <script src="../js/darkmode.js"></script>
   <script type="module">
-    import { storageInstance } from "../data/Storage.js";
-    const hotels = storageInstance.getHotels();
+    import { storageInstance } from "../data/storage.js";
+    let hotels = [];
 
     const listDisplay = () => {
       const listContainer = $("#hotelList");
@@ -145,24 +150,23 @@
 
       createReserveListners();
     };
+    sortSelect()
     listDisplay();
 
-    function orderCh(element){      //element=select
-        sortSelect(element.value);
+    function orderCh(){      //element=select
+      $(".sort_select").change((e)=>{
+        const element = e.currentTarget;
+        const [key,order] = element.value.split("_");
+        sortSelect(key, order);
+      });
     }
+    orderCh();
 
-    function sortSelect(order="asc"){
-        switch(order){
-            case "asc":
-                hotels.sort(function(a,b){return a.price - b.price}); 
-                break;
-            case "des":
-                hotels.sort(function(a,b){return b.price - a.price});
-                break;
-        }
+    function sortSelect(key = 'price', order="asc"){
+        hotels = storageInstance.getHotels(key, order);
         listDisplay();
     }
-  
+
       // reserve button
     function createReserveListners() {
       $(".reserve").click((e)=> {

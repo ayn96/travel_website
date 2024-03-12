@@ -4,6 +4,7 @@ import MOST_VISITED_COUNTRIES from "./data/MOST_VISITED_COUNTRIES.json" assert {
 import { City } from "./structures/City.js";
 import { Country } from "./structures/Country.js";
 import FuzzySearch from "./packages/fuzzy_search/index.js";
+import { sortByProperty } from "./utils/sort.js";
 
 class Storage {
   constructor() {
@@ -80,9 +81,19 @@ class Storage {
 
       if (isMostVisited) {
         isMostVisited.country = countryClass;
+        this.mostVisitedCountries.set(country.cca2, {
+          ...isMostVisited,
+          country: countryClass,
+        });
       }
 
       map.set(country.cca2, countryClass);
+    }
+
+    for (const [code, country] of this.mostVisitedCountries) {
+      if (country.country) {
+        map.set(code, country.country);
+      }
     }
 
     return map;
@@ -130,13 +141,41 @@ class Storage {
   }
 
   /**
+   *
+   * @param {'name'} sortBy
+   * @param {'asc' | 'desc'} order
+   * @returns
+   */
+  getCountries(sortBy = "name", order = "asc") {
+    return Array.from(this.countries.values()).sort(
+      sortByProperty(sortBy, order)
+    );
+  }
+
+  /**
+   * @param {'name' | 'price' | 'reviewScore'} sortBy
+   * @param {'asc' | 'desc'} order
    * @returns {import('./structures/Hotel.js').Hotel[]}
    */
-  getHotels() {
+  getHotels(sortBy = "name", order = "asc") {
     return Array.from(this.cities.values())
       .flat()
-      .flatMap((city) => city.hotels);
+      .flatMap((city) => city.hotels)
+      .sort(sortByProperty(sortBy, order));
+  }
+
+  /**
+   * @param {'name' | 'price' | 'date'} sortBy
+   * @param {'asc' | 'desc'} order
+   * @returns {import('./structures/Event.js').Event[]}
+   */
+  getEvents(sortBy = "name", order = "asc") {
+    return Array.from(this.cities.values())
+      .flat()
+      .flatMap((city) => city.events)
+      .sort(sortByProperty(sortBy, order));
   }
 }
 
 export const storageInstance = new Storage();
+Reflect.set(window, "dataStorageInstance", storageInstance);

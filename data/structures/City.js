@@ -2,13 +2,14 @@ import { Event } from "./Event.js";
 import { Hotel } from "./Hotel.js";
 import FuzzySearch from "../packages/fuzzy_search/index.js";
 import { RecommendationEngine } from "./RecommendationEngine.js";
+import { sanitize } from "../utils/sanitizer.js";
 
 export class City {
   constructor({ name, hotels, events }) {
     /**
      * @type {string}
      */
-    this.name = name;
+    this.name = sanitize(name);
     /**
      * @type {import('./Country.js').Country | null}
      */
