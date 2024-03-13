@@ -8,18 +8,6 @@ import { sortByProperty } from "./utils/sort.js";
 import { Flight } from "./structures/Flights.js";
 import { createItineraryFactory } from "./utils/itinerary/index.js";
 
-const GENERATED_FLIGHTS = await Promise.all(
-  Array.from({ length: 50 }).map((_, idx) => {
-    return import(`./data/flights/GENERATED_FLIGHTS_${idx}.json`, {
-      assert: { type: "json" },
-    });
-  })
-).then((flights) => {
-  return flights.flatMap((flight) => flight.default);
-});
-
-console.log(GENERATED_FLIGHTS);
-
 class Storage {
   constructor() {
     const start = performance.now();
@@ -260,10 +248,12 @@ class Storage {
         .push(flightInstance);
     }
 
-    return {
+    this.flights = {
       fromDeparture,
       fromArrival,
     };
+
+    resolve(this.flights);
   }
 
   /**
