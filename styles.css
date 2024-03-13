@@ -1,11 +1,12 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition: all 0.1s ease;
 }
 
 /* header section */
-.navbar{
+.navbar {
   height: 15vh;
   border-bottom: 1px solid white;
 }
@@ -20,41 +21,41 @@
   justify-content: flex-end;
 }
 
-.form-check-label{
+.form-check-label {
   color: white;
 }
 
-button.mode_switch{
+button.mode_switch {
   margin: 0 2rem;
 }
 
 /* main section */
-main{
+main {
   margin-top: 10vh;
   padding: 5rem 0;
 }
 
-.username{
+.username {
   text-align: center;
   padding-bottom: 3rem;
 }
 
 /* tab */
-.nav-tabs a{
-  background-color:#ddd;
+.nav-tabs a {
+  background-color: #ddd;
   margin-right: 1rem;
-  padding:10px 20px;
+  padding: 10px 20px;
   color: black;
 }
 
-.nav-tabs i{
+.nav-tabs i {
   color: #007bff;
   padding-right: 1rem;
   font-size: 1.3rem;
 }
 
 /* tab content */
-.tab_content h1{
+.tab_content h1 {
   text-align: center;
   padding: 1.5rem;
   color: white;
@@ -64,7 +65,7 @@ main{
 
 #Flight_Hotel,
 #Flight,
-#Hotel{
+#Hotel {
   text-align: center;
   background-size: cover;
   position: relative;
@@ -73,35 +74,32 @@ main{
 #Flight_Hotel::before,
 #Flight::before,
 #Hotel::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.65); 
+  background-color: rgba(0, 0, 0, 0.65);
 }
 
-#Flight_Hotel{
-  background-image: url(./img/flighthotel_top.jpg);  
-  background-position:center;  
-
+#Flight_Hotel {
+  background-image: url(./img/flighthotel_top.jpg);
+  background-position: center;
 }
 
-#Flight{
+#Flight {
   background-image: url(./img/flight_top.jpg);
-  background-position:center bottom;  
+  background-position: center bottom;
 }
 
-#Hotel{
+#Hotel {
   background-image: url(./img/hotel_top.jpg);
-  background-position:center;  
-
+  background-position: center;
 }
-
 
 /* icons */
-.input-group-text{
+.input-group-text {
   font-size: 25px;
   height: 100%;
   background-color: #bebebe;
@@ -110,45 +108,44 @@ main{
 }
 
 /* form */
-form{
+form {
   width: 100%;
-  max-width: 50%; 
-  margin: 0 auto; 
+  max-width: 50%;
+  margin: 0 auto;
 }
 
-.input-group{
+.input-group {
   margin: 2rem 0;
 }
 
-.form-floating{
+.form-floating {
   margin-bottom: 0;
 }
 
 /* button */
-.button-group{
+.button-group {
   margin: 2rem 0 1rem 0;
   position: relative;
   z-index: 2;
 }
 
-.button-group .search{
+.button-group .search {
   margin-top: 1.2rem;
-  border:1px solid white;
+  border: 1px solid white;
 }
 
-.clear{
+.clear {
   color: white;
   margin: 0.3rem 0 2rem 0;
 }
 
-.clear{
+.clear {
   position: relative;
   z-index: 2;
 }
 
-
 /* dark mode */
-.dark-mode{
+.dark-mode {
   background-color: rgb(37, 37, 37);
   color: white;
 }

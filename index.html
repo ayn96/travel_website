@@ -23,7 +23,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+      integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./css/login_common.css" />
   </head>
 
   <body>
@@ -44,12 +51,26 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto gap-2">
               <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginForm"
+                >
+                  Log-In
+                </button>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#regForm"
+                >
+                  Register
+                </button>
               </li>
             </ul>
             <button type="button" class="btn btn-warning btn-sm mode_switch">
@@ -66,13 +87,20 @@
         <!-- tab -->
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#Flight_Hotel"><i class="fa-solid fa-person-walking-luggage"></i> Flight + Hotel</a>
+            <a class="nav-link" aria-current="page" href="#Flight_Hotel"
+              ><i class="fa-solid fa-person-walking-luggage"></i> Flight +
+              Hotel</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#Flight"><i class="fa-solid fa-plane"></i> Flight</a>
+            <a class="nav-link" href="#Flight"
+              ><i class="fa-solid fa-plane"></i> Flight</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#Hotel"><i class="fa-solid fa-bed"></i> Hotel</a>
+            <a class="nav-link" href="#Hotel"
+              ><i class="fa-solid fa-bed"></i> Hotel</a
+            >
           </li>
         </ul>
         <!-- tab content -->
@@ -84,7 +112,9 @@
               <!-- where -->
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-location-dot"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
                   <input
@@ -108,38 +138,70 @@
               <!-- date -->
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-calendar"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkin_date" required/>
+                  <input
+                    type="date"
+                    class="form-control"
+                    name="checkin_date"
+                    required
+                  />
                   <label for="checkin_date">Check-In</label>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkout_date" required/>
+                  <input
+                    type="date"
+                    class="form-control"
+                    name="checkout_date"
+                    required
+                  />
                   <label for="checkout_date">Check-Out</label>
                 </div>
               </div>
               <!-- people -->
               <div class="input-group num">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-user"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="number" class="form-control" name="people" value="2" min="1" max="10"/>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="people"
+                    value="2"
+                    min="1"
+                    max="10"
+                  />
                   <label for="people">Travellers</label>
                 </div>
                 <!-- room -->
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-bed"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-bed"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="number" class="form-control" name="room" value="1" min="1" max="5"/>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="room"
+                    value="1"
+                    min="1"
+                    max="5"
+                  />
                   <label for="room">Rooms</label>
                 </div>
               </div>
             </form>
             <div class="button-group">
-              <button type="submit" class="btn btn-primary btn-lg search">Search</button>
+              <button type="submit" class="btn btn-primary btn-lg search">
+                Search
+              </button>
             </div>
             <button type="button" class="btn btn-outline-danger btn-sm clear">
               Clear All
@@ -152,46 +214,83 @@
               <!-- where -->
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-location-dot"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" name="departure" required/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="departure"
+                    required
+                  />
                   <label for="departure">Where from?</label>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" name="arrival" required/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="arrival"
+                    required
+                  />
                   <label for="arrival">Where to?</label>
                 </div>
               </div>
               <!-- date -->
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-calendar"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkin_date" required/>
+                  <input
+                    type="date"
+                    class="form-control"
+                    name="checkin_date"
+                    required
+                  />
                   <label for="checkin_date">Check-In</label>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkout_date" required/>
+                  <input
+                    type="date"
+                    class="form-control"
+                    name="checkout_date"
+                    required
+                  />
                   <label for="checkout_date">Check-Out</label>
                 </div>
               </div>
               <!-- people -->
               <div class="input-group num">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-user"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="number" class="form-control" name="people" value="2" min="1" max="10"/>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="people"
+                    value="2"
+                    min="1"
+                    max="10"
+                  />
                   <label for="people">Travellers</label>
                 </div>
               </div>
             </form>
             <div class="button-group">
-              <button type="submit" class="btn btn-primary btn-lg search">Search</button>
+              <button type="submit" class="btn btn-primary btn-lg search">
+                Search
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
+            <button type="button" class="btn btn-outline-danger btn-sm clear">
+              Clear All
+            </button>
           </div>
           <!-- Hotel search form -->
           <div id="Hotel">
@@ -200,58 +299,104 @@
               <!-- where -->
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-location-dot"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="text" class="form-control" name="destination" required/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="destination"
+                    required
+                  />
                   <label for="destination">Where?</label>
                 </div>
               </div>
               <!-- date -->
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-calendar"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkin_date" required/>
+                  <input
+                    type="date"
+                    class="form-control"
+                    name="checkin_date"
+                    required
+                  />
                   <label for="checkin_date">Check-In</label>
                 </div>
                 <div class="form-floating">
-                  <input type="date" class="form-control" name="checkout_date" required/>
+                  <input
+                    type="date"
+                    class="form-control"
+                    name="checkout_date"
+                    required
+                  />
                   <label for="checkout_date">Check-Out</label>
                 </div>
               </div>
               <!-- people -->
               <div class="input-group num">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-user"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="number" class="form-control" name="people" value="2" min="1" max="10"/>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="people"
+                    value="2"
+                    min="1"
+                    max="10"
+                  />
                   <label for="people">Travellers</label>
                 </div>
                 <!-- room -->
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa-solid fa-bed"></i></span>
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-bed"></i
+                  ></span>
                 </div>
                 <div class="form-floating">
-                  <input type="number" class="form-control" name="room" value="1" min="1" max="5"/>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="room"
+                    value="1"
+                    min="1"
+                    max="5"
+                  />
                   <label for="room">Rooms</label>
                 </div>
               </div>
             </form>
             <div class="button-group">
-              <button type="submit" class="btn btn-primary btn-lg search">Search</button>
+              <button type="submit" class="btn btn-primary btn-lg search">
+                Search
+              </button>
             </div>
-            <button type="button" class="btn btn-outline-danger btn-sm clear">Clear All</button>
+            <button type="button" class="btn btn-outline-danger btn-sm clear">
+              Clear All
+            </button>
           </div>
         </div>
       </div>
     </main>
 
     <footer></footer>
+
+    <!-- modal -->
+    <div id="injectModals"></div>
+    <script type="module" src="./js/login_register.js"></script>
   </body>
   <script src="./js/darkmode.js"></script>
+
   <script>
     // search form with JS
     const Search_Display = () => {

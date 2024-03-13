@@ -1,0 +1,18 @@
+.forms-log-reg {
+  display: flex;
+  flex-direction: column;
+  max-width: 80% !important;
+}
+
+.form-reg-ranges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.modal-header {
+  flex-direction: column;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  gap: 12px;
+}
