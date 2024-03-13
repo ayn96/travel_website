@@ -1,13 +1,24 @@
 import CITIES from "./data/CITIES.json" assert { type: "json" };
 import COUNTRIES from "./data/COUNTRIES.json" assert { type: "json" };
 import MOST_VISITED_COUNTRIES from "./data/MOST_VISITED_COUNTRIES.json" assert { type: "json" };
-import GENERATED_FLIGHTS from "./data/flights/GENERATED_FLIGHTS.json" assert { type: "json" };
 import { City } from "./structures/City.js";
 import { Country } from "./structures/Country.js";
 import FuzzySearch from "./packages/fuzzy_search/index.js";
 import { sortByProperty } from "./utils/sort.js";
 import { Flight } from "./structures/Flights.js";
 import { createItineraryFactory } from "./utils/itinerary/index.js";
+
+const GENERATED_FLIGHTS = await Promise.all(
+  Array.from({ length: 50 }).map((_, idx) => {
+    return import(`./data/flights/GENERATED_FLIGHTS_${idx}.json`, {
+      assert: { type: "json" },
+    });
+  })
+).then((flights) => {
+  return flights.flatMap((flight) => flight.default);
+});
+
+console.log(GENERATED_FLIGHTS);
 
 class Storage {
   constructor() {
