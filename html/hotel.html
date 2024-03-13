@@ -70,8 +70,8 @@
                 </button>
               </li>
             </ul>
-          </div>
             <button type="button" class="btn btn-warning btn-sm mode_switch">Dark Mode</button>
+          </div>
         </div>
       </div>
       </nav>
@@ -79,73 +79,71 @@
     <main>
       <div class="container">
         <div class="row">
-        <!-- personalized -->
-        <!-- <div id="personalized">
-          <h2>Personalized Travel Itinerary Recommendation</h2>
-          <div class="personalized_item">
-            <img src="../img/hotela.avif" alt="hotela" />
-            <div class="search_info">
-              <div class="info_item">
-                <h6>Check-In</h6>
-                <p>09/14/2024</p>
-              </div>
-              <div class="info_item">
-                <h6>Check-Out</h6>
-                <p>09/15/2024</p>
-              </div>
-              <div class="info_item">
-                <h6>People</h6>
-                <p>2 people</p>
-              </div>
-              <div class="info_item">
-                <h6>Room</h6>
-                <p>1 room</p>
-              </div>
-            </div>
-            <div class="hotel_info">
-              <h3>HotelA</h3>
-            </div>
-          </div>
-        </div> -->
-        <!-- list of search results  -->
-        <h2>Hotel List</h2>
-        <div class="d-flex justify-content-end">
-          <select class="sort_select" style="margin-right: 2rem;">
-            <option value="price_asc" selected>Price: Low to High</option>
-            <option value="price_des">Price: High to Low</option>
-            <option value="name_asc">Name: A to Z</option>
-            <option value="name_des">Name: Z to A</option>
-            <option value="ratingScore_asc">Rating: Low to High</option>
-            <option value="ratingScore_des">Rating: High to Low</option>
-        </select>
+           <!-- personalized -->
+           <!-- <div id="personalized">
+             <h2>Personalized Travel Itinerary Recommendation</h2>
+             <div class="personalized_item">
+               <img src="../img/hotela.avif" alt="hotela" />
+               <div class="search_info">
+                 <div class="info_item">
+                   <h6>Check-In</h6>
+                   <p>09/14/2024</p>
+                 </div>
+                 <div class="info_item">
+                   <h6>Check-Out</h6>
+                   <p>09/15/2024</p>
+                 </div>
+                 <div class="info_item">
+                   <h6>People</h6>
+                   <p>2 people</p>
+                 </div>
+                 <div class="info_item">
+                   <h6>Room</h6>
+                   <p>1 room</p>
+                 </div>
+               </div>
+               <div class="hotel_info">
+                 <h3>HotelA</h3>
+               </div>
+             </div>
+           </div> -->
+           <!-- list of search results  -->
+           <h2>Hotel List</h2>
+           <div class="d-flex justify-content-end">
+             <select class="sort_select" style="margin-right: 2rem;">
+               <option value="price_asc" selected>Price: Low to High</option>
+               <option value="price_des">Price: High to Low</option>
+               <option value="name_asc">Name: A to Z</option>
+               <option value="name_des">Name: Z to A</option>
+               <option value="ratingScore_asc">Rating: Low to High</option>
+               <option value="ratingScore_des">Rating: High to Low</option>
+           </select>
+           </div>
+             <div id="hotelList"></div>
+           <!-- modal -->
+           <div class="modal" id="reserveModal">
+             <div class="modal_content">
+               <div class="modal_header">
+                 <h2>Your Travel Itinerary</h2>
+               </div>
+               <div class="modal_body">              
+               </div>
+               <div class="modal_button_group">
+                 <button type="button" class="btn btn-primary modal_reserve">Reserve</button>
+                 <div class="modal_button">
+                   <button type="button" class="btn btn-outline-danger modal_delete">Delete</button>
+                   <button type="button" class="btn btn-outline-dark modal_back">Back page</button>
+                 </div>
+               </div>
+           </div>
+           </div>
         </div>
-        <div id="hotelList">
-        </div>
-        <!-- modal -->
-        <div class="modal" id="reserveModal">
-          <div class="modal_content">
-            <div class="modal_header">
-              <h2>Your Travel Itinerary</h2>
-            </div>
-            <div class="modal_body">              
-            </div>
-            <div class="modal_button_group">
-              <button type="button" class="btn btn-primary modal_reserve">Reserve</button>
-              <div class="modal_button">
-                <button type="button" class="btn btn-outline-danger modal_delete">Delete</button>
-                <button type="button" class="btn btn-outline-dark modal_back">Back page</button>
-              </div>
-            </div>
-        </div>
-        </div>
-      </div>
       </div>
     </main>
-    <footer>
-    </footer>
+  
 
     <!-- modals -->
-    <div id="injectModals"></div>
+  <div id="injectModals"></div>
   </body>
   <script type="module" src="../js/login_register.js"></script>
   <script src="../js/darkmode.js"></script>
@@ -212,7 +210,7 @@
 
       createReserveListners();
     };
-    sortSelect()
+    sortSelect();
     listDisplay();
 
     function orderCh(){      //element=select
@@ -257,9 +255,9 @@
           </table>
         `;
         $(".modal_body").html(tableContent);
-        $("#reserveModal").fadeIn(0);
+        $("#reserveModal").fadeIn(100);
         $(".modal_reserve").removeClass("disabled"); 
-  });
+      });
     }
 
     const itineraryModal = ()=>{

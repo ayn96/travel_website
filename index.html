@@ -83,7 +83,7 @@
     <!-- main section -->
     <main>
       <div class="container">
-        <h3 class="username">Hello Guest!</h3>
+        <h3 class="username"></h3>
         <!-- tab -->
         <ul class="nav nav-tabs">
           <li class="nav-item">
@@ -389,30 +389,54 @@
       </div>
     </main>
 
-    <footer></footer>
+    <!-- animation -->
+    <div class="loading-overlay" style="display: none;">
+      <div class="loading">
+        <div class="loading_items">
+          <h2>Searching...</h2>
+          <i class="fa-solid fa-circle-notch fa-4x fa-spin" style="color: #51a0db;"></i>
+        </div>
+      </div>  
+    </div>
 
     <!-- modal -->
     <div id="injectModals"></div>
-    <script type="module" src="./js/login_register.js"></script>
+
   </body>
+  <script type="module" src="./js/login_register.js"></script>
   <script src="./js/darkmode.js"></script>
 
   <script>
+    const userInfo = () =>{
+      const loginUser = localStorage.getItem("user");
+      console.log(loginUser);
+      if (loginUser !== null) {
+        const userObject = JSON.parse(loginUser); // JSON → JavaScript object
+        const fname = userObject.firstName;
+        const lname = userObject.lastName;
+        $(".username").text(`Hello ${fname} ${lname} !`);
+      }else{
+        $(".username").text(`Hello Guest !`);
+      }
+    }
+    userInfo();
+
     // search form with JS
     const Search_Display = () => {
       const ul = document.querySelectorAll("ul")[1];
       const tabs = ul.querySelectorAll("a");
       const contents = document.querySelectorAll(".tab_content div[id]");
 
+      // Default = Flight + Hotel 
       for (const content of contents) {
         if (content.id == "Flight_Hotel") {
-          //Flight + Hotel
           content.style.display = "block";
         } else {
           content.style.display = "none";
         }
       }
 
+      // Display contents
       for (const tab of tabs) {
         const href_id = tab.getAttribute("href").slice(1);
         tab.addEventListener("click", function (e) {
@@ -429,7 +453,8 @@
     };
     Search_Display();
 
-    //get inpit data user entered with JQuery
+   
+    //get input data user entered with JQuery
     $(".search").click(() => {
       const departure = $("input[name='departure']").val();
       const arrival = $("input[name='arrival']").val();
@@ -439,13 +464,18 @@
       const people = $("input[name='people']").val();
       const room = $("input[name='room']").val();
 
-      if ($("#Flight_Hotel").is(":visible")) {
-        window.location.href = "./html/flight_hotel.html";
-      } else if ($("#Flight").is(":visible")) {
-        window.location.href = "./html/flight.html";
-      } else if ($("#Hotel").is(":visible")) {
-        window.location.href = "./html/hotel.html";
-      }
+      //loading animations
+      $(".loading-overlay").show();
+
+      setTimeout(() => {
+        if ($("#Flight_Hotel").is(":visible")) {
+          window.location.href = "./html/flight_hotel.html";
+        } else if ($("#Flight").is(":visible")) {
+          window.location.href = "./html/flight.html";
+        } else if ($("#Hotel").is(":visible")) {
+          window.location.href = "./html/hotel.html";
+        }
+      }, 3000);
     });
 
     // clear button with JQuery
@@ -457,5 +487,8 @@
       });
     };
     clear();
+
+    
+
   </script>
 </html>

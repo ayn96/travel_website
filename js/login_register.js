@@ -53,4 +53,6 @@ $("#logBtn").click(async () => {
   }
 
   $("#loginModal").modal("hide");
+
+  window.location.reload();
 });
