@@ -82,38 +82,6 @@
     </header>
     <main>
       <div class="container">
-        <!-- personalized -->
-        <!-- <div id="personalized">
-          <h2>Personalized Travel Itinerary Recommendation</h2>
-          <div class="personalized_item">
-            <img src="../img/hotela.avif" alt="hotela">
-            <div class="search_info">
-              <div class="info_item">
-                <h6>Check-In</h6>
-                <p>09/14/2024</p>
-              </div>
-              <div class="info_item">
-                <h6>Check-Out</h6>
-                <p>09/15/2024</p>
-              </div>
-              <div class="info_item">
-                <h6>People</h6>
-                <p>2 people</p>
-              </div>
-              <div class="info_item">
-                <h6>Room</h6>
-                <p>1 room</p>
-              </div>
-             
-            </div>
-            <div class="flight_info">
-              <h3>HotelA</h3>
-            </div>
-            
-           
-          </div>
-
-        </div> -->
         <!-- list of search results  -->
         <h2>Flight List</h2>
         <div class="d-flex justify-content-end">
@@ -133,10 +101,11 @@
 
     <!-- modals -->
     <div id="injectModals"></div>
-    <script type="module" src="../js/login_register.js"></script>
   </body>
+  <script type="module" src="../js/login_register.js"></script>
   <script src="../js/darkmode.js"></script>
   <script>
+    
     const flights = [
       {
         name: "flightA",
@@ -212,7 +181,6 @@
         listContainer.append(hotelItem);
       }
     };
-
     listDisplay();
 
     function orderCh(element) {

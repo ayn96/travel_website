@@ -122,7 +122,7 @@
         <div id="hotelList">
         </div>
         <!-- modal -->
-        <div class="modal">
+        <div class="modal" id="reserveModal">
           <div class="modal_content">
             <div class="modal_header">
               <h2>Your Travel Itinerary</h2>
@@ -136,7 +136,6 @@
                 <button type="button" class="btn btn-outline-dark modal_back">Back page</button>
               </div>
             </div>
-
         </div>
         </div>
       </div>
@@ -147,8 +146,8 @@
 
     <!-- modals -->
     <div id="injectModals"></div>
-    <script type="module" src="../js/login_register.js"></script>
   </body>
+  <script type="module" src="../js/login_register.js"></script>
   <script src="../js/darkmode.js"></script>
   <script type="module">
     import { storageInstance } from "../data/storage.js";
@@ -163,16 +162,29 @@
         const hotelInfo = $("<div>").addClass("info");
         const hotelName = $("<h3>").text(hotel.name);
         hotelInfo.append(hotelName);
-        const span = $("<div>")
-
+        
+        //featuses icon
+        const featureIcons = $("<div>");
+        featureIcons.addClass("featureIcons_group")
         for (const feature of hotel.features) {
-          const icon = $("<i>").addClass("ph")
+          const icon = $("<i>").addClass("ph");
+          icon.css("font-size", "30px");
+          icon.css("padding", "0 0.5rem");
           const a = {
             'wifi': 'ph-wifi-high',
+            'room_service': 'ph-call-bell',
+            'pool': 'ph-swimming-pool',
+            'parking': 'ph-car',
+            'gym': 'ph-barbell',
+            'bar': 'ph-brandy',
+            'spa': 'ph-bathtub',
+            'restaurant': 'ph-fork-knife',
+            'laundry': 'ph-shirt-folded',
+            'airport_shuttle': 'ph-van',
           }
           icon.addClass(a[feature]);
-          span.append(icon);
-          hotelInfo.append(span);
+          featureIcons.append(icon);
+          hotelInfo.append(featureIcons);
         }
 
         const hotelPrice = $("<h5>").text("$" + hotel.price);
@@ -230,10 +242,6 @@
           <table class="table">
             <tbody>
               <tr>
-                <th>Date</th>
-                <td>search result</td>
-              </tr>
-              <tr>
                 <th>Hotel Name</th>
                 <td>${hotelName}</td>
               </tr>
@@ -241,10 +249,6 @@
                 <th>Room</th>
                 <td>${roomAmount}</td>
                 </tr>
-              <tr>
-                <th>Traveller</th>
-                <td>search result</td>
-              </tr>
                 <tr>
                   <th>Price</th>
                   <td>$${hotelPrice} × ${roomAmount} room = $${totalPrice}</td>
@@ -253,13 +257,14 @@
           </table>
         `;
         $(".modal_body").html(tableContent);
-        $(".modal").fadeIn(400);
+        $("#reserveModal").fadeIn(0);
         $(".modal_reserve").removeClass("disabled"); 
   });
     }
 
     const itineraryModal = ()=>{
       $(".modal").hide();
+
       // reserve button
       $(".modal_reserve").click(()=>{
         alert("Reserved!");
@@ -276,7 +281,5 @@
       });
     }
     itineraryModal(); 
-
-    // const itineraryDisplay = () => {};
   </script>
 </html>

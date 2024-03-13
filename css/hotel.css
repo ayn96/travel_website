@@ -45,6 +45,14 @@ img{
   flex: 1;
 }
 
+.info h3{
+  flex: 1;
+}
+
+.info h5{
+  padding-left: 4.5rem;
+}
+
 /* sort select button */
 .sort_select{
   padding: 0.8rem;

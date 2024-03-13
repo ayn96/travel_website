@@ -4,6 +4,7 @@ import { Credentials } from "../data/login/Credentials.js";
 const htmlToInject = await fetch("/components/modals.html");
 const response = await htmlToInject.text();
 $("#injectModals").html(response);
+$(".modal").hide();
 
 $("#regBtn").click(async () => {
   const data = {
