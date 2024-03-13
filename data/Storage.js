@@ -7,18 +7,6 @@ import FuzzySearch from "./packages/fuzzy_search/index.js";
 import { sortByProperty } from "./utils/sort.js";
 import { Flight } from "./structures/Flights.js";
 
-const GENERATED_FLIGHTS = await Promise.all(
-  Array.from({ length: 50 }).map((_, idx) => {
-    return import(`./data/flights/GENERATED_FLIGHTS_${idx}.json`, {
-      assert: { type: "json" },
-    });
-  })
-).then((flights) => {
-  return flights.flatMap((flight) => flight.default);
-});
-
-console.log(GENERATED_FLIGHTS);
-
 class Storage {
   constructor() {
     const start = performance.now();
@@ -27,7 +15,15 @@ class Storage {
     this.cities = this.buildCities();
     this.countries = this.buildCountries();
 
-    this.flights = this.buildFlights();
+    this.flights = {
+      fromDeparture: new Map(),
+      fromArrival: new Map(),
+    };
+    this.flightsPromise = new Promise((resolve) => {
+      this.buildFlights(resolve).then(() => {
+        console.log("Flights ready after", performance.now() - start, "ms");
+      });
+    });
 
     this.countryFuzzySearch = new FuzzySearch(
       Array.from(this.countries.values()),
@@ -131,10 +127,17 @@ class Storage {
     return map;
   }
 
-  /**
-   * @returns {{ fromDeparture: Map<string, Flight[]>, fromArrival: Map<string, Flight[]> }}
-   */
-  buildFlights() {
+  async buildFlights(resolve) {
+    const GENERATED_FLIGHTS = await Promise.all(
+      Array.from({ length: 50 }).map((_, idx) => {
+        return import(`./data/flights/GENERATED_FLIGHTS_${idx}.json`, {
+          assert: { type: "json" },
+        });
+      })
+    ).then((flights) => {
+      return flights.flatMap((flight) => flight.default);
+    });
+
     const fromDeparture = new Map();
     const fromArrival = new Map();
     const citiesById = this.getCities().reduce((acc, city) => {
@@ -182,10 +185,12 @@ class Storage {
         .push(flightInstance);
     }
 
-    return {
+    this.flights = {
       fromDeparture,
       fromArrival,
     };
+
+    resolve(this.flights);
   }
 
   /**

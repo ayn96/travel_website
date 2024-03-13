@@ -1,17 +1,20 @@
 import { storageInstance } from "../../Storage.js";
+import { RecommendationProperties } from "../../structures/RecommendationsProperties.js";
+import { sortByProperty } from "../sort.js";
 import { getClosestDepartureFlightFromDate } from "./getClosestFlight.js";
+import { getEventsDuringTimeFrame } from "./getEventsDuringTimeFrame.js";
 
 /**
  *
- * @param {{ originCountry: string, destinationCountry: string, budget: number, days: number, departureDate: string }} param0
+ * @param {{ originCountry: string, destinationCountry: string, days: number, departureDate: string }} param0
  */
-export function createItinerary({
+export async function createItinerary({
   originCountry,
   destinationCountry,
-  budget,
   days,
   departureDate,
 }) {
+  await storageInstance.flightsPromise;
   const closestDepartureFlight = getClosestDepartureFlightFromDate(
     originCountry,
     destinationCountry,
@@ -28,23 +31,47 @@ export function createItinerary({
     roundTripDate
   );
 
+  const recommendedEvents = getEventsDuringTimeFrame(
+    closestDepartureFlight.arrival.city,
+    new Date(departureDate),
+    roundTripDate
+  );
+
+  let hotels = closestDepartureFlight.arrival.city.hotels.sort(
+    sortByProperty("reviewScore", "desc")
+  );
+
+  if (typeof window !== "undefined" && localStorage.getItem("user")) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userRecommendations = new RecommendationProperties(
+      user.recommendation
+    );
+    hotels =
+      closestDepartureFlight.arrival.city?.recommendationEngine?.recommendHotels(
+        userRecommendations
+      ) ?? hotels;
+  }
+
+  const hotelPrice = hotels[0].price;
+
+  const totalPrice =
+    hotelPrice * days +
+    closestDepartureFlight.price +
+    closestRoundTripFlight.price;
+
   return {
-    originCountry,
-    destinationCountry,
-    budget,
-    days,
-    departureDate,
-    roundTripDate,
+    recommendedHotels: hotels,
+    totalPrice,
     closestDepartureFlight,
     closestRoundTripFlight,
+    recommendedEvents,
   };
 }
 
 console.log(
-  createItinerary({
+  await createItinerary({
     originCountry: "US",
     destinationCountry: "FR",
-    budget: 1000,
     days: 7,
     departureDate: new Date().toISOString(),
   })

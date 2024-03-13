@@ -152,6 +152,19 @@
     import { storageInstance } from "../data/storage.js";
     let hotels = [];
 
+    const FEATURE_ICONS_MAP = {
+      'wifi': 'ph-wifi-high',
+      'room_service': 'ph-call-bell',
+      'pool': 'ph-swimming-pool',
+      'parking': 'ph-car',
+      'gym': 'ph-barbell',
+      'bar': 'ph-brandy',
+      'spa': 'ph-bathtub',
+      'restaurant': 'ph-fork-knife',
+      'laundry': 'ph-shirt-folded',
+      'airport_shuttle': 'ph-van',
+    }
+
     const listDisplay = () => {
       const listContainer = $("#hotelList");
       listContainer.html("");
@@ -169,19 +182,7 @@
           const icon = $("<i>").addClass("ph");
           icon.css("font-size", "30px");
           icon.css("padding", "0 0.5rem");
-          const a = {
-            'wifi': 'ph-wifi-high',
-            'room_service': 'ph-call-bell',
-            'pool': 'ph-swimming-pool',
-            'parking': 'ph-car',
-            'gym': 'ph-barbell',
-            'bar': 'ph-brandy',
-            'spa': 'ph-bathtub',
-            'restaurant': 'ph-fork-knife',
-            'laundry': 'ph-shirt-folded',
-            'airport_shuttle': 'ph-van',
-          }
-          icon.addClass(a[feature]);
+          icon.addClass(FEATURE_ICONS_MAP[feature]);
           featureIcons.append(icon);
           hotelInfo.append(featureIcons);
         }
