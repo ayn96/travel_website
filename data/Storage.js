@@ -1,10 +1,12 @@
 import CITIES from "./data/CITIES.json" assert { type: "json" };
 import COUNTRIES from "./data/COUNTRIES.json" assert { type: "json" };
 import MOST_VISITED_COUNTRIES from "./data/MOST_VISITED_COUNTRIES.json" assert { type: "json" };
+import GENERATED_FLIGHTS from "./data/flights/GENERATED_FLIGHTS.json" assert { type: "json" };
 import { City } from "./structures/City.js";
 import { Country } from "./structures/Country.js";
 import FuzzySearch from "./packages/fuzzy_search/index.js";
 import { sortByProperty } from "./utils/sort.js";
+import { Flight } from "./structures/Flights.js";
 
 class Storage {
   constructor() {
@@ -12,6 +14,8 @@ class Storage {
 
     this.cities = this.buildCities();
     this.countries = this.buildCountries();
+
+    this.flights = this.buildFlights();
 
     this.countryFuzzySearch = new FuzzySearch(
       Array.from(this.countries.values()),
@@ -28,6 +32,18 @@ class Storage {
         sort: true,
       }
     );
+
+    const allFlights = Array.from(this.flights.fromDeparture.values()).flat();
+
+    this.flightsFuzzySearch = new FuzzySearch(
+      allFlights,
+      ["airline.name", "departure.city.name", "arrival.city.name"],
+      {
+        sort: true,
+      }
+    );
+
+    console.log("Storage initialized");
   }
 
   /**
@@ -100,6 +116,63 @@ class Storage {
   }
 
   /**
+   * @returns {{ fromDeparture: Map<string, Flight[]>, fromArrival: Map<string, Flight[]> }}
+   */
+  buildFlights() {
+    const fromDeparture = new Map();
+    const fromArrival = new Map();
+    const citiesById = this.getCities().reduce((acc, city) => {
+      acc[city.id] = city;
+      return acc;
+    }, {});
+
+    for (const flight of GENERATED_FLIGHTS) {
+      const flightInstance = Flight.fromJSON(flight);
+
+      const cityDeparture = citiesById[flight.departure.id];
+      if (!cityDeparture) {
+        throw new Error(`City with id ${flight.departure.id} not found`);
+      }
+
+      flightInstance.setDepartureCity(cityDeparture);
+
+      const cityArrival = citiesById[flight.arrival.id];
+      if (!cityArrival) {
+        throw new Error(`City with id ${flight.arrival.id} not found`);
+      }
+
+      flightInstance.setArrivalCity(cityArrival);
+
+      if (
+        !flightInstance.arrival.city?.country?.code ||
+        !flightInstance.departure.city?.country?.code
+      ) {
+        continue;
+      }
+
+      if (!fromDeparture.has(flightInstance.departure.city?.country.code)) {
+        fromDeparture.set(flightInstance.departure.city.country.code, []);
+      }
+
+      if (!fromArrival.has(flightInstance.arrival.city?.country.code)) {
+        fromArrival.set(flightInstance.arrival.city.country.code, []);
+      }
+
+      fromDeparture
+        .get(flightInstance.departure.city?.country.code)
+        .push(flightInstance);
+      fromArrival
+        .get(flightInstance.arrival.city?.country.code)
+        .push(flightInstance);
+    }
+
+    return {
+      fromDeparture,
+      fromArrival,
+    };
+  }
+
+  /**
    * @param {string} query
    * @returns {import('./structures/Country.js').Country[]}
    */
@@ -129,6 +202,13 @@ class Storage {
    */
   getCitiesByCountry(countryCode) {
     return this.cities.get(countryCode) ?? null;
+  }
+
+  /**
+   * @returns {import('./structures/City.js').City[]}
+   */
+  getCities() {
+    return Array.from(this.cities.values()).flat();
   }
 
   /**
@@ -175,7 +255,33 @@ class Storage {
       .flatMap((city) => city.events)
       .sort(sortByProperty(sortBy, order));
   }
+
+  /**
+   * @param {string} countryCode
+   * @returns {import('./structures/Flights.js').Flight[]}
+   */
+  getFlightFromDeparture(countryCode) {
+    return this.flights.fromDeparture.get(countryCode) ?? [];
+  }
+
+  /**
+   * @param {string} countryCode
+   * @returns {import('./structures/Flights.js').Flight[]}
+   */
+  getFlightFromArrival(countryCode) {
+    return this.flights.fromArrival.get(countryCode) ?? [];
+  }
+
+  /**
+   * @param {string} query
+   * @returns {import('./structures/Flights.js').Flight[]}
+   */
+  searchFlights(query) {
+    return this.flightsFuzzySearch.search(query);
+  }
 }
 
 export const storageInstance = new Storage();
-Reflect.set(window, "dataStorageInstance", storageInstance);
+if (typeof window !== "undefined") {
+  Reflect.set(window, "dataStorageInstance", storageInstance);
+}

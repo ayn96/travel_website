@@ -5,7 +5,12 @@ import { RecommendationEngine } from "./RecommendationEngine.js";
 import { sanitize } from "../utils/sanitizer.js";
 
 export class City {
-  constructor({ name, hotels, events, features }) {
+  constructor({ id, name, hotels, events, features, coordinates }) {
+    /**
+     * @type {string}
+     */
+    this.id = id;
+
     /**
      * @type {string}
      */
@@ -27,6 +32,13 @@ export class City {
      * @type {import('../data/CITIES.json')[0]['cities'][0]['features']}
      */
     this.features = features;
+
+    /**
+     * @type {Object}
+     * @property {number} lat - The latitude.
+     * @property {number} long - The longitude.
+     * */
+    this.coordinates = coordinates;
 
     this.addCityToHotels();
     this.addCityToEvents();
@@ -82,6 +94,7 @@ export class City {
    */
   static fromJSON(city) {
     return new City({
+      id: city.id,
       name: city.name,
       hotels:
         city.hotels?.map((hotel) => {
@@ -92,6 +105,10 @@ export class City {
           return Event.fromJSON(event);
         }) ?? [],
       features: city.features,
+      coordinates: {
+        lat: city.lat,
+        long: city.lon,
+      },
     });
   }
 }
