@@ -4,11 +4,32 @@
     <title>Hotel</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://kit.fontawesome.com/63bd007e1f.js" crossorigin="anonymous"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/63bd007e1f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+      integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../css/hotel.css" />
+    <link rel="stylesheet" href="../css/login_common.css" />
   </head>
   <body>
     <header>
@@ -27,12 +48,26 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto gap-2">
               <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginForm"
+                >
+                  Log-In
+                </button>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#regForm"
+                >
+                  Register
+                </button>
               </li>
             </ul>
           </div>
@@ -75,9 +110,13 @@
         <!-- list of search results  -->
         <h2>Hotel List</h2>
         <div class="d-flex justify-content-end">
-          <select class="sort_select" onchange="orderCh(this)" style="margin-right: 2rem;">
-            <option value="asc" selected>Price : Low to High</option>
-            <option value="des">Price : High to Low</option>
+          <select class="sort_select" style="margin-right: 2rem;">
+            <option value="price_asc" selected>Price: Low to High</option>
+            <option value="price_des">Price: High to Low</option>
+            <option value="name_asc">Name: A to Z</option>
+            <option value="name_des">Name: Z to A</option>
+            <option value="ratingScore_asc">Rating: Low to High</option>
+            <option value="ratingScore_des">Rating: High to Low</option>
         </select>
         </div>
         <div id="hotelList">
@@ -105,11 +144,15 @@
     </main>
     <footer>
     </footer>
+
+    <!-- modals -->
+    <div id="injectModals"></div>
+    <script type="module" src="../js/login_register.js"></script>
   </body>
   <script src="../js/darkmode.js"></script>
   <script type="module">
-    import { storageInstance } from "../data/Storage.js";
-    const hotels = storageInstance.getHotels();
+    import { storageInstance } from "../data/storage.js";
+    let hotels = [];
 
     const listDisplay = () => {
       const listContainer = $("#hotelList");
@@ -120,9 +163,21 @@
         const hotelInfo = $("<div>").addClass("info");
         const hotelName = $("<h3>").text(hotel.name);
         hotelInfo.append(hotelName);
+        const span = $("<div>")
+
+        for (const feature of hotel.features) {
+          const icon = $("<i>").addClass("ph")
+          const a = {
+            'wifi': 'ph-wifi-high',
+          }
+          icon.addClass(a[feature]);
+          span.append(icon);
+          hotelInfo.append(span);
+        }
+
         const hotelPrice = $("<h5>").text("$" + hotel.price);
         hotelInfo.append(hotelPrice);
-        
+
         hotelItem.append(hotelInfo);
         const roomAmount = $("<select>").addClass("room_amount");
         for (let i = 1; i < 5; i++) {
@@ -145,24 +200,23 @@
 
       createReserveListners();
     };
+    sortSelect()
     listDisplay();
 
-    function orderCh(element){      //element=select
-        sortSelect(element.value);
+    function orderCh(){      //element=select
+      $(".sort_select").change((e)=>{
+        const element = e.currentTarget;
+        const [key,order] = element.value.split("_");
+        sortSelect(key, order);
+      });
     }
+    orderCh();
 
-    function sortSelect(order="asc"){
-        switch(order){
-            case "asc":
-                hotels.sort(function(a,b){return a.price - b.price}); 
-                break;
-            case "des":
-                hotels.sort(function(a,b){return b.price - a.price});
-                break;
-        }
+    function sortSelect(key = 'price', order="asc"){
+        hotels = storageInstance.getHotels(key, order);
         listDisplay();
     }
-  
+
       // reserve button
     function createReserveListners() {
       $(".reserve").click((e)=> {

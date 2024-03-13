@@ -1,4 +1,5 @@
 import FuzzySearch from "../packages/fuzzy_search/index.js";
+import { sanitize } from "../utils/sanitizer.js";
 
 export class Country {
   constructor({
@@ -22,7 +23,7 @@ export class Country {
     /**
      * @type {string}
      */
-    this.name = name;
+    this.name = sanitize(name);
     /**
      * @type {string}
      */
@@ -34,7 +35,7 @@ export class Country {
      * @property {string} symbol - The symbol of the currency.
      */
     this.currency = {
-      name: currencyName,
+      name: sanitize(currencyName),
       code: currencyCode,
       symbol: currencySymbol,
     };
@@ -50,9 +51,9 @@ export class Country {
     /**
      * @type {string}
      */
-    this.region = region;
+    this.region = sanitize(region);
     /**
-     * @type {Array<string>}
+     * @type {Record<string, string>}
      */
     this.languages = languages;
     /**
@@ -71,11 +72,11 @@ export class Country {
     /**
      * @type {Array<string>}
      */
-    this.timezones = timezones;
+    this.timezones = timezones?.map(sanitize) || [];
     /**
      * @type {Array<string>}
      */
-    this.continents = continents;
+    this.continents = continents?.map(sanitize) || [];
     /**
      * @type {import('./City.js').City[]}
      */

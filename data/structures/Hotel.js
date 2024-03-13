@@ -9,7 +9,7 @@ export class Hotel {
     review_score,
     lat,
     lon,
-    rooms: { single, double, suite },
+    rooms: { single, double, deluxe },
     features,
   }) {
     /**
@@ -52,12 +52,12 @@ export class Hotel {
      * @type {Object}
      * @property {number} single
      * @property {number} double
-     * @property {number} suite
+     * @property {number} deluxe
      */
     this.rooms = {
       single,
       double,
-      suite,
+      deluxe,
     };
 
     /**

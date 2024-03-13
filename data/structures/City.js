@@ -2,13 +2,14 @@ import { Event } from "./Event.js";
 import { Hotel } from "./Hotel.js";
 import FuzzySearch from "../packages/fuzzy_search/index.js";
 import { RecommendationEngine } from "./RecommendationEngine.js";
+import { sanitize } from "../utils/sanitizer.js";
 
 export class City {
-  constructor({ name, hotels, events }) {
+  constructor({ name, hotels, events, features }) {
     /**
      * @type {string}
      */
-    this.name = name;
+    this.name = sanitize(name);
     /**
      * @type {import('./Country.js').Country | null}
      */
@@ -21,6 +22,11 @@ export class City {
      * @type {import('./Event.js').Event[]}
      */
     this.events = events;
+
+    /**
+     * @type {import('../data/CITIES.json')[0]['cities'][0]['features']}
+     */
+    this.features = features;
 
     this.addCityToHotels();
     this.addCityToEvents();
@@ -85,6 +91,7 @@ export class City {
         city.events?.map((event) => {
           return Event.fromJSON(event);
         }) ?? [],
+      features: city.features,
     });
   }
 }

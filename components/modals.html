@@ -1,0 +1,216 @@
+<div
+  class="modal fade"
+  id="regForm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="loginFormLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginFormLabel">Register</h5>
+        <form class="forms-log-reg">
+          <div class="form-floating mb-3">
+            <input class="form-control" id="floatingFName" />
+            <label for="floatingFName">First Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input class="form-control" id="floatingLName" />
+            <label for="floatingLName">Last Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              class="form-control"
+              id="floatingPhone"
+              placeholder="Phone"
+            />
+            <label for="floatingPhone">Phone</label>
+          </div>
+          <h5>
+            We gather your preferences to suggest more suitable places for you!
+          </h5>
+          <div class="form-reg-ranges">
+            <div>
+              <label for="price" class="form-label">Price (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="price_range"
+              />
+              <label for="nature" class="form-label">Nature (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="nature_range"
+              />
+              <!-- price, nature, nightlife, music, technology, animals, fun, exercise, food, couple, and family -->
+              <label for="nightlife" class="form-label">Nightlife (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="nightlife_range"
+              />
+              <label for="music" class="form-label">Music (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="music_range"
+              />
+              <label for="technology" class="form-label"
+                >Technology (1-10)</label
+              >
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="technology_range"
+              />
+              <label for="animals" class="form-label">Animals (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="animals_range"
+              />
+            </div>
+            <div>
+              <label for="fun" class="form-label">Fun (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="fun_range"
+              />
+              <label for="exercise" class="form-label">Exercise (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="exercise_range"
+              />
+              <label for="food" class="form-label">Food (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="food_range"
+              />
+              <label for="couple" class="form-label">Couple (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="couple_range"
+              />
+              <label for="family" class="form-label">Family (1-10)</label>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="10"
+                step="0.5"
+                id="family_range"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" id="regBtn">
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="loginForm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="loginFormLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" id="loginFormModalHeader">
+        <h5 class="modal-title" id="loginFormLabel">Log-In</h5>
+      </div>
+      <form class="form-floating">
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingLogInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingLogInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="floatingLogPassword"
+            placeholder="Password"
+          />
+          <label for="floatingLogPassword">Password</label>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" id="logBtn">
+          Log In
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
