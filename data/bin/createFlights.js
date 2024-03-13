@@ -205,6 +205,7 @@ const getRandomFlight = () => {
     airplane: getRandomPlanePicture(),
     departure: {
       id: randomCityFrom.id,
+      name: randomCityFrom.name,
       airport: randomCityFrom.features.airport,
       timestamp: date,
     },

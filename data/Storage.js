@@ -1,6 +1,7 @@
 import CITIES from "./data/CITIES.json" assert { type: "json" };
 import COUNTRIES from "./data/COUNTRIES.json" assert { type: "json" };
 import MOST_VISITED_COUNTRIES from "./data/MOST_VISITED_COUNTRIES.json" assert { type: "json" };
+import GENERATED_FLIGHTS from "./data/flights/GENERATED_FLIGHTS.json" assert { type: "json" };
 import { City } from "./structures/City.js";
 import { Country } from "./structures/Country.js";
 import FuzzySearch from "./packages/fuzzy_search/index.js";
@@ -195,6 +196,63 @@ class Storage {
     this.flightsFuzzySearch.haystack = allFlights;
 
     return this.flights;
+  }
+
+  /**
+   * @returns {{ fromDeparture: Map<string, Flight[]>, fromArrival: Map<string, Flight[]> }}
+   */
+  buildFlights() {
+    const fromDeparture = new Map();
+    const fromArrival = new Map();
+    const citiesById = this.getCities().reduce((acc, city) => {
+      acc[city.id] = city;
+      return acc;
+    }, {});
+
+    for (const flight of GENERATED_FLIGHTS) {
+      const flightInstance = Flight.fromJSON(flight);
+
+      const cityDeparture = citiesById[flight.departure.id];
+      if (!cityDeparture) {
+        throw new Error(`City with id ${flight.departure.id} not found`);
+      }
+
+      flightInstance.setDepartureCity(cityDeparture);
+
+      const cityArrival = citiesById[flight.arrival.id];
+      if (!cityArrival) {
+        throw new Error(`City with id ${flight.arrival.id} not found`);
+      }
+
+      flightInstance.setArrivalCity(cityArrival);
+
+      if (
+        !flightInstance.arrival.city?.country?.code ||
+        !flightInstance.departure.city?.country?.code
+      ) {
+        continue;
+      }
+
+      if (!fromDeparture.has(flightInstance.departure.city?.country.code)) {
+        fromDeparture.set(flightInstance.departure.city.country.code, []);
+      }
+
+      if (!fromArrival.has(flightInstance.arrival.city?.country.code)) {
+        fromArrival.set(flightInstance.arrival.city.country.code, []);
+      }
+
+      fromDeparture
+        .get(flightInstance.departure.city?.country.code)
+        .push(flightInstance);
+      fromArrival
+        .get(flightInstance.arrival.city?.country.code)
+        .push(flightInstance);
+    }
+
+    return {
+      fromDeparture,
+      fromArrival,
+    };
   }
 
   /**
