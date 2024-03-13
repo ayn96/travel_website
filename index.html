@@ -116,22 +116,34 @@
                     ><i class="fa-solid fa-location-dot"></i
                   ></span>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating autocomplete__input">
                   <input
+                    auto-complete="country"
+                    id="flight_hotel_input_from"
                     type="text"
                     class="form-control"
                     name="departure"
                     required
                   />
+                  <div
+                    auto-complete-for="flight_hotel_input_from"
+                    class="autocomplete__list"
+                  ></div>
                   <label for="departure">Where from?</label>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating autocomplete__input">
                   <input
                     type="text"
                     class="form-control"
+                    id="flight_hotel_input_to"
                     name="arrival"
+                    auto-complete="city"
                     required
                   />
+                  <div
+                    auto-complete-for="flight_hotel_input_to"
+                    class="autocomplete__list"
+                  ></div>
                   <label for="arrival">Where to?</label>
                 </div>
               </div>
@@ -405,6 +417,8 @@
   </body>
   <script type="module" src="./js/login_register.js"></script>
   <script src="./js/darkmode.js"></script>
+  <script src="./js/autocomplete.js"></script>
+  <script type="module" src="./data/Storage.js"></script>
 
   <script>
     const userInfo = () =>{

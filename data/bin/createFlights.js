@@ -25,236 +25,146 @@ const getRandomPrice = () => {
 };
 
 const getRandomPlanePicture = () => {
-  return flights[0].aircraftImages[
-    Math.floor(Math.random() * flights[0].aircraftImages.length)
-  ].images.medium[0];
+  const data =
+    { src: "https://cdn.jetphotos.com/400/5/783097_1707950443.jpg?v=0" } ||
+    flights[0].aircraftImages[
+      Math.floor(Math.random() * flights[0].aircraftImages.length)
+    ].images.medium[0];
+
+  return {
+    src: data.src,
+  };
 };
 
 const getRandomAirline = () => {
   const a = {
     AC: {
       name: "Air Canada",
-      code: {
-        iata: "AC",
-        icao: "ACA",
-      },
+      code: "ACA",
     },
     AD: {
       name: "Azul Linhas Aereas",
-      code: {
-        iata: "AD",
-        icao: "AZU",
-      },
+      code: "AZU",
     },
     AF: {
       name: "Air France",
-      code: {
-        iata: "AF",
-        icao: "AFR",
-      },
+      code: "AFR",
     },
     AI: {
       name: "Air India",
-      code: {
-        iata: "AI",
-        icao: "AIC",
-      },
+      code: "AIC",
     },
     AM: {
       name: "Aeromexico",
-      code: {
-        iata: "AM",
-        icao: "AMX",
-      },
+      code: "AMX",
     },
     AR: {
       name: "Aerolineas Argentinas",
-      code: {
-        iata: "AR",
-        icao: "ARG",
-      },
+      code: "ARG",
     },
     AV: {
       name: "Avianca",
-      code: {
-        iata: "AV",
-        icao: "AVA",
-      },
+      code: "AVA",
     },
     AY: {
       name: "Finnair",
-      code: {
-        iata: "AY",
-        icao: "FIN",
-      },
+      code: "FIN",
     },
     CA: {
       name: "Air China",
-      code: {
-        iata: "CA",
-        icao: "CCA",
-      },
+      code: "CCA",
     },
     CM: {
       name: "Copa Airlines",
-      code: {
-        iata: "CM",
-        icao: "CMP",
-      },
+      code: "CMP",
     },
     CX: {
       name: "Cathay Pacific",
-      code: {
-        iata: "CX",
-        icao: "CPA",
-      },
+      code: "CPA",
     },
     DL: {
       name: "Delta Air Lines",
-      code: {
-        iata: "DL",
-        icao: "DAL",
-      },
+      code: "DAL",
     },
     EK: {
       name: "Emirates",
-      code: {
-        iata: "EK",
-        icao: "UAE",
-      },
+      code: "UAE",
     },
     ET: {
       name: "Ethiopian Airlines",
-      code: {
-        iata: "ET",
-        icao: "ETH",
-      },
+      code: "ETH",
     },
     EY: {
       name: "Etihad Airways",
-      code: {
-        iata: "EY",
-        icao: "ETD",
-      },
+      code: "ETD",
     },
     G3: {
       name: "GOL Linhas Aereas",
-      code: {
-        iata: "G3",
-        icao: "GLO",
-      },
+      code: "GLO",
     },
     IB: {
       name: "Iberia",
-      code: {
-        iata: "IB",
-        icao: "IBE",
-      },
+      code: "IBE",
     },
     JL: {
       name: "Japan Airlines",
-      code: {
-        iata: "JL",
-        icao: "JAL",
-      },
+      code: "JAL",
     },
     KL: {
       name: "KLM",
-      code: {
-        iata: "KL",
-        icao: "KLM",
-      },
+      code: "KLM",
     },
     KQ: {
       name: "Kenya Airways",
-      code: {
-        iata: "KQ",
-        icao: "KQA",
-      },
+      code: "KQA",
     },
     LA: {
       name: "LATAM Airlines",
-      code: {
-        iata: "LA",
-        icao: "LAN",
-      },
+      code: "LAN",
     },
     LX: {
       name: "Swiss",
-      code: {
-        iata: "LX",
-        icao: "SWR",
-      },
+      code: "SWR",
     },
     MF: {
       name: "Xiamen Air",
-      code: {
-        iata: "MF",
-        icao: "CXA",
-      },
+      code: "CXA",
     },
     NH: {
       name: "All Nippon Airways",
-      code: {
-        iata: "NH",
-        icao: "ANA",
-      },
+      code: "ANA",
     },
     QF: {
       name: "Qantas",
-      code: {
-        iata: "QF",
-        icao: "QFA",
-      },
+      code: "QFA",
     },
     QR: {
       name: "Qatar Airways",
-      code: {
-        iata: "QR",
-        icao: "QTR",
-      },
+      code: "QTR",
     },
     SQ: {
       name: "Singapore Airlines",
-      code: {
-        iata: "SQ",
-        icao: "SIA",
-      },
+      code: "SIA",
     },
     TK: {
       name: "Turkish Airlines",
-      code: {
-        iata: "TK",
-        icao: "THY",
-      },
+      code: "THY",
     },
     TP: {
       name: "TAP Air Portugal",
-      code: {
-        iata: "TP",
-        icao: "TAP",
-      },
+      code: "TAP",
     },
     UA: {
       name: "United Airlines",
-      code: {
-        iata: "UA",
-        icao: "UAL",
-      },
+      code: "UAL",
     },
     UL: {
       name: "SriLankan Airlines",
-      code: {
-        iata: "UL",
-        icao: "ALK",
-      },
+      code: "ALK",
     },
     UX: {
       name: "Air Europa",
-      code: {
-        iata: "UX",
-        icao: "AEA",
-      },
+      code: "AEA",
     },
   };
 
@@ -295,13 +205,11 @@ const getRandomFlight = () => {
     airplane: getRandomPlanePicture(),
     departure: {
       id: randomCityFrom.id,
-      name: randomCityFrom.name,
       airport: randomCityFrom.features.airport,
       timestamp: date,
     },
     arrival: {
       id: randomCityTo.id,
-      name: randomCityTo.name,
       airport: randomCityTo.features.airport,
       timestamp: arrival,
     },
@@ -311,19 +219,17 @@ const getRandomFlight = () => {
   };
 };
 
-console.log(
-  "Creating flights...",
-  Array.from({ length: 100 }, getRandomFlight)
-);
+console.log("Creating flights...");
 
-const url = new URL("../data/flights/GENERATED_FLIGHTS.json", import.meta.url);
+for (const [idx] of Array.from({ length: 50 }).entries()) {
+  const url = new URL(
+    `../data/flights/GENERATED_FLIGHTS_${idx}.json`,
+    import.meta.url
+  );
+  writeFileSync(
+    url,
+    JSON.stringify(Array.from({ length: 1000 }).map(getRandomFlight))
+  );
+}
 
-writeFileSync(
-  url,
-  JSON.stringify(
-    Array.from({ length: 3000 }, getRandomFlight),
-
-    null,
-    2
-  )
-);
+console.log("Flights created successfully");

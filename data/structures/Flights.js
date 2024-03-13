@@ -9,7 +9,7 @@ export class Flight {
     time,
   }) {
     /**
-     * @type {{ name: string, code: { iata: string, icao: string } }}
+     * @type {{ name: string, code: string }}
      */
     this.airline = airline;
 
@@ -24,7 +24,6 @@ export class Flight {
        * @type {import('./City.js').City | null}
        */
       city: null,
-      name: departure.name,
       airport: departure.airport,
       timestamp: new Date(departure.timestamp),
     };
@@ -35,7 +34,6 @@ export class Flight {
        * @type {import('./City.js').City | null}
        */
       city: null,
-      name: arrival.name,
       airport: arrival.airport,
       timestamp: new Date(arrival.timestamp),
     };
