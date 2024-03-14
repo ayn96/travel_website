@@ -108,7 +108,7 @@
           <!-- flight + hotel search form -->
           <div id="Flight_Hotel" class="text-center">
             <h1>Flight + Hotel</h1>
-            <form action="">
+            <form id="flight_hotel_form">
               <!-- where -->
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -116,22 +116,34 @@
                     ><i class="fa-solid fa-location-dot"></i
                   ></span>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating autocomplete__input">
                   <input
+                    auto-complete="country"
+                    id="flight_hotel_input_from"
                     type="text"
                     class="form-control"
                     name="departure"
                     required
                   />
+                  <div
+                    auto-complete-for="flight_hotel_input_from"
+                    class="autocomplete__list"
+                  ></div>
                   <label for="departure">Where from?</label>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating autocomplete__input">
                   <input
                     type="text"
                     class="form-control"
+                    id="flight_hotel_input_to"
                     name="arrival"
+                    auto-complete="city"
                     required
                   />
+                  <div
+                    auto-complete-for="flight_hotel_input_to"
+                    class="autocomplete__list"
+                  ></div>
                   <label for="arrival">Where to?</label>
                 </div>
               </div>
@@ -145,6 +157,7 @@
                 <div class="form-floating">
                   <input
                     type="date"
+                    id="flight_hotel_input_checkin_date"
                     class="form-control"
                     name="checkin_date"
                     required
@@ -154,6 +167,7 @@
                 <div class="form-floating">
                   <input
                     type="date"
+                    id="flight_hotel_input_checkout_date"
                     class="form-control"
                     name="checkout_date"
                     required
@@ -172,6 +186,7 @@
                   <input
                     type="number"
                     class="form-control"
+                    id="flight_hotel_input_people"
                     name="people"
                     value="2"
                     min="1"
@@ -188,6 +203,7 @@
                 <div class="form-floating">
                   <input
                     type="number"
+                    id="flight_hotel_input_room"
                     class="form-control"
                     name="room"
                     value="1"
@@ -390,24 +406,28 @@
     </main>
 
     <!-- animation -->
-    <div class="loading-overlay" style="display: none;">
+    <div class="loading-overlay" style="display: none">
       <div class="loading">
         <div class="loading_items">
           <h2>Searching...</h2>
-          <i class="fa-solid fa-circle-notch fa-4x fa-spin" style="color: #51a0db;"></i>
+          <i
+            class="fa-solid fa-circle-notch fa-4x fa-spin"
+            style="color: #51a0db"
+          ></i>
         </div>
-      </div>  
+      </div>
     </div>
 
     <!-- modal -->
     <div id="injectModals"></div>
-
   </body>
   <script type="module" src="./js/login_register.js"></script>
   <script src="./js/darkmode.js"></script>
+  <script src="./js/autocomplete.js"></script>
+  <script type="module" src="./data/Storage.js"></script>
 
-  <script>
-    const userInfo = () =>{
+  <script defer>
+    const userInfo = () => {
       const loginUser = localStorage.getItem("user");
       console.log(loginUser);
       if (loginUser !== null) {
@@ -415,19 +435,18 @@
         const fname = userObject.firstName;
         const lname = userObject.lastName;
         $(".username").text(`Hello ${fname} ${lname} !`);
-      }else{
+      } else {
         $(".username").text(`Hello Guest !`);
       }
-    }
+    };
     userInfo();
-
     // search form with JS
     const Search_Display = () => {
       const ul = document.querySelectorAll("ul")[1];
       const tabs = ul.querySelectorAll("a");
       const contents = document.querySelectorAll(".tab_content div[id]");
 
-      // Default = Flight + Hotel 
+      // Default = Flight + Hotel
       for (const content of contents) {
         if (content.id == "Flight_Hotel") {
           content.style.display = "block";
@@ -453,9 +472,9 @@
     };
     Search_Display();
 
-   
-    //get input data user entered with JQuery
-    $(".search").click(() => {
+    //get inpit data user entered with JQuery
+    $(".search").click(async (e) => {
+      e.preventDefault();
       const departure = $("input[name='departure']").val();
       const arrival = $("input[name='arrival']").val();
       const destination = $("input[name='destination']").val();
@@ -464,18 +483,35 @@
       const people = $("input[name='people']").val();
       const room = $("input[name='room']").val();
 
-      //loading animations
-      $(".loading-overlay").show();
+      if ($("#Flight_Hotel").is(":visible")) {
+        const countryFrom =
+          window.dataStorageInstance.searchCountry(departure)[0];
+        const cityTo = window.dataStorageInstance.searchCity(arrival)[0];
 
-      setTimeout(() => {
-        if ($("#Flight_Hotel").is(":visible")) {
-          window.location.href = "./html/flight_hotel.html";
-        } else if ($("#Flight").is(":visible")) {
-          window.location.href = "./html/flight.html";
-        } else if ($("#Hotel").is(":visible")) {
-          window.location.href = "./html/hotel.html";
-        }
-      }, 3000);
+        const createItinerary = {
+          originCountry: countryFrom.code,
+          destinationCountry: cityTo.country.code,
+          days:
+            new Date(checkout_date).getDate() -
+            new Date(checkin_date).getDate(),
+          departureDate: new Date(checkin_date),
+        };
+
+        const response = await window.dataStorageInstance.createItinerary(
+          createItinerary
+        );
+
+        const json = JSON.stringify(response.json);
+
+        sessionStorage.setItem("itinerary", json);
+        const base64 = btoa(json);
+
+        window.location.href = "./html/itinerary.html?itinerary=" + base64;
+      } else if ($("#Flight").is(":visible")) {
+        window.location.href = "./html/flight.html";
+      } else if ($("#Hotel").is(":visible")) {
+        window.location.href = "./html/hotel.html";
+      }
     });
 
     // clear button with JQuery
@@ -487,8 +523,5 @@
       });
     };
     clear();
-
-    
-
   </script>
 </html>

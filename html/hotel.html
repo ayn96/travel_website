@@ -138,18 +138,52 @@
            </div>
            </div>
         </div>
+        <div id="hotelList">
+        </div>
+        <!-- modal -->
+        <div class="modal" id="reserveModal">
+          <div class="modal_content">
+            <div class="modal_header">
+              <h2>Your Travel Itinerary</h2>
+            </div>
+            <div class="modal_body">
+            </div>
+            <div class="modal_button_group">
+              <button type="button" class="btn btn-primary modal_reserve">Reserve</button>
+              <div class="modal_button">
+                <button type="button" class="btn btn-outline-danger modal_delete">Delete</button>
+                <button type="button" class="btn btn-outline-dark modal_back">Back page</button>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
       </div>
     </main>
-  
+    <footer>
+    </footer>
 
     <!-- modals -->
-  <div id="injectModals"></div>
+    <div id="injectModals"></div>
+    <script type="module" src="../js/login_register.js"></script>
   </body>
-  <script type="module" src="../js/login_register.js"></script>
   <script src="../js/darkmode.js"></script>
   <script type="module">
     import { storageInstance } from "../data/storage.js";
     let hotels = [];
+
+    const FEATURE_ICONS_MAP = {
+      'wifi': 'ph-wifi-high',
+      'room_service': 'ph-call-bell',
+      'pool': 'ph-swimming-pool',
+      'parking': 'ph-car',
+      'gym': 'ph-barbell',
+      'bar': 'ph-brandy',
+      'spa': 'ph-bathtub',
+      'restaurant': 'ph-fork-knife',
+      'laundry': 'ph-shirt-folded',
+      'airport_shuttle': 'ph-van',
+    }
 
     const listDisplay = () => {
       const listContainer = $("#hotelList");
@@ -168,19 +202,7 @@
           const icon = $("<i>").addClass("ph");
           icon.css("font-size", "30px");
           icon.css("padding", "0 0.5rem");
-          const a = {
-            'wifi': 'ph-wifi-high',
-            'room_service': 'ph-call-bell',
-            'pool': 'ph-swimming-pool',
-            'parking': 'ph-car',
-            'gym': 'ph-barbell',
-            'bar': 'ph-brandy',
-            'spa': 'ph-bathtub',
-            'restaurant': 'ph-fork-knife',
-            'laundry': 'ph-shirt-folded',
-            'airport_shuttle': 'ph-van',
-          }
-          icon.addClass(a[feature]);
+          icon.addClass(FEATURE_ICONS_MAP[feature]);
           featureIcons.append(icon);
           hotelInfo.append(featureIcons);
         }

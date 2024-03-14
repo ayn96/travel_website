@@ -26,6 +26,15 @@ export class Event {
     this.city = city;
   }
 
+  toJSON() {
+    return {
+      name: this.name,
+      date: this.date.toISOString(),
+      city: this.city?.id,
+      recommendation: this.recommendationProperties.toJSON(),
+    };
+  }
+
   /**
    * @param {import('../data/CITIES.json')[0]['cities'][0]['events'][0]} event
    */

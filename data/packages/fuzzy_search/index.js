@@ -1,6 +1,6 @@
 import Helper from "./Helper.js";
 /*
- * FuzzySearch - github.com/wouter2203/fuzzy-search
+ * FuzzySearch - http://github.com/wouter2203/fuzzy-search
  */
 export default class FuzzySearch {
   /**
