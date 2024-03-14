@@ -169,8 +169,12 @@
   </body>
   <script src="../js/darkmode.js"></script>
   <script type="module">
-    import { storageInstance } from "../data/storage.js";
-    let hotels = [];
+    import { storageInstance } from "../data/Storage.js";
+
+    const queryParams = new URLSearchParams(window.location.search);
+    if (!queryParams.has("destination")) {
+      window.location.href = "../index.html";
+    }
 
     const FEATURE_ICONS_MAP = {
       'wifi': 'ph-wifi-high',
@@ -184,6 +188,9 @@
       'laundry': 'ph-shirt-folded',
       'airport_shuttle': 'ph-van',
     }
+
+    const city = storageInstance.getCityById(queryParams.get("destination"));
+    let hotels = city.hotels;
 
     const listDisplay = () => {
       const listContainer = $("#hotelList");
@@ -245,7 +252,7 @@
     orderCh();
 
     function sortSelect(key = 'price', order="asc"){
-        hotels = storageInstance.getHotels(key, order);
+        hotels = city.getHotels(key, order);
         listDisplay();
     }
 

@@ -298,6 +298,19 @@ class Storage {
   }
 
   /**
+   * @param {string} departureCountryCode
+   * @param {string} arrivalCountryCode
+   * @returns {import('./structures/Flights.js').Flight[]}
+   */
+  getFlightForDepartureAndArrival(departureCountryCode, arrivalCountryCode) {
+    return this.flights.fromDeparture
+      .get(departureCountryCode)
+      .filter(
+        (flight) => flight.arrival.city?.country?.code === arrivalCountryCode
+      );
+  }
+
+  /**
    * @param {string} query
    * @returns {import('./structures/Flights.js').Flight[]}
    */
@@ -311,6 +324,10 @@ class Storage {
    */
   getFlightById(id) {
     return this.flights.byId.get(id) ?? null;
+  }
+
+  getCityById(id) {
+    return this.getCities().find((city) => city.id === id) ?? null;
   }
 }
 

@@ -26,11 +26,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../css/login_common.css" />
     <link rel="stylesheet" href="../css/itinerary.css" />
   </head>
-  <body>
+  <body class="body">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -79,11 +80,14 @@
 
     <main class="main">
       <h1>Your smart itinerary</h1>
-      <div id="itinerary" class="container gap-3 d-flex flex-column"></div>
+      <div id="itinerary" class="gap-3 d-flex flex-column">
+        <!-- Itinerary will be injected here -->
+      </div>
     </main>
 
     <div id="injectModals"></div>
     <script type="module" src="../js/login_register.js"></script>
+    <script src="../js/darkmode.js"></script>
   </body>
   <script type="module">
     import { storageInstance } from "../data/storage.js";
@@ -102,123 +106,149 @@
       window.location.href = "../index.html";
     }
 
-    const itinerary = JSON.parse(sessionItinerary);
+    try {
+      const itinerary = JSON.parse(sessionItinerary);
 
-    const departureFlight = storageInstance.getFlightById(itinerary.departure);
-    const returnFlight = storageInstance.getFlightById(itinerary.roundTrip);
+      const departureFlight = storageInstance.getFlightById(
+        itinerary.departure
+      );
+      const returnFlight = storageInstance.getFlightById(itinerary.roundTrip);
 
-    if (!departureFlight || !returnFlight) {
-      window.location.href = "../index.html";
-    }
+      if (!departureFlight || !returnFlight) {
+        window.location.href = "../index.html";
+      }
 
-    console.log(departureFlight);
-    console.log(returnFlight);
+      console.log(departureFlight);
+      console.log(returnFlight);
 
-    const flightToDiv = (flight) => {
-      const template = `<div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Flight</h5>
-                <div class="d-flex gap-4">
-                  <div class="card-text">
-                    <strong>Departure:</strong> ${flight.departure.timestamp.toLocaleString()}
-                    <br />
-                    <strong>Arrival:</strong> ${flight.arrival.timestamp.toLocaleString()}
-                    <br />
+      const flightToDiv = (flight, isLast = false) => {
+        const template = `<div class="item__container">
+                  <div class="timeline__icon ${
+                    isLast ? "timeline__icon--last" : ""
+                  }">
+                    <div class="timeline__icon__ball">
+                      <i class="fas fa-plane"></i>
+                    </div>
                   </div>
                   <div>
-                    <strong>From:</strong> ${flight.departure.city.name} (${
-        flight.departure.airport
-      })
-                    <br />
-                    <strong>To:</strong> ${flight.arrival.city.name} (${
-        flight.arrival.airport
-      })
+                      <div class="item__card">
+                        <h5 class="card-title">Flight</h5>
+                        <div class="d-flex gap-4">
+                          <div class="card-text">
+                            <strong>Departure:</strong>
+                            ${flight.departure.timestamp.toLocaleString()}
+                            <br />
+                            <strong>Arrival:</strong>
+                            ${flight.arrival.timestamp.toLocaleString()}
+                            <br />
+                          </div>
+                          <div>
+                            <strong>From:</strong> ${flight.departure.city.name}
+                            (${flight.departure.airport})
+                            <br />
+                            <strong>To:</strong> ${flight.arrival.city.name} (${
+          flight.arrival.airport
+        })
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>`;
+
+        return $(template);
+      };
+
+      const recommendedHotelsToDiv = (hotels) => {
+        const template = `<div class="item__container">
+                    <div class="timeline__icon">
+                      <div class="timeline__icon__ball">
+                        <i class="fas fa-hotel"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="card-body item__card">
+                        <h5 class="card-title">Recommended Hotels</h5>
+                        <div id="hotelList" class="hotel__container d-flex gap-3">
+                        </div>
+                      </div>
                   </div>
                 </div>
+              </div>`;
+
+        const hotelList = $(template);
+        const listContainer = hotelList.find("#hotelList");
+        for (let i = 0; i < hotels.length; i++) {
+          const hotel = hotels[i];
+          const hotelItem = $("<div>").addClass(
+            "list_item hotel__container__item"
+          );
+          const hotelInfo = $("<div>").addClass("info");
+          const hotelName = $("<span>").text(hotel.name);
+          hotelInfo.append(hotelName);
+
+          const hotelPriceAndReview = $("<div>");
+          const hotelPrice = $("<span>").text(`$${hotel.price}`);
+          const hotelReview = $("<span>").text(`(${hotel.review_score})`);
+          hotelPriceAndReview.append(hotelPrice);
+          hotelPriceAndReview.append(hotelReview);
+          hotelInfo.append(hotelPriceAndReview);
+
+          hotelItem.append(hotelInfo);
+          listContainer.append(hotelItem);
+        }
+
+        return hotelList;
+      };
+
+      const recommendedEventsToDiv = (events) => {
+        const template = `
+        <div class="item__container">
+              <div class="timeline__icon">
+                <div class="timeline__icon__ball">
+                  <i class="fas fa-hotel"></i>
+                </div>
+              </div>
+              <div>
+                <div class="card">
+                  <div class="card-body item__card">
+                    <h5 class="card-title">Recommended Events</h5>
+                    <div id="eventList" class="hotel__container d-flex gap-3">
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
-        </div>`;
+        </div>
+        `;
 
-      return $(template);
-    };
+        const eventList = $(template);
+        const listContainer = eventList.find("#eventList");
+        for (let i = 0; i < events.length; i++) {
+          const event = events[i];
+          const eventItem = $("<div>").addClass(
+            "list_item event__container__item"
+          );
+          const eventInfo = $("<div>").addClass("info");
+          const eventName = $("<span>").text(event.name);
+          eventInfo.append(eventName);
 
-    const recommendedHotelsToDiv = (hotels) => {
-      const template = `<div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Recommended Hotels</h5>
-                <div id="hotelList" class="hotel__container d-flex gap-3"></div>
-              </div>
-            </div>
-          </div>
-        </div>`;
+          const eventPriceAndReview = $("<div>").text(`$${event.price}`);
+          eventInfo.append(eventPriceAndReview);
 
-      const hotelList = $(template);
-      const listContainer = hotelList.find("#hotelList");
-      for (let i = 0; i < hotels.length; i++) {
-        const hotel = hotels[i];
-        const hotelItem = $("<div>").addClass(
-          "list_item hotel__container__item"
-        );
-        const hotelInfo = $("<div>").addClass("info");
-        const hotelName = $("<span>").text(hotel.name);
-        hotelInfo.append(hotelName);
+          eventItem.append(eventInfo);
+          listContainer.append(eventItem);
+        }
 
-        const hotelPriceAndReview = $("<div>");
-        const hotelPrice = $("<span>").text(`$${hotel.price}`);
-        const hotelReview = $("<span>").text(`(${hotel.review_score})`);
-        hotelPriceAndReview.append(hotelPrice);
-        hotelPriceAndReview.append(hotelReview);
-        hotelInfo.append(hotelPriceAndReview);
+        return eventList;
+      };
 
-        hotelItem.append(hotelInfo);
-        listContainer.append(hotelItem);
-      }
-
-      return hotelList;
-    };
-
-    const recommendedEventsToDiv = (events) => {
-      const template = `<div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Recommended Events</h5>
-                <div id="eventList" class="event__container d-flex gap-3"></div>
-              </div>
-            </div>
-          </div>
-        </div>`;
-
-      const eventList = $(template);
-      const listContainer = eventList.find("#eventList");
-      for (let i = 0; i < events.length; i++) {
-        const event = events[i];
-        const eventItem = $("<div>").addClass(
-          "list_item event__container__item"
-        );
-        const eventInfo = $("<div>").addClass("info");
-        const eventName = $("<span>").text(event.name);
-        eventInfo.append(eventName);
-
-        const eventPriceAndReview = $("<div>").text(`$${event.price}`);
-        eventInfo.append(eventPriceAndReview);
-
-        eventItem.append(eventInfo);
-        listContainer.append(eventItem);
-      }
-
-      return eventList;
-    };
-
-    $("#itinerary").append(flightToDiv(departureFlight));
-    $("#itinerary").append(
-      recommendedHotelsToDiv(itinerary.hotels.slice(0, 3))
-    );
-    $("#itinerary").append(flightToDiv(returnFlight));
+      $("#itinerary").append(flightToDiv(departureFlight));
+      $("#itinerary").append(
+        recommendedHotelsToDiv(itinerary.hotels.slice(0, 3))
+      );
+      $("#itinerary").append(flightToDiv(returnFlight, true));
+    } catch {
+      window.location.href = "../index.html";
+    }
   </script>
 </html>

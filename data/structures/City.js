@@ -3,6 +3,7 @@ import { Hotel } from "./Hotel.js";
 import FuzzySearch from "../packages/fuzzy_search/index.js";
 import { RecommendationEngine } from "./RecommendationEngine.js";
 import { sanitize } from "../utils/sanitizer.js";
+import { sortByProperty } from "../utils/sort.js";
 
 export class City {
   constructor({ id, name, hotels, events, features, coordinates }) {
@@ -87,6 +88,15 @@ export class City {
    */
   searchEvents(query) {
     return this.eventFuzzySearch.search(query);
+  }
+
+  /**
+   * @param {string} sortBy
+   * @param {'asc' | 'desc'} order
+   * @returns {import('./Hotel.js').Hotel[]}
+   */
+  getHotels(sortBy = "name", order = "asc") {
+    return this.hotels.sort(sortByProperty(sortBy, order));
   }
 
   /**

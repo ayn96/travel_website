@@ -1,27 +1,27 @@
 // dark mode with Jquery
 const darkMode = () => {
-  let darkModeEnabled = localStorage.getItem("darkModeEnabled") == "true";  //true = darkmode on
+  let darkModeEnabled = localStorage.getItem("darkModeEnabled") == "true"; //true = darkmode on
 
   if (darkModeEnabled) {
-    $("body").addClass("dark-mode");
-    $(".mode_switch").text("Light Mode"); 
+    document.documentElement.setAttribute("data-theme", "dark");
+    $(".mode_switch").text("Light Mode");
   } else {
-    $("body").removeClass("dark-mode"); 
-    $(".mode_switch").text("Dark Mode"); 
+    document.documentElement.setAttribute("data-theme", "light");
+    $(".mode_switch").text("Dark Mode");
   }
 
   $(".mode_switch").click(() => {
     darkModeEnabled = !darkModeEnabled; //toggle
 
     if (darkModeEnabled) {
-      $("body").addClass("dark-mode");
-      $(".mode_switch").text("Light Mode"); 
+      document.documentElement.setAttribute("data-theme", "dark");
+      $(".mode_switch").text("Light Mode");
     } else {
-      $("body").removeClass("dark-mode"); 
-      $(".mode_switch").text("Dark Mode"); 
+      document.documentElement.setAttribute("data-theme", "light");
+      $(".mode_switch").text("Dark Mode");
     }
 
-    localStorage.setItem('darkModeEnabled', darkModeEnabled);
+    localStorage.setItem("darkModeEnabled", darkModeEnabled);
   });
 };
 

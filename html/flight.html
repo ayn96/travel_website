@@ -104,35 +104,53 @@
   </body>
   <script type="module" src="../js/login_register.js"></script>
   <script src="../js/darkmode.js"></script>
-  <script>
-    const flights = [
-      {
-        name: "flightA",
-        price: 110,
-        departure: "A airport",
-        arrival: "D airport",
-        dtime: "12:00",
-        atime: "09:00",
-      },
-      {
-        name: "flightB",
-        price: 190,
-        departure: "B airport",
-        arrival: "E airport",
-        dtime: "12:00",
-        atime: "09:00",
-      },
-      {
-        name: "flightC",
-        price: 150,
-        departure: "C airport",
-        arrival: "F airport",
-        dtime: "12:00",
-        atime: "09:00",
-      },
-    ];
+  <script type="module">
+    import { storageInstance } from "../data/Storage.js";
 
-    const listDisplay = () => {
+    const queryParams = new URLSearchParams(window.location.search);
+
+    if (!queryParams.has("departure") && !queryParams.has("arrival")) {
+      window.location.href = "../index.html";
+    }
+
+    const departureCode = queryParams.get("departure");
+    const arrivalCode = queryParams.get("arrival");
+
+    const type =
+      departureCode && arrivalCode
+        ? "round-trip"
+        : departureCode
+        ? "departure"
+        : "arrival";
+
+    let searchFunction;
+    let args = [];
+
+    switch (type) {
+      case "round-trip":
+        searchFunction =
+          storageInstance.getFlightForDepartureAndArrival.bind(storageInstance);
+        args = [departureCode, arrivalCode];
+        break;
+      case "departure":
+        searchFunction =
+          storageInstance.getFlightFromDeparture.bind(storageInstance);
+        args = [departureCode];
+        break;
+      case "arrival":
+        searchFunction =
+          storageInstance.getFlightFromArrival.bind(storageInstance);
+        args = [arrivalCode];
+        break;
+      default:
+        window.location.href = "../index.html";
+    }
+
+    const listDisplay = async () => {
+      await storageInstance.flightsPromise;
+
+      const flights = searchFunction(...args);
+
       const listContainer = $("#flightList");
       // listContainer.html("");
 
@@ -141,27 +159,31 @@
         const hotelItem = $("<div>").addClass("list_item");
 
         const hotelInfo = $("<div>").addClass("info");
-        const hotelName = $("<h3>").text(flight.name);
+        const hotelName = $("<h3>").text(flight.airline.name);
         hotelInfo.append(hotelName);
 
         const flightDetails = $("<div>").addClass("flight_details");
         const departureDetails = $("<div>").addClass("departure_details");
-        const departureAirport = $("<h5>").text(flight.departure);
-        const departureTime = $("<h5>").text(flight.dtime);
+        const departureAirport = $("<h5>").text(flight.departure.airport);
+        const departureTime = $("<h5>").text(
+          new Date(flight.departure.timestamp).toLocaleString()
+        );
         departureDetails.append(departureAirport, departureTime);
 
         const arrow = $("<h5>").addClass("arrow").text(" → ");
         flightDetails.append(departureDetails, arrow);
 
         const arrivalDetails = $("<div>").addClass("arrival_details");
-        const arrivalAirport = $("<h5>").text(flight.arrival);
-        const arrivalTime = $("<h5>").text(flight.atime);
+        const arrivalAirport = $("<h5>").text(flight.arrival.airport);
+        const arrivalTime = $("<h5>").text(
+          new Date(flight.arrival.timestamp).toLocaleString()
+        );
         arrivalDetails.append(arrivalAirport, arrivalTime);
 
         flightDetails.append(arrivalDetails);
         hotelInfo.append(flightDetails);
 
-        const hotelPrice = $("<h5>").text("$" + flight.price);
+        const hotelPrice = $("<h5>").text("$" + flight.price.toFixed(2));
         hotelInfo.append(hotelPrice);
 
         hotelItem.append(hotelInfo);
