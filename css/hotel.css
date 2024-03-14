@@ -1,42 +1,38 @@
-h2{
+h2 {
   text-align: center;
 }
 
-img{
+img {
   width: 20%;
   height: auto;
   margin-right: 2rem;
 }
 
-.info_item{
+.info_item {
   display: flex;
   justify-content: space-between;
 }
 
 .personalized_item,
-.list_item{
+.list_item {
   display: flex;
   margin: 2rem;
   padding: 1.5rem;
   border-radius: 10px;
 }
 
-.personalized_item{
+.personalized_item {
   border: 2px solid black;
   background-color: #ddd;
 }
 
-
 /* hotel list */
 .list_item {
-  background-color: #ddd;
+  background-color: var(--background-color-secondary);
+  color: var(--text-color);
 }
 
-.dark-mode .list_item{
-  color: black;
-}
-
-.info{
+.info {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,16 +40,16 @@ img{
   flex: 1;
 }
 
-.info h3{
+.info h3 {
   flex: 1;
 }
 
-.info h5{
+.info h5 {
   padding-left: 4.5rem;
 }
 
 /* sort select button */
-.sort_select{
+.sort_select {
   padding: 0.8rem;
   border-radius: 5px;
 }
@@ -69,7 +65,7 @@ img{
 
 /* reserve button */
 .reserve,
-.modal_reserve{
+.modal_reserve {
   margin: auto;
   padding: 1rem;
   height: 40%;
@@ -77,24 +73,24 @@ img{
 }
 
 /* flight css */
-.flight_details{
+.flight_details {
   display: flex;
   text-align: center;
 }
 
-.arrow{
+.arrow {
   padding: 0 1rem;
 }
 
 /* modal css */
-.modal{
+.modal {
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   flex: 1;
 }
 
-.modal_content{
+.modal_content {
   width: 100%;
   border-radius: 5px;
   margin: 0 3rem;
@@ -102,11 +98,11 @@ img{
   padding: 3rem;
 }
 
-.modal_header{
+.modal_header {
   text-align: center;
 }
 
-.modal_body{
+.modal_body {
   margin: 3rem;
   border: 1px solid #ddd;
   padding: 2rem;
@@ -115,29 +111,29 @@ img{
   justify-content: center;
 }
 
-.modal_button_group{
+.modal_button_group {
   display: flex;
   flex-flow: column;
-  justify-content: center; 
+  justify-content: center;
 }
 
-.modal_button{
+.modal_button {
   text-align: center;
   margin-top: 1.5rem;
 }
 
 .modal_button .btn {
-  padding: 0.5rem ; 
-  font-size: 0.8rem; 
+  padding: 0.5rem;
+  font-size: 0.8rem;
   margin: 0.5rem;
 }
 
-.table{
+.table {
   width: 60vw;
   border: 1px solid black;
 }
 
-.table th{
+.table th {
   border: 1px solid black;
   width: 20%;
   background-color: #007bff;
@@ -145,6 +141,6 @@ img{
   padding: 1rem;
 }
 
-.table td{
+.table td {
   padding: 1rem;
 }

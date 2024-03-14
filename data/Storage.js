@@ -144,6 +144,7 @@ class Storage {
     });
 
     const fromDeparture = new Map();
+    const fromArrival = new Map();
     const byId = new Map();
     const citiesById = this.getCities().reduce((acc, city) => {
       acc[city.id] = city;
@@ -181,8 +182,15 @@ class Storage {
         fromDeparture.set(flightInstance.departure.city.country.code, []);
       }
 
+      if (!fromArrival.has(flightInstance.arrival.city.country.code)) {
+        fromArrival.set(flightInstance.arrival.city.country.code, []);
+      }
+
       fromDeparture
         .get(flightInstance.departure.city?.country.code)
+        .push(flightInstance);
+      fromArrival
+        .get(flightInstance.arrival.city.country.code)
         .push(flightInstance);
       byId.set(flightInstance.id, flightInstance);
     }
@@ -190,6 +198,7 @@ class Storage {
     this.flights = {
       fromDeparture,
       byId,
+      fromArrival,
     };
 
     this.flightsFuzzySearch.haystack = allFlights;
@@ -285,16 +294,21 @@ class Storage {
    * @param {string} countryCode
    * @returns {import('./structures/Flights.js').Flight[]}
    */
-  getFlightFromDeparture(countryCode) {
-    return this.flights.fromDeparture.get(countryCode) ?? [];
+  getFlightFromDeparture(countryCode, sortBy = "price", order = "asc") {
+    console.log("getFlightFromDeparture", countryCode, sortBy, order);
+    return (this.flights.fromDeparture.get(countryCode) ?? [])
+      .slice(0, 500)
+      .sort(sortByProperty(sortBy, order));
   }
 
   /**
    * @param {string} countryCode
    * @returns {import('./structures/Flights.js').Flight[]}
    */
-  getFlightFromArrival(countryCode) {
-    return this.flights.fromArrival.get(countryCode) ?? [];
+  getFlightFromArrival(countryCode, sortBy = "price", order = "asc") {
+    return (this.flights.fromArrival.get(countryCode) ?? [])
+      .slice(0, 500)
+      .sort(sortByProperty(sortBy, order));
   }
 
   /**
@@ -302,12 +316,19 @@ class Storage {
    * @param {string} arrivalCountryCode
    * @returns {import('./structures/Flights.js').Flight[]}
    */
-  getFlightForDepartureAndArrival(departureCountryCode, arrivalCountryCode) {
+  getFlightForDepartureAndArrival(
+    departureCountryCode,
+    arrivalCountryCode,
+    sortBy = "price",
+    order = "asc"
+  ) {
     return this.flights.fromDeparture
       .get(departureCountryCode)
+      .slice(0, 500)
       .filter(
         (flight) => flight.arrival.city?.country?.code === arrivalCountryCode
-      );
+      )
+      .sort(sortByProperty(sortBy, order));
   }
 
   /**

@@ -28,8 +28,6 @@ $("#regBtn").click(async () => {
     },
   };
 
-  console.log(data);
-
   const credentials = new Credentials(data.email, data.password);
   await credentials.setCredentials(data);
   $("#registerModal").modal("hide");

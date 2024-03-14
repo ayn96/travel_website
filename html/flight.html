@@ -31,10 +31,11 @@
     ></script>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../css/hotel.css" />
+    <link rel="stylesheet" href="../css/flight.css" />
     <link rel="stylesheet" href="../css/login_common.css" />
   </head>
 
-  <body>
+  <body class="body">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -83,20 +84,40 @@
     <main>
       <div class="container">
         <!-- list of search results  -->
-        <h2>Flight List</h2>
+        <h2 id="title">Flight List</h2>
         <div class="d-flex justify-content-end">
-          <select
-            class="sort_select"
-            onchange="orderCh(this)"
-            style="margin-right: 2rem"
-          >
-            <option value="asc" selected>Price : Low to High</option>
-            <option value="des">Price : High to Low</option>
+          <select class="sort_select" style="margin-right: 2rem">
+            <option value="price_asc" selected>Price : Low to High</option>
+            <option value="price_des">Price : High to Low</option>
           </select>
         </div>
         <div id="flightList"></div>
       </div>
     </main>
+
+    <!-- modal -->
+    <div class="modal" id="reserveModal">
+      <div class="modal_content">
+        <div class="modal_header">
+          <h2>Your Travel Itinerary</h2>
+        </div>
+        <div class="modal_body"></div>
+        <div class="modal_button_group">
+          <button type="button" class="btn btn-primary modal_reserve">
+            Reserve
+          </button>
+          <div class="modal_button">
+            <button type="button" class="btn btn-outline-danger modal_delete">
+              Delete
+            </button>
+            <button type="button" class="btn btn-outline-dark modal_back">
+              Back page
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer></footer>
 
     <!-- modals -->
@@ -131,28 +152,31 @@
         searchFunction =
           storageInstance.getFlightForDepartureAndArrival.bind(storageInstance);
         args = [departureCode, arrivalCode];
+        $("#title").text(`Flight List - ${departureCode} to ${arrivalCode}`);
         break;
       case "departure":
         searchFunction =
           storageInstance.getFlightFromDeparture.bind(storageInstance);
         args = [departureCode];
+        $("#title").text(`Flight List - Departing from ${departureCode}`);
         break;
       case "arrival":
         searchFunction =
           storageInstance.getFlightFromArrival.bind(storageInstance);
         args = [arrivalCode];
+        $("#title").text(`Flight List - Arriving at ${arrivalCode}`);
         break;
       default:
         window.location.href = "../index.html";
     }
 
-    const listDisplay = async () => {
-      await storageInstance.flightsPromise;
+    await storageInstance.flightsPromise;
 
-      const flights = searchFunction(...args);
+    let flights = searchFunction(...args);
 
+    const listDisplay = () => {
       const listContainer = $("#flightList");
-      // listContainer.html("");
+      listContainer.html("");
 
       for (let i = 0; i < flights.length; i++) {
         const flight = flights[i];
@@ -195,34 +219,87 @@
             "data-toggle": "modal",
             "data-target": "#exampleModalCenter",
           })
+          .addClass("reserve")
           .text("Reserve");
 
         hotelItem.append(reserveButton);
 
         listContainer.append(hotelItem);
       }
+
+      createReserveListners();
     };
-    listDisplay();
 
-    function orderCh(element) {
+    function orderCh() {
       //element=select
-      sortSelect(element.value);
+      $(".sort_select").change((e) => {
+        const element = e.currentTarget;
+        const [key, order] = element.value.split("_");
+        sortSelect(key, order);
+      });
     }
+    orderCh();
 
-    function sortSelect(order = "asc") {
-      switch (order) {
-        case "asc":
-          flights.sort(function (a, b) {
-            return a.price - b.price;
-          });
-          break;
-        case "des":
-          flights.sort(function (a, b) {
-            return b.price - a.price;
-          });
-          break;
-      }
+    function sortSelect(key = "price", order = "asc") {
+      flights = searchFunction(...args, key, order);
       listDisplay();
     }
+
+    function createReserveListners() {
+      $(".reserve").click((e) => {
+        const hotelItem = $(e.currentTarget).closest(".list_item");
+        const hotelName = hotelItem.find(".info h3").text();
+        const hotelPriceText = hotelItem
+          .find(".info h5")
+          .text()
+          .replace("$", "");
+        const hotelPrice = parseFloat(hotelPriceText);
+        const roomAmount = parseInt(hotelItem.find(".room_amount").val());
+        const totalPrice = hotelPrice * roomAmount;
+        const tableContent = `
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th>Hotel Name</th>
+                      <td>${hotelName}</td>
+                    </tr>
+                    <tr>
+                      <th>Room</th>
+                      <td>${roomAmount}</td>
+                      </tr>
+                      <tr>
+                        <th>Price</th>
+                        <td>$${hotelPrice} × ${roomAmount} room = $${totalPrice}</td>
+                      </tr>
+                  </tbody>
+                </table>
+              `;
+        $(".modal_body").html(tableContent);
+        $("#reserveModal").fadeIn(100);
+        $(".modal_reserve").removeClass("disabled");
+      });
+    }
+
+    const itineraryModal = () => {
+      $(".modal").hide();
+
+      // reserve button
+      $(".modal_reserve").click(() => {
+        alert("Reserved!");
+      });
+      $(".modal_delete").click(() => {
+        $("table").remove();
+        $(".modal_reserve").addClass("disabled");
+        const emptyMsg = $("<h6>").text("Nothing has been selected.");
+        $(".modal_body").append(emptyMsg);
+      });
+      // back button
+      $(".modal_back").click(() => {
+        $(".modal").fadeOut(400);
+      });
+    };
+    itineraryModal();
+    createReserveListners();
+    listDisplay();
   </script>
 </html>

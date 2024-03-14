@@ -81,3 +81,7 @@
 .timeline__icon--last::before {
   display: none;
 }
+
+.list_item {
+  flex-direction: row !important;
+}

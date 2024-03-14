@@ -14,7 +14,6 @@ export function createItineraryFactory(storageInstance) {
 
     const roundTripDate = new Date(departureDate);
     roundTripDate.setDate(roundTripDate.getDate() + days);
-    console.log(roundTripDate);
 
     const closestRoundTripFlight = getClosestDepartureFlightFromDate(
       destinationCountry,

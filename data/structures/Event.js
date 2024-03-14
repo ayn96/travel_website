@@ -1,7 +1,7 @@
 import { RecommendationProperties } from "./RecommendationsProperties.js";
 
 export class Event {
-  constructor({ name, date, city, recommendation }) {
+  constructor({ name, date, city, price, recommendation }) {
     /**
      * @type {string}
      */
@@ -14,6 +14,11 @@ export class Event {
      * @type {import('./City.js').City | null}
      */
     this.city = city;
+
+    /**
+     * @type {number}
+     */
+    this.price = price;
 
     /**
      * @type {RecommendationProperties}
@@ -31,6 +36,7 @@ export class Event {
       name: this.name,
       date: this.date.toISOString(),
       city: this.city?.id,
+      price: this.price,
       recommendation: this.recommendationProperties.toJSON(),
     };
   }
@@ -42,6 +48,7 @@ export class Event {
     return new Event({
       name: event.name,
       date: event.date,
+      price: event.price,
       city: null,
       recommendation: event.recommendation,
     });

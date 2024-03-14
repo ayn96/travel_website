@@ -16,3 +16,11 @@
   align-items: flex-start !important;
   gap: 12px;
 }
+
+.modal-header,
+.modal-content,
+.modal-content > .form-floating > .form-floating > .form-control,
+.forms-log-reg > .form-floating > .form-control,
+.modal-footer {
+  background-color: var(--background-color);
+}

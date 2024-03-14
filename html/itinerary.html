@@ -118,9 +118,6 @@
         window.location.href = "../index.html";
       }
 
-      console.log(departureFlight);
-      console.log(returnFlight);
-
       const flightToDiv = (flight, isLast = false) => {
         const template = `<div class="item__container">
                   <div class="timeline__icon ${
@@ -201,32 +198,31 @@
       };
 
       const recommendedEventsToDiv = (events) => {
-        const template = `
-        <div class="item__container">
-              <div class="timeline__icon">
-                <div class="timeline__icon__ball">
-                  <i class="fas fa-hotel"></i>
-                </div>
-              </div>
-              <div>
-                <div class="card">
-                  <div class="card-body item__card">
-                    <h5 class="card-title">Recommended Events</h5>
-                    <div id="eventList" class="hotel__container d-flex gap-3">
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        `;
-
-        const eventList = $(template);
-        const listContainer = eventList.find("#eventList");
         for (let i = 0; i < events.length; i++) {
+          const template = `
+                  <div class="item__container">
+                        <div class="timeline__icon">
+                          <div class="timeline__icon__ball">
+                            <i class="fas fa-calendar-alt"></i>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="card">
+                            <div class="card-body item__card">
+                              <h5 class="card-title">Recommended Event</h5>
+                              <div id="eventList_${i}" class="hotel__container d-flex gap-3">
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>`;
+          const itinerary = $("#itinerary").append(template);
+          const listContainer = itinerary.find(`#eventList_${i}`);
+
           const event = events[i];
           const eventItem = $("<div>").addClass(
-            "list_item event__container__item"
+            "list_item hotel__container__item"
           );
           const eventInfo = $("<div>").addClass("info");
           const eventName = $("<span>").text(event.name);
@@ -236,18 +232,30 @@
           eventInfo.append(eventPriceAndReview);
 
           eventItem.append(eventInfo);
+
+          const dateAndTime = $("<div>");
+
+          const eventDate = $("<span>").text(
+            new Date(event.date).toLocaleString()
+          );
+
+          dateAndTime.append(eventDate);
+          eventItem.append(dateAndTime);
+
           listContainer.append(eventItem);
         }
-
-        return eventList;
       };
 
       $("#itinerary").append(flightToDiv(departureFlight));
       $("#itinerary").append(
         recommendedHotelsToDiv(itinerary.hotels.slice(0, 3))
       );
+      $("#itinerary").append(
+        recommendedEventsToDiv(itinerary.events.slice(0, 3))
+      );
       $("#itinerary").append(flightToDiv(returnFlight, true));
-    } catch {
+    } catch (e) {
+      console.error(e);
       window.location.href = "../index.html";
     }
   </script>
