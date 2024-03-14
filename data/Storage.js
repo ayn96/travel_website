@@ -208,8 +208,11 @@ class Storage {
       return acc;
     }, {});
 
+    const allFlights = [];
+
     for (const flight of GENERATED_FLIGHTS) {
       const flightInstance = Flight.fromJSON(flight);
+      allFlights.push(flightInstance);
 
       const cityDeparture = citiesById[flight.departure.id];
       if (!cityDeparture) {
@@ -236,24 +239,20 @@ class Storage {
         fromDeparture.set(flightInstance.departure.city.country.code, []);
       }
 
-      if (!fromArrival.has(flightInstance.arrival.city?.country.code)) {
-        fromArrival.set(flightInstance.arrival.city.country.code, []);
-      }
-
       fromDeparture
         .get(flightInstance.departure.city?.country.code)
         .push(flightInstance);
-      fromArrival
-        .get(flightInstance.arrival.city?.country.code)
-        .push(flightInstance);
+      byId.set(flightInstance.id, flightInstance);
     }
 
     this.flights = {
       fromDeparture,
-      fromArrival,
+      byId,
     };
 
-    resolve(this.flights);
+    this.flightsFuzzySearch.haystack = allFlights;
+
+    return this.flights;
   }
 
   /**
