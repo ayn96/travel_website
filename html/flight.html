@@ -247,30 +247,41 @@
 
     function createReserveListners() {
       $(".reserve").click((e) => {
-        const hotelItem = $(e.currentTarget).closest(".list_item");
-        const hotelName = hotelItem.find(".info h3").text();
-        const hotelPriceText = hotelItem
-          .find(".info h5")
+        const flightItem = $(e.currentTarget).closest(".list_item");
+        const flightName = flightItem.find(".info h3").text();
+        const flightPriceText = flightItem
+          .find(".info h5:last-child")
+          .last()
           .text()
           .replace("$", "");
-        const hotelPrice = parseFloat(hotelPriceText);
-        const roomAmount = parseInt(hotelItem.find(".room_amount").val());
-        const totalPrice = hotelPrice * roomAmount;
+        const flightPrice = parseFloat(flightPriceText);
+        const departureAirport = flightItem
+          .find(".departure_details h5")
+          .first()
+          .text();
+        const arrivalAirport = flightItem
+          .find(".arrival_details h5")
+          .first()
+          .text();
         const tableContent = `
                 <table class="table">
                   <tbody>
                     <tr>
-                      <th>Hotel Name</th>
-                      <td>${hotelName}</td>
+                      <th>Airline</th>
+                      <td>${flightName}</td>
                     </tr>
                     <tr>
-                      <th>Room</th>
-                      <td>${roomAmount}</td>
-                      </tr>
-                      <tr>
-                        <th>Price</th>
-                        <td>$${hotelPrice} × ${roomAmount} room = $${totalPrice}</td>
-                      </tr>
+                      <th>Departure Airport</th>
+                      <td>${departureAirport}</td>
+                    </tr>
+                    <tr>
+                      <th>Arrival Airport</th>
+                      <td>${arrivalAirport}</td>
+                    </tr>
+                    <tr>
+                      <th>Price</th>
+                      <td>$${flightPrice}</td>
+                    </tr>
                   </tbody>
                 </table>
               `;
