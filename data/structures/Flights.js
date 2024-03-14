@@ -1,5 +1,6 @@
 export class Flight {
   constructor({
+    id,
     airline,
     airplane,
     departure,
@@ -8,6 +9,8 @@ export class Flight {
     distance,
     time,
   }) {
+    this.id = id;
+
     /**
      * @type {{ name: string, code: string }}
      */
@@ -66,10 +69,11 @@ export class Flight {
   }
 
   /**
-   * @param {import('../data/flights/GENERATED_FLIGHTS.json')[0]} json
+   * @param {import('../data/flights/GENERATED_FLIGHTS_0.json')[0]} json
    */
   static fromJSON(json) {
     return new Flight({
+      id: json.id,
       airline: json.airline,
       airplane: json.airplane,
       departure: json.departure,

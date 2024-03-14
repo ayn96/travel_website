@@ -49,6 +49,22 @@ export class RecommendationProperties {
     this.family = data.family || 0;
   }
 
+  toJSON() {
+    return {
+      price: this.price,
+      nature: this.nature,
+      nightlife: this.nightlife,
+      music: this.music,
+      technology: this.technology,
+      animals: this.animals,
+      fun: this.fun,
+      exercise: this.exercise,
+      food: this.food,
+      couple: this.couple,
+      family: this.family,
+    };
+  }
+
   /**
    * @param {{price: number;nature: number;nightlife: number;music: number;technology: number;animals: number;fun: number;exercise: number;food: number;couple: number;family: number}} data
    * @returns

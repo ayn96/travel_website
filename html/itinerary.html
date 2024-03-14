@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Website - Itinerary</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/63bd007e1f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+      integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../css/login_common.css" />
+    <link rel="stylesheet" href="../css/itinerary.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Travel Web</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto gap-2">
+              <li class="nav-item ml-auto gap-2">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginForm"
+                >
+                  Log-In
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#regForm"
+                >
+                  Register
+                </button>
+              </li>
+            </ul>
+            <button type="button" class="btn btn-warning btn-sm mode_switch">
+              Dark Mode
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <h1>Your smart itinerary</h1>
+      <div id="itinerary" class="container gap-3 d-flex flex-column"></div>
+    </main>
+
+    <div id="injectModals"></div>
+    <script type="module" src="../js/login_register.js"></script>
+  </body>
+  <script type="module">
+    import { storageInstance } from "../data/storage.js";
+    await storageInstance.flightsPromise;
+    console.log("Storage instance loaded");
+    let sessionItinerary = sessionStorage.getItem("itinerary");
+
+    if (!sessionItinerary) {
+      const queryParam = new URLSearchParams(window.location.search).get(
+        "itinerary"
+      );
+      sessionItinerary = atob(queryParam);
+    }
+
+    if (!sessionItinerary) {
+      window.location.href = "../index.html";
+    }
+
+    const itinerary = JSON.parse(sessionItinerary);
+
+    const departureFlight = storageInstance.getFlightById(itinerary.departure);
+    const returnFlight = storageInstance.getFlightById(itinerary.roundTrip);
+
+    if (!departureFlight || !returnFlight) {
+      window.location.href = "../index.html";
+    }
+
+    console.log(departureFlight);
+    console.log(returnFlight);
+
+    const flightToDiv = (flight) => {
+      const template = `<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Flight</h5>
+                <div class="d-flex gap-4">
+                  <div class="card-text">
+                    <strong>Departure:</strong> ${flight.departure.timestamp.toLocaleString()}
+                    <br />
+                    <strong>Arrival:</strong> ${flight.arrival.timestamp.toLocaleString()}
+                    <br />
+                  </div>
+                  <div>
+                    <strong>From:</strong> ${flight.departure.city.name} (${
+        flight.departure.airport
+      })
+                    <br />
+                    <strong>To:</strong> ${flight.arrival.city.name} (${
+        flight.arrival.airport
+      })
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+
+      return $(template);
+    };
+
+    const recommendedHotelsToDiv = (hotels) => {
+      const template = `<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Recommended Hotels</h5>
+                <div id="hotelList" class="hotel__container d-flex gap-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+
+      const hotelList = $(template);
+      const listContainer = hotelList.find("#hotelList");
+      for (let i = 0; i < hotels.length; i++) {
+        const hotel = hotels[i];
+        const hotelItem = $("<div>").addClass(
+          "list_item hotel__container__item"
+        );
+        const hotelInfo = $("<div>").addClass("info");
+        const hotelName = $("<span>").text(hotel.name);
+        hotelInfo.append(hotelName);
+
+        const hotelPriceAndReview = $("<div>");
+        const hotelPrice = $("<span>").text(`$${hotel.price}`);
+        const hotelReview = $("<span>").text(`(${hotel.review_score})`);
+        hotelPriceAndReview.append(hotelPrice);
+        hotelPriceAndReview.append(hotelReview);
+        hotelInfo.append(hotelPriceAndReview);
+
+        hotelItem.append(hotelInfo);
+        listContainer.append(hotelItem);
+      }
+
+      return hotelList;
+    };
+
+    const recommendedEventsToDiv = (events) => {
+      const template = `<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Recommended Events</h5>
+                <div id="eventList" class="event__container d-flex gap-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+
+      const eventList = $(template);
+      const listContainer = eventList.find("#eventList");
+      for (let i = 0; i < events.length; i++) {
+        const event = events[i];
+        const eventItem = $("<div>").addClass(
+          "list_item event__container__item"
+        );
+        const eventInfo = $("<div>").addClass("info");
+        const eventName = $("<span>").text(event.name);
+        eventInfo.append(eventName);
+
+        const eventPriceAndReview = $("<div>").text(`$${event.price}`);
+        eventInfo.append(eventPriceAndReview);
+
+        eventItem.append(eventInfo);
+        listContainer.append(eventItem);
+      }
+
+      return eventList;
+    };
+
+    $("#itinerary").append(flightToDiv(departureFlight));
+    $("#itinerary").append(
+      recommendedHotelsToDiv(itinerary.hotels.slice(0, 3))
+    );
+    $("#itinerary").append(flightToDiv(returnFlight));
+  </script>
+</html>

@@ -76,4 +76,19 @@ export class Hotel {
   static fromJSON(hotel) {
     return new Hotel(hotel);
   }
+
+  toJSON() {
+    return {
+      city: this.city?.id,
+      name: this.name,
+      price: this.price,
+      recommendation: this.recommendationProperties.toJSON(),
+      stars: this.stars,
+      review_score: this.reviewScore,
+      lat: this.cord.lat,
+      lon: this.cord.long,
+      rooms: this.rooms,
+      features: this.features,
+    };
+  }
 }

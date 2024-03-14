@@ -6,6 +6,7 @@ import { Country } from "./structures/Country.js";
 import FuzzySearch from "./packages/fuzzy_search/index.js";
 import { sortByProperty } from "./utils/sort.js";
 import { Flight } from "./structures/Flights.js";
+import { createItineraryFactory } from "./utils/itinerary/index.js";
 
 class Storage {
   constructor() {
@@ -17,10 +18,12 @@ class Storage {
 
     this.flights = {
       fromDeparture: new Map(),
-      fromArrival: new Map(),
+      byId: new Map(),
     };
+
     this.flightsPromise = new Promise((resolve) => {
-      this.buildFlights(resolve).then(() => {
+      this.buildFlights().then((data) => {
+        resolve(data);
         console.log("Flights ready after", performance.now() - start, "ms");
       });
     });
@@ -45,7 +48,7 @@ class Storage {
 
     this.flightsFuzzySearch = new FuzzySearch(
       allFlights,
-      ["airline.name", "departure.city.name", "arrival.city.name"],
+      ["id", "airline.name", "departure.city.name", "arrival.city.name"],
       {
         sort: true,
       }
@@ -56,6 +59,8 @@ class Storage {
       (performance.now() - start).toFixed(3),
       "ms"
     );
+
+    this.createItinerary = createItineraryFactory(this);
   }
 
   /**
@@ -127,7 +132,7 @@ class Storage {
     return map;
   }
 
-  async buildFlights(resolve) {
+  async buildFlights() {
     const GENERATED_FLIGHTS = await Promise.all(
       Array.from({ length: 50 }).map((_, idx) => {
         return import(`./data/flights/GENERATED_FLIGHTS_${idx}.json`, {
@@ -139,14 +144,17 @@ class Storage {
     });
 
     const fromDeparture = new Map();
-    const fromArrival = new Map();
+    const byId = new Map();
     const citiesById = this.getCities().reduce((acc, city) => {
       acc[city.id] = city;
       return acc;
     }, {});
 
+    const allFlights = [];
+
     for (const flight of GENERATED_FLIGHTS) {
       const flightInstance = Flight.fromJSON(flight);
+      allFlights.push(flightInstance);
 
       const cityDeparture = citiesById[flight.departure.id];
       if (!cityDeparture) {
@@ -173,24 +181,20 @@ class Storage {
         fromDeparture.set(flightInstance.departure.city.country.code, []);
       }
 
-      if (!fromArrival.has(flightInstance.arrival.city?.country.code)) {
-        fromArrival.set(flightInstance.arrival.city.country.code, []);
-      }
-
       fromDeparture
         .get(flightInstance.departure.city?.country.code)
         .push(flightInstance);
-      fromArrival
-        .get(flightInstance.arrival.city?.country.code)
-        .push(flightInstance);
+      byId.set(flightInstance.id, flightInstance);
     }
 
     this.flights = {
       fromDeparture,
-      fromArrival,
+      byId,
     };
 
-    resolve(this.flights);
+    this.flightsFuzzySearch.haystack = allFlights;
+
+    return this.flights;
   }
 
   /**
@@ -299,6 +303,14 @@ class Storage {
    */
   searchFlights(query) {
     return this.flightsFuzzySearch.search(query);
+  }
+
+  /**
+   * @param {string} id
+   * @returns {import('./structures/Flights.js').Flight | null}
+   */
+  getFlightById(id) {
+    return this.flights.byId.get(id) ?? null;
   }
 }
 

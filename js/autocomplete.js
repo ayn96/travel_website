@@ -21,7 +21,7 @@ $("[auto-complete]").keyup((e) => {
       searchFunction = storageInstance.searchCity.bind(storageInstance);
       break;
     default:
-      return;
+      throw new Error("Invalid auto-complete attribute value");
   }
 
   const results = searchFunction(e.target.value);
@@ -38,14 +38,20 @@ $("[auto-complete]").keyup((e) => {
   }
 
   for (const result of results.slice(0, 5)) {
-    div.append(
-      $(`<div>${result.name}</div>`)
-        .addClass("autocomplete__list-item")
-        .click(() => {
-          e.target.value = result.name;
-          div.hide();
-        })
+    const item = $(`<div>${result.name}</div>`).addClass(
+      "autocomplete__list-item"
     );
+
+    if (result.constructor.name === "Country" && !result.isMostVisited) {
+      item.addClass("autocomplete__list-item--disabled");
+    } else {
+      item.click(() => {
+        e.target.value = result.name;
+        div.hide();
+      });
+    }
+
+    div.append(item);
   }
 });
 

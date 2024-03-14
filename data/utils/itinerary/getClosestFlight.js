@@ -18,6 +18,8 @@ export function getClosestDepartureFlightFromDate(
       (flight) => flight.arrival.city?.country?.code === destinationCountry
     );
 
+  console.log(flights, originCountry, destinationCountry, date);
+
   const closestFlight = flights.reduce((prev, curr) => {
     const prevDiff = Math.abs(
       new Date(prev.departure.timestamp).getTime() - date.getTime()
