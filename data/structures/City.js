@@ -6,7 +6,7 @@ import { sanitize } from "../utils/sanitizer.js";
 import { sortByProperty } from "../utils/sort.js";
 
 export class City {
-  constructor({ id, name, hotels, events, features, coordinates }) {
+  constructor({ id, name, hotels, events, features, coordinates, weather }) {
     /**
      * @type {string}
      */
@@ -33,6 +33,11 @@ export class City {
      * @type {import('../data/CITIES.json')[0]['cities'][0]['features']}
      */
     this.features = features;
+
+    /**
+     * @type {import('../data/CITIES.json')[0]['cities'][0]['weather']}
+     */
+    this.weather = weather;
 
     /**
      * @type {Object}
@@ -119,6 +124,7 @@ export class City {
         lat: city.lat,
         long: city.lon,
       },
+      weather: city.weather,
     });
   }
 }
