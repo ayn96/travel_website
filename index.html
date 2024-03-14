@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="./css/login_common.css" />
   </head>
 
-  <body>
+  <body class="body">
     <!-- header section -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -196,7 +196,7 @@
                 </div>
                 <!-- room -->
                 <div class="input-group-prepend">
-                  <span class="input-group-text"
+                  <span class="input-group-text input-group-text--no-radius"
                     ><i class="fa-solid fa-bed"></i
                   ></span>
                 </div>
@@ -375,7 +375,7 @@
                 </div>
                 <!-- room -->
                 <div class="input-group-prepend">
-                  <span class="input-group-text"
+                  <span class="input-group-text input-group-text--no-radius"
                     ><i class="fa-solid fa-bed"></i
                   ></span>
                 </div>
@@ -420,11 +420,14 @@
 
     <!-- modal -->
     <div id="injectModals"></div>
+
+    <footer id="injectFooter"></footer>
   </body>
   <script type="module" src="./js/login_register.js"></script>
   <script src="./js/darkmode.js"></script>
   <script src="./js/autocomplete.js"></script>
   <script type="module" src="./data/Storage.js"></script>
+  <script src="./js/injector.js" defer></script>
 
   <script defer>
     const userInfo = () => {
@@ -483,35 +486,40 @@
       const people = $("input[name='people']").val();
       const room = $("input[name='room']").val();
 
-      if ($("#Flight_Hotel").is(":visible")) {
-        const countryFrom =
-          window.dataStorageInstance.searchCountry(departure)[0];
-        const cityTo = window.dataStorageInstance.searchCity(arrival)[0];
+      //loading animations
+      $(".loading-overlay").show();
 
-        const createItinerary = {
-          originCountry: countryFrom.code,
-          destinationCountry: cityTo.country.code,
-          days:
-            new Date(checkout_date).getDate() -
-            new Date(checkin_date).getDate(),
-          departureDate: new Date(checkin_date),
-        };
+      setTimeout(async () => {
+        if ($("#Flight_Hotel").is(":visible")) {
+          const countryFrom =
+            window.dataStorageInstance.searchCountry(departure)[0];
+          const cityTo = window.dataStorageInstance.searchCity(arrival)[0];
 
-        const response = await window.dataStorageInstance.createItinerary(
-          createItinerary
-        );
+          const createItinerary = {
+            originCountry: countryFrom.code,
+            destinationCountry: cityTo.country.code,
+            days:
+              new Date(checkout_date).getDate() -
+              new Date(checkin_date).getDate(),
+            departureDate: new Date(checkin_date),
+          };
 
-        const json = JSON.stringify(response.json);
+          const response = await window.dataStorageInstance.createItinerary(
+            createItinerary
+          );
 
-        sessionStorage.setItem("itinerary", json);
-        const base64 = btoa(json);
+          const json = JSON.stringify(response.json);
 
-        window.location.href = "./html/itinerary.html?itinerary=" + base64;
-      } else if ($("#Flight").is(":visible")) {
-        window.location.href = "./html/flight.html";
-      } else if ($("#Hotel").is(":visible")) {
-        window.location.href = "./html/hotel.html";
-      }
+          sessionStorage.setItem("itinerary", json);
+          const base64 = btoa(json);
+
+          window.location.href = "./html/itinerary.html?itinerary=" + base64;
+        } else if ($("#Flight").is(":visible")) {
+          window.location.href = "./html/flight.html";
+        } else if ($("#Hotel").is(":visible")) {
+          window.location.href = "./html/hotel.html";
+        }
+      }, 3000);
     });
 
     // clear button with JQuery

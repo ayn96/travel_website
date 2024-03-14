@@ -1,3 +1,5 @@
+@import url(./constants.css);
+
 * {
   padding: 0;
   margin: 0;
@@ -22,7 +24,7 @@
 }
 
 .form-check-label {
-  color: white;
+  color: var(--text-color);
 }
 
 button.mode_switch {
@@ -42,10 +44,10 @@ main {
 
 /* tab */
 .nav-tabs a {
-  background-color: #ddd;
+  background-color: var(--background-color-secondary);
   margin-right: 1rem;
   padding: 10px 20px;
-  color: black;
+  color: var(--text-color);
 }
 
 .nav-tabs i {
@@ -58,7 +60,7 @@ main {
 .tab_content h1 {
   text-align: center;
   padding: 1.5rem;
-  color: white;
+  color: var(--text-color-light);
   position: relative;
   z-index: 2;
 }
@@ -69,6 +71,7 @@ main {
   text-align: center;
   background-size: cover;
   position: relative;
+  color: var(--text-color-light);
 }
 
 #Flight_Hotel::before,
@@ -80,7 +83,8 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: var(--container-background-color-rgb);
+  opacity: 0.5;
 }
 
 #Flight_Hotel {
@@ -103,8 +107,7 @@ main {
   font-size: 25px;
   height: 100%;
   background-color: #bebebe;
-  /* color: #007bff; */
-  border-radius: 0;
+  border-radius: 4px 0px 0px 4px;
 }
 
 /* form */
@@ -135,7 +138,7 @@ form {
 }
 
 .clear {
-  color: white;
+  color: var(--text-color);
   margin: 0.3rem 0 2rem 0;
 }
 
@@ -145,9 +148,9 @@ form {
 }
 
 /* dark mode */
-.dark-mode {
-  background-color: rgb(37, 37, 37);
-  color: white;
+.body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .loading-overlay {
@@ -156,12 +159,8 @@ form {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  background-color: var(--overlay-color);
   z-index: 10;
-}
-
-.dark-mode > .loading-overlay {
-  background-color: rgb(37, 37, 37, 0.9);
 }
 
 .loading {
@@ -222,4 +221,8 @@ form {
   background-size: 200px 100%;
   background-repeat: no-repeat;
   animation: skeleton 3s ease-in-out infinite;
+}
+
+.input-group-text--no-radius {
+  border-radius: 0;
 }

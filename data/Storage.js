@@ -198,64 +198,6 @@ class Storage {
   }
 
   /**
-   * @returns {{ fromDeparture: Map<string, Flight[]>, fromArrival: Map<string, Flight[]> }}
-   */
-  buildFlights() {
-    const fromDeparture = new Map();
-    const fromArrival = new Map();
-    const citiesById = this.getCities().reduce((acc, city) => {
-      acc[city.id] = city;
-      return acc;
-    }, {});
-
-    const allFlights = [];
-
-    for (const flight of GENERATED_FLIGHTS) {
-      const flightInstance = Flight.fromJSON(flight);
-      allFlights.push(flightInstance);
-
-      const cityDeparture = citiesById[flight.departure.id];
-      if (!cityDeparture) {
-        throw new Error(`City with id ${flight.departure.id} not found`);
-      }
-
-      flightInstance.setDepartureCity(cityDeparture);
-
-      const cityArrival = citiesById[flight.arrival.id];
-      if (!cityArrival) {
-        throw new Error(`City with id ${flight.arrival.id} not found`);
-      }
-
-      flightInstance.setArrivalCity(cityArrival);
-
-      if (
-        !flightInstance.arrival.city?.country?.code ||
-        !flightInstance.departure.city?.country?.code
-      ) {
-        continue;
-      }
-
-      if (!fromDeparture.has(flightInstance.departure.city?.country.code)) {
-        fromDeparture.set(flightInstance.departure.city.country.code, []);
-      }
-
-      fromDeparture
-        .get(flightInstance.departure.city?.country.code)
-        .push(flightInstance);
-      byId.set(flightInstance.id, flightInstance);
-    }
-
-    this.flights = {
-      fromDeparture,
-      byId,
-    };
-
-    this.flightsFuzzySearch.haystack = allFlights;
-
-    return this.flights;
-  }
-
-  /**
    * @param {string} query
    * @returns {import('./structures/Country.js').Country[]}
    */
