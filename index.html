@@ -234,22 +234,34 @@
                     ><i class="fa-solid fa-location-dot"></i
                   ></span>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating autocomplete__input">
                   <input
                     type="text"
                     class="form-control"
                     name="departure"
+                    auto-complete="country"
+                    id="flight_input_from"
                     required
                   />
+                  <div
+                    auto-complete-for="flight_input_from"
+                    class="autocomplete__list"
+                  ></div>
                   <label for="departure">Where from?</label>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating autocomplete__input">
                   <input
                     type="text"
                     class="form-control"
                     name="arrival"
+                    auto-complete="country"
+                    id="flight_input_to"
                     required
                   />
+                  <div
+                    auto-complete-for="flight_input_to"
+                    class="autocomplete__list"
+                  ></div>
                   <label for="arrival">Where to?</label>
                 </div>
               </div>
@@ -319,13 +331,19 @@
                     ><i class="fa-solid fa-location-dot"></i
                   ></span>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating autocomplete__input">
                   <input
                     type="text"
                     class="form-control"
                     name="destination"
+                    auto-complete="city"
+                    id="hotel_input"
                     required
                   />
+                  <div
+                    auto-complete-for="hotel_input"
+                    class="autocomplete__list"
+                  ></div>
                   <label for="destination">Where?</label>
                 </div>
               </div>
@@ -515,11 +533,32 @@
 
           window.location.href = "./html/itinerary.html?itinerary=" + base64;
         } else if ($("#Flight").is(":visible")) {
-          window.location.href = "./html/flight.html";
+          const countryFrom =
+            window.dataStorageInstance.searchCountry(departure)[0];
+          const countryTo =
+            window.dataStorageInstance.searchCountry(arrival)[0];
+
+          const searchParams = new URLSearchParams();
+
+          if (countryFrom) {
+            searchParams.set("departure", countryFrom.code);
+          }
+
+          if (countryTo) {
+            searchParams.set("arrival", countryTo.code);
+          }
+
+          window.location.href =
+            "./html/flight.html?" + searchParams.toString();
         } else if ($("#Hotel").is(":visible")) {
-          window.location.href = "./html/hotel.html";
+          const city = window.dataStorageInstance.searchCity(destination)[0];
+
+          const searchParams = new URLSearchParams();
+          searchParams.set("destination", city.id);
+
+          window.location.href = "./html/hotel.html?" + searchParams.toString();
         }
-      }, 3000);
+      }, 1500);
     });
 
     // clear button with JQuery
