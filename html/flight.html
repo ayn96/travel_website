@@ -31,7 +31,6 @@
     ></script>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../css/hotel.css" />
-    <link rel="stylesheet" href="../css/flight.css" />
     <link rel="stylesheet" href="../css/login_common.css" />
   </head>
 
@@ -136,6 +135,12 @@
 
     const departureCode = queryParams.get("departure");
     const arrivalCode = queryParams.get("arrival");
+    const checkIn = queryParams.get("checkin_date")
+      ? new Date(decodeURI(queryParams.get("checkin_date")))
+      : undefined;
+    const checkOut = queryParams.get("checkout_date")
+      ? new Date(decodeURI(queryParams.get("checkout_date")))
+      : undefined;
 
     const type =
       departureCode && arrivalCode
@@ -151,19 +156,25 @@
       case "round-trip":
         searchFunction =
           storageInstance.getFlightForDepartureAndArrival.bind(storageInstance);
-        args = [departureCode, arrivalCode];
+        args = [
+          departureCode,
+          arrivalCode,
+          undefined,
+          undefined,
+          { checkIn, checkOut },
+        ];
         $("#title").text(`Flight List - ${departureCode} to ${arrivalCode}`);
         break;
       case "departure":
         searchFunction =
           storageInstance.getFlightFromDeparture.bind(storageInstance);
-        args = [departureCode];
+        args = [departureCode, undefined, undefined, { checkIn, checkOut }];
         $("#title").text(`Flight List - Departing from ${departureCode}`);
         break;
       case "arrival":
         searchFunction =
           storageInstance.getFlightFromArrival.bind(storageInstance);
-        args = [arrivalCode];
+        args = [arrivalCode, undefined, undefined, { checkIn, checkOut }];
         $("#title").text(`Flight List - Arriving at ${arrivalCode}`);
         break;
       default:
@@ -241,7 +252,12 @@
     orderCh();
 
     function sortSelect(key = "price", order = "asc") {
-      flights = searchFunction(...args, key, order);
+      flights = searchFunction(
+        ...args.filter((a) => typeof a === "string"),
+        key,
+        order,
+        { checkIn, checkOut }
+      );
       listDisplay();
     }
 

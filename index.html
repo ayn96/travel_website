@@ -277,6 +277,7 @@
                     type="date"
                     class="form-control"
                     name="checkin_date"
+                    id="flight_input_checkin_date"
                     required
                   />
                   <label for="checkin_date">Check-In</label>
@@ -286,6 +287,7 @@
                     type="date"
                     class="form-control"
                     name="checkout_date"
+                    id="flight_input_checkout_date"
                     required
                   />
                   <label for="checkout_date">Check-Out</label>
@@ -547,8 +549,17 @@
         if ($("#Flight").is(":visible")) {
           const flightInputFrom = $("#flight_input_from").val();
           const flightInputTo = $("#flight_input_to").val();
+          const flightInputCheckinDate = $("#flight_input_checkin_date").val();
+          const flightInputCheckoutDate = $(
+            "#flight_input_checkout_date"
+          ).val();
 
-          console.log(departure, arrival);
+          console.log(
+            flightInputFrom,
+            flightInputTo,
+            flightInputCheckinDate,
+            flightInputCheckoutDate
+          );
           const countryFrom = flightInputFrom
             ? window.dataStorageInstance.searchCountry(flightInputFrom)[0]
             : null;
@@ -568,6 +579,20 @@
 
           if (countryTo) {
             searchParams.set("arrival", countryTo.code);
+          }
+
+          if (flightInputCheckinDate) {
+            searchParams.set(
+              "checkin_date",
+              new Date(flightInputCheckinDate).toISOString()
+            );
+          }
+
+          if (flightInputCheckoutDate) {
+            searchParams.set(
+              "checkout_date",
+              new Date(flightInputCheckoutDate).toISOString()
+            );
           }
 
           window.location.href =

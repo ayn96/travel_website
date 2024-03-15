@@ -294,9 +294,27 @@ class Storage {
    * @param {string} countryCode
    * @returns {import('./structures/Flights.js').Flight[]}
    */
-  getFlightFromDeparture(countryCode, sortBy = "price", order = "asc") {
+  getFlightFromDeparture(
+    countryCode,
+    sortBy = "price",
+    order = "asc",
+    filters
+  ) {
     console.log("getFlightFromDeparture", countryCode, sortBy, order);
     return (this.flights.fromDeparture.get(countryCode) ?? [])
+      .filter((flight) => {
+        let isValid = true;
+
+        if (filters?.checkIn) {
+          isValid = flight.departure.timestamp >= filters.checkIn;
+        }
+
+        if (filters?.checkOut) {
+          isValid = flight.departure.timestamp <= filters.checkOut;
+        }
+
+        return isValid;
+      })
       .slice(0, 500)
       .sort(sortByProperty(sortBy, order));
   }
@@ -305,8 +323,23 @@ class Storage {
    * @param {string} countryCode
    * @returns {import('./structures/Flights.js').Flight[]}
    */
-  getFlightFromArrival(countryCode, sortBy = "price", order = "asc") {
+  getFlightFromArrival(countryCode, sortBy = "price", order = "asc", filters) {
     return (this.flights.fromArrival.get(countryCode) ?? [])
+      .filter((flight) => {
+        let isValid = true;
+
+        if (filters?.checkIn) {
+          isValid = flight.departure.timestamp >= filters.checkIn;
+        }
+
+        if (!isValid) return false;
+
+        if (filters?.checkOut) {
+          isValid = flight.departure.timestamp <= filters.checkOut;
+        }
+
+        return isValid;
+      })
       .slice(0, 500)
       .sort(sortByProperty(sortBy, order));
   }
@@ -320,14 +353,28 @@ class Storage {
     departureCountryCode,
     arrivalCountryCode,
     sortBy = "price",
-    order = "asc"
+    order = "asc",
+    filters
   ) {
     return this.flights.fromDeparture
       .get(departureCountryCode)
+      .filter((flight) => {
+        let isValid = flight.arrival.city?.country?.code === arrivalCountryCode;
+        if (!isValid) return false;
+
+        if (filters?.checkIn) {
+          isValid = flight.departure.timestamp >= filters.checkIn;
+        }
+
+        if (!isValid) return false;
+
+        if (filters?.checkOut) {
+          isValid = flight.departure.timestamp <= filters.checkOut;
+        }
+
+        return isValid;
+      })
       .slice(0, 500)
-      .filter(
-        (flight) => flight.arrival.city?.country?.code === arrivalCountryCode
-      )
       .sort(sortByProperty(sortBy, order));
   }
 
