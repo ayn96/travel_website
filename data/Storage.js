@@ -7,6 +7,7 @@ import FuzzySearch from "./packages/fuzzy_search/index.js";
 import { sortByProperty } from "./utils/sort.js";
 import { Flight } from "./structures/Flights.js";
 import { createItineraryFactory } from "./utils/itinerary/index.js";
+import { RecommendationProperties } from "./structures/RecommendationsProperties.js";
 
 class Storage {
   constructor() {
@@ -396,6 +397,19 @@ class Storage {
 
   getCityById(id) {
     return this.getCities().find((city) => city.id === id) ?? null;
+  }
+
+  getUser() {
+    if (!localStorage.getItem("user")) {
+      return null;
+    }
+
+    const userRaw = JSON.parse(localStorage.getItem("user"));
+
+    return {
+      ...userRaw,
+      recommendation: new RecommendationProperties(userRaw.recommendation),
+    };
   }
 }
 

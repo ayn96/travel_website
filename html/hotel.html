@@ -82,7 +82,8 @@
            <h2>Hotel List</h2>
            <div class="d-flex justify-content-end">
              <select class="sort_select" style="margin-right: 2rem;">
-               <option value="price_asc" selected>Price: Low to High</option>
+               <option value="recommendation"selected>Based on your preferences</option>
+               <option value="price_asc">Price: Low to High</option>
                <option value="price_des">Price: High to Low</option>
                <option value="name_asc">Name: A to Z</option>
                <option value="name_des">Name: Z to A</option>
@@ -195,12 +196,26 @@
 
       createReserveListners();
     };
-    sortSelect();
+    sortSelect(localStorage.getItem("user") ? "recommendation" : "price", "asc");
     listDisplay();
 
-    function orderCh(){      //element=select
+    function orderCh(){
+      if (!localStorage.getItem("user")) {
+        $("[value='recommendation']").remove();
+        $(".sort_select").val("price_asc");
+      } else {
+        $(".sort_select").val("recommendation");
+      }
+
+      //element=select
       $(".sort_select").change((e)=>{
         const element = e.currentTarget;
+
+        if (element.value === "recommendation") {
+          sortSelect("recommendation");
+          return;
+        }
+
         const [key,order] = element.value.split("_");
         sortSelect(key, order);
       });
@@ -208,8 +223,21 @@
     orderCh();
 
     function sortSelect(key = 'price', order="asc"){
-        hotels = city.getHotels(key, order);
+      if (key === "recommendation") {
+        if (!localStorage.getItem("user")) {
+          alert("Please log in to use this feature.");
+          return;
+        }
+
+        const userRecommendation = storageInstance.getUser();
+
+        hotels = city.recommendationEngine.recommendHotels(userRecommendation.recommendation);
         listDisplay();
+        return;
+      }
+
+      hotels = city.getHotels(key, order);
+      listDisplay();
     }
 
       // reserve button
