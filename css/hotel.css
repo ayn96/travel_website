@@ -144,3 +144,8 @@ img {
 .table td {
   padding: 1rem;
 }
+
+.main {
+  margin-top: 0;
+  padding: 5rem 0;
+}
