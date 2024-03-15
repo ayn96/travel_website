@@ -541,15 +541,24 @@
           const base64 = btoa(json);
 
           window.location.href = "./html/itinerary.html?itinerary=" + base64;
-        } else if ($("#Flight").is(":visible")) {
+          return;
+        }
+
+        if ($("#Flight").is(":visible")) {
           const flightInputFrom = $("#flight_input_from").val();
           const flightInputTo = $("#flight_input_to").val();
 
           console.log(departure, arrival);
-          const countryFrom =
-            window.dataStorageInstance.searchCountry(flightInputFrom)[0];
-          const countryTo =
-            window.dataStorageInstance.searchCountry(flightInputTo)[0];
+          const countryFrom = flightInputFrom
+            ? window.dataStorageInstance.searchCountry(flightInputFrom)[0]
+            : null;
+          const countryTo = flightInputTo
+            ? window.dataStorageInstance.searchCountry(flightInputTo)[0]
+            : null;
+
+          if (!countryFrom && !countryTo) {
+            return;
+          }
 
           const searchParams = new URLSearchParams();
 
@@ -563,7 +572,10 @@
 
           window.location.href =
             "./html/flight.html?" + searchParams.toString();
-        } else if ($("#Hotel").is(":visible")) {
+          return;
+        }
+
+        if ($("#Hotel").is(":visible")) {
           const city = window.dataStorageInstance.searchCity(destination)[0];
 
           const searchParams = new URLSearchParams();

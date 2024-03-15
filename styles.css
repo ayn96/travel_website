@@ -16,6 +16,8 @@
 .navbar-brand {
   flex: 1;
   margin-right: auto;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 #navbarNav {
@@ -44,7 +46,7 @@ main {
 
 /* tab */
 .nav-tabs a {
-  background-color: var(--background-color-secondary);
+  background-color: #c4c4c4;
   margin-right: 1rem;
   padding: 10px 20px;
   color: var(--text-color);
