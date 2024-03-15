@@ -38,7 +38,7 @@ class Storage {
 
     this.cityFuzzySearch = new FuzzySearch(
       Array.from(this.cities.values()).flat(),
-      ["name"],
+      ["name", "country.name"],
       {
         sort: true,
       }
